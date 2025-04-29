@@ -1,0 +1,25 @@
+
+EXCEPTIONS
+    THROWING
+        throw new EXCEPTION(VALUE);
+
+    HANDLING 
+        try {
+            // code than can throw exceptions 
+        }
+        catch (EXCEPTIONS $varName) {
+            // code when an exception is caught
+        }
+        finally {
+            // always runs regardless
+        }
+    
+    EXCEPTION OBJECT
+        new Exception(message, code, previous_exception)
+
+        METHODS
+            getMessage() // The message 
+            getPrevious() // The previous exception thrown
+            getCode() // Code 
+            getFile() // The file 
+            getLine() // The line where the error occured\

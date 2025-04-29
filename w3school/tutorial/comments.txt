@@ -1,0 +1,5 @@
+
+COMMENTS
+    // COMMENT --> Single line comment
+    # COMMENT --> Single line comment
+    /* COMMENT */ --> Multi-line comment

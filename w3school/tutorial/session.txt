@@ -1,0 +1,19 @@
+
+SESSION
+    session_start(); 
+        // duh, starts a session
+        // place this line if you want a page
+        // to access session variables
+
+    SETTING A SESSION VARIABLE
+        $_SESSION['VAR_NAME'] = VALUE 
+
+    ACCESSING
+        $_SESSION['VAR_NAME']
+
+    DESTROYING SESSION
+        // remove all session vars
+        session_unset()
+
+        // destroys the session
+        session_destroy():

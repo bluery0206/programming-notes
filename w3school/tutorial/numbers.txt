@@ -1,0 +1,15 @@
+
+NUMBERS
+    $name = "Fiona";
+    $age = 23;
+    $crit_rate = 12.5;
+
+    is_int($name) // false
+    is_int($age) // true
+    is_int($crit_rate) // false
+
+    is_float($crit_rate) // true
+
+    is_numeric($name) // false
+    is_numeric($age) // true
+    is_numeric($crit_rate) // true

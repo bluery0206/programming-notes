@@ -1,0 +1,11 @@
+
+FUNCTIONS
+    function functionName(
+        parameterOneName, 
+        parameterTwoName = defaultValue, 
+        ...)
+    {
+        ...code...
+    }
+    PARAMETER TYPE DECLARATION
+        function funcName(paramType: paramName, ...): returnType {...code...}

@@ -1,0 +1,34 @@
+
+VARIABLES
+    $varName = "value";
+    $varName = 5;
+    $varName = 5.2;
+    $varName = true;
+    $varName = NULL;
+
+    TYPES
+        String
+        Integer
+        Float (or double)
+        Boolean
+        Array
+        Object
+        NULL
+        Resource
+
+    ASSIGNING MULTIPLE VAR IN ONE VALUE
+        $a, $b, $c = "VALUE";
+
+    SCOPE
+        LOCAL
+
+        GLOBAL
+            # accessible everywhere available
+            global $varName;
+
+            ACCESSING A GLOBAL VARIABLES
+                $newVarName = $GLOBALS['varName];
+
+        STATIC
+            # will not be deleted throughout the session
+            static $varName;

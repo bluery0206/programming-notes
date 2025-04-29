@@ -1,0 +1,17 @@
+
+ECHO / PRINT
+    PLAIN
+        echo "<h1>Hello World!</h1>";
+
+    WITH VARIABLE
+        $varName = "Hello World!";
+
+        # Use double quotes
+        echo "<h1>$varName</h1>";
+
+        # Single quotes doesnt allow variable embedding
+        echo '<h1>' . $varName . '</h1>';
+
+    PRINT
+        print("<h1>Hello World!</h1>");
+        print "<h1>Hello World!</h1>";

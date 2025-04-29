@@ -1,0 +1,38 @@
+
+FILE HANDLING
+    $file = readfile("path", read_mode);
+    $file = fopen("path", read_modes); // Better option than readfile
+
+    READ MODES
+        r	(read) read only
+        w	(write)
+
+            write only. 
+            Erases or creates a new file if doesn't exist
+        a	(append)
+            write only. 
+            The existing data are preserved. 
+            Continues from the end of file. 
+            Creates a new file if the file doesn't exist
+        x	
+            Create new file for write only. 
+            Returns FALSE and an error if file already exists
+        r+	(read) read/write
+        w+	
+            read/write. 
+            Erases contents or create new file if doesn't exist. 
+        a+	
+            read/write. 
+            The existing data in file is preserved. 
+            File pointer starts at the end of the file. 
+            Creates a new file if the file doesn't exist
+        x+	
+            Creates a new file for read/write. 
+            Returns FALSE and an error if file already exists
+    
+    fclose($file);
+
+    fgets(path, readMode); // returns a single line from file
+    feof($file); // returns true if end of file or last line else false
+    fgetc($file); // returns a single character
+    fwrite($file, $txt); // writes the text into the file

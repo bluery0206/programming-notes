@@ -1,0 +1,57 @@
+
+ARRAYS
+    CREATING
+        ARRAY()
+            $arrayName = array();
+            $arrayName = array(...values...);
+
+        SQUARE BRACKETS
+            $arrayName = [];
+            $arrayName = [...values...];
+
+    INDEXED
+        $operators = array(
+            "Bagpipe", 
+            "Kaltsit", 
+            ...
+        );
+        $operators[0] = "Fiona Young" // array("Fiona Young", ...); 
+
+
+    ASSOCIATIVE
+        $operator = array(
+            "codename" => "Bagpipe",
+            "name" => "Fiona Young",
+            ...
+        );
+        $operator["codename"] = "New code name";
+
+    ADDING ITEMS
+        $operators[] = VALUE;
+        $operators["unexistingKey"] = VALUE;
+        array_push($operator, VALUE_1, ..., VALUE_N);
+
+    REMOVING ITEMS
+        $newArr = array_splice($arrayName, idx_start, idx_end);
+        unset($arrayName[idx]);
+        unset($arrayName[key]);
+        $newArr = array_diff($arrayName, [$key, $value]); // Removes specified assoc
+        array_pop($arrayName); // Removes the last item
+
+    SORTING
+        sort()
+        rsort()
+
+        asort() --> ascending through value
+        arsort() --> descending through value 
+
+        ksort() --> ascending through key
+        krsort() --> desscending through key
+
+    MULTIDIMENSIONAL ARRAYS
+        $arrName = [
+            [],
+            [],
+            [],
+        ];
+        $arrName[][];

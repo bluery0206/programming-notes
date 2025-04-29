@@ -1,0 +1,10 @@
+
+MATH
+    pi() // 3.13...
+    min(0, 1, 2, 3) // 0
+    max(0, 1, 2, 3) // 3
+    abs(-1) // 1
+    sqrt(4) // 2
+    rount(3.5) // 4
+    rand() // random
+    rand(10, 100) // random number from 10 to 100

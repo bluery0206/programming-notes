@@ -1,0 +1,39 @@
+
+LOOPS
+    WHILE
+        $i = 0;
+        
+        while ($i < 10) {
+            ...code...
+
+            if (condition) {
+                ...code...
+                break;
+            }
+            
+            if (condition) {
+                continue;
+            }
+
+            $i++;
+        }
+
+    DO-WHILE
+        $i = 0;
+
+        do {
+            ...code...
+            $i++;
+        } while ($i < 10);
+
+    FOR
+        for ($x = 0; $x <= 10; $x++) {...code...}
+
+    FOREACH 
+        PLAIN
+            foreach ($names_list as $name) {...code...}
+
+        KEYS AND VALUES
+            foreach ($names_list as $idx => $name) {...code...}
+            foreach ($names_list as $key => $value) {...code...}
+            foreach ($object as $varName => $value) {...code...}

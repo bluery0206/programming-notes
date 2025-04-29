@@ -1,0 +1,43 @@
+
+OPERATORS
+    ARITHMETIC
+        +
+        -
+        *
+        /
+        % --> Modulus; returns the remainder of a quotient
+        ** --> e.g., 2**2 is 2^2
+
+    ASSIGNMENT
+        =
+        +=
+        -=
+        /=
+        %=
+
+    COMPARISON
+        == --> Equal e.g., 0 == NULL is true
+        <> --> Not equal
+        != --> Not equal 
+        === --> identical e.g., 0 === NULL is false
+        !=== Not identical
+        >
+        >=
+        <
+        <=
+
+    INCREMENT
+        ++$x --> returns x + 1
+        $x --> returns x then + 1
+        --$x --> returns x - 1
+        $x --> returns x then -1
+
+    LOGICAL
+        and, "&&"
+        or, "||"
+        xor --> not both
+        ! 
+
+    STRING OPERATORS
+        .
+        .=

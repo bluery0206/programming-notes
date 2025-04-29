@@ -1,0 +1,11 @@
+
+SWITCH
+    $type = "vanguard";
+
+    switch (expression) {
+        case "vanguard":
+            ...code...
+            break;
+        default:
+            ...code...
+    }

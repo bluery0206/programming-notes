@@ -1,0 +1,32 @@
+
+STRINGS
+    MODIFY
+        $name = "Fiona Young"
+        
+        strlen($name); // 11
+        str_word_count($name); // 2
+        strpos($name, "Young"); // 6 
+        strtoupper($name) // FIONA YOUNG
+        strtolower($name) // fiona young
+        str_replace("Fiona", "Fionessa", $name) // Fionessa Young
+        strrev($name) // gnuoY anoiF
+        trim($name) // Foina Young
+        explode("_", $name) // array("Fiona", "Young")
+        substr($name, 6, 10) // Young
+        substr($name, 6) // Young
+        substr($name, -5, 3) // You
+        substr($name, 6, -2) // You
+
+    CONCATENATE
+        $fname = "Fiona";
+        $lname = "Young";
+
+        $full_name = $fname . " " . $lname // Fiona Young
+
+    ESCAPE CHARACTERS
+        \"
+        \'
+        \$
+        \n 
+        \t 
+        \f

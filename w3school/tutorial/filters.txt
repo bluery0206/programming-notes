@@ -1,0 +1,29 @@
+
+FILTERS
+    filter_list() // [id => filter, ... ]
+
+    FILTER_VAR
+        filter_var(STRING, FILTER_SANITIZE_STRING); // Removes html tags
+        filter_var(IP, FILTER_VALIDATE_IP);
+
+    SANITIZE AND VALIDATE 
+        EMAIL 
+            $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
+            $is_email_verified = filter_var($email, FILTER_VALIDATE_EMAIL);
+
+        URL 
+            $url = filter_var(ur$_POST['url'], FILTER_SANITIZE_URL);
+            $is_url_verified = filter_var($url, FILTER_VALIDATE_URL);
+
+    ADVANCED VALIDATION FOR NUMBER
+        filter_var(
+            $int, 
+            FILTER_VALIDATE_INT, 
+            array(
+                "options" => array(
+                    "min_range"=> MIN_RANGE, 
+                    "max_range"=> MAX_RANGE
+                )
+            )
+        ) // bool
+

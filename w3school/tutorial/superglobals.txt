@@ -1,0 +1,24 @@
+
+SUPERGLOBALS
+    $GLOBALS
+    
+    $_SERVER
+        echo $_SERVER['PHP_SELF']; // returns filename
+        echo $_SERVER['SERVER_NAME']; // eg www.google.com
+        echo $_SERVER['REQUEST_METHOD']; // POST or GET 
+        echo $_SERVER['REQUEST_TIME'];  
+        echo $_SERVER['HTTPS']; // true if secure http else false   
+        echo $_SERVER['SCRIPT_FILENAME']; // returns absolute pathname of THIS script
+        echo $_SERVER['SCRIPT_NAME'];
+        echo $_SERVER['SERVER_PORT'];
+
+    $_REQUEST
+        # Data from GET and POST 
+        $_REQUEST['nameName'];
+
+    $_POST
+    $_GET
+    $_FILES
+    $_ENV
+    $_COOKIE
+    $_SESSION

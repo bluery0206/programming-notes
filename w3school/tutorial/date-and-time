@@ -1,0 +1,4 @@
+
+DATE AND TIME
+    $timestamp = mktime(hour, minute, second, month, day, year);
+    date(format, $timestamp);
