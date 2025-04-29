@@ -1,0 +1,268 @@
+
+Downad from php.net
+download the ip
+mobve the folder to Program Files or somerhing
+add the environment variable
+	on Path
+		doubleclick
+			add php folder path
+
+if php on cmd doesnt work
+	download
+		c++ window download
+			x64 dpnpad .exe
+
+		install
+
+
+edit something in php.ini or php.ini-development renam to php.ini
+	uncommet
+	extensoin=fileinfo
+	extensoin=gd
+	extensoin=curl
+	extensoin=mbstring
+	extensoin=opnssl
+	extensoin=pdo_mysql
+
+
+	extension_dir = "ext" to absolute path to php/ext
+
+	memory_limi = 256M
+
+
+editing php
+create folder
+open in vscode
+to run ob cmd
+	>>> php fielName.php
+
+if no error showing in the basense of semi colon
+ctrl+,
+top-right open settings.json
+php.validate.exe...: "C:\\php.exe path"
+
+run php
+	php -S localhost:8000
+
+
+
+
+
+
+
+
+
+
+
+
+Creating New Project
+	> Creating new project
+		on cmd
+			on projectFolder
+
+				>>> composer create-project laravel/laravel .
+				# "." tells laravel to create project in current directory
+
+				# Runs server on localhost:8000
+				>>> php artisan serve
+
+				# Ctrl+C to stop
+
+	> Creating new file
+		fileName.blade.php
+		# Has to end with .blade.php
+			
+		on resources/views/fileName.blade.php
+			... Basic HTML ...
+
+
+	> Connecting newly created file
+		on routes/web.php
+			Route::get($url, $view);
+
+			i.e. 
+				Route::get("/", function () {
+					return view("home");
+				})
+
+		> Creating form 
+			on resources/views/fileName.blade.php
+				... basic form ...
+
+				form action:/register method: POST
+				/form
+
+		> Routing the created form
+			on routes/web.php
+				Route::post("/register", function () {
+					return 'something';
+				})
+
+		> Adding csrf 
+			on resources/views/fileName.blade.php
+				form action:/register method:POST
+					@csrf
+				/form
+
+
+		> Staying organized by using a controller
+			> Creating new controll
+				on cmd
+					php artisan make:controller ContollerName
+
+				# New controller should be created at Http/Controllers/
+
+			> Creaing new method in controller
+				on Http/Controllers/ContollerName.php
+					class ContollerName extends Controller {
+						public function methodName() {
+							... code ...
+						}
+					}
+
+
+			? Rerouting
+					on routes/web.php
+						Route::post("URL", [ControllerName::class, 'methodName'])
+
+						Route::post("/register", [UserController::class, 'register'])
+						# Make sure to import the ControllerClass
+
+			# PHP Namespace Resolver so that you can just right-click on a class to immport it
+			# Laravel Blade Snippets
+
+		> Accessing post data
+			on Http/Controllers/ContollerName.php
+				class ContollerName extends Controller {
+					public function methodName(Request $request) {
+
+						# Validating fields
+						$fields = $request->validate([
+							'field_one' => ['required', 'min:3'],
+							'field_two' => 'required',
+							'email' => ['required', 'email'],
+							...
+							'field_n' => 'required',
+						])
+
+						return
+					}
+				}
+
+		> Storing details in database
+			# Create new database
+
+			> Connecting laravel to database
+				on .env
+					DB_DATABASE=database_name
+					DB_USERNAME=root
+					DB_PASSWORD=
+
+			> Migrating the database to initialize
+				on cmd
+					php artisan migrate
+
+				# you can access 'users' through 'user'
+
+		> Accessing post data
+			on Http/Controllers/ContollerName.php
+				class ContollerName extends Controller {
+					public function methodName(Request $request) {
+
+						# Validating fields
+						$fields = $request->validation(...
+
+						# hashing password
+						$fields['password'] = bcrypt($fields['passworcd']);
+
+						# Model is the metaphor for table/data structures
+						User::create($fields)
+						# dont forget to import User/Models
+						#	user App\Models\Modelname
+
+						return
+					}	
+				}
+
+
+	> Login and Log out
+		on Http/Controllers/ContollerName.php
+			class ContollerName extends Controller {
+				public function methodName(Request $request) {
+
+					# Validating fields
+						user Illuminate\Validation\Rule;
+
+						$fields = $request->validation([
+							'field_one' => ['required', 'min:3', Rule::unique('users', 'name')],
+							'field_two' => 'required',
+							'email' => ['required', 'email', Rule::unique('users', 'email')],
+							...
+							'field_n' => 'required',
+					])
+
+					# hashing password
+					$fields['password'] = bcrypt($fields['passworcd']);
+
+					# Model is the metaphor for table/data structures
+					$user = User::create($fields)
+
+					auth()->login($user);
+
+					return redirect('/');
+				}	
+			}
+
+		> Changing view for logged in and anon
+			on resources/views/fileName.blade.php
+				@auth
+					...
+				@else
+					...
+				@endauth
+
+		> Logout
+			on resources/views/fileName.blade.php
+				form action:/logout method:POST
+					@csrf
+			
+					button:logout
+
+			on routes/web.php
+				Route::post('/logout', UserController::class, 'logout');
+				# Create logout method on UserController
+
+			on Http/Controllers/ContollerName.php
+				class user extends Cnotroler{
+				public function logout() {
+						auth()->logout()
+
+						return rediect('/')
+					}
+
+		> Login
+			on resources/views/fileName.blade.php
+				form action:/logout method:POST
+					@login
+			
+					button:login
+
+			on routes/web.php
+				Route::post('/login', UserController::class, 'login');
+				# Create login method on UserController
+
+			on Http/Controllers/ContollerName.php
+				class user extends Cnotroler{
+				public function login(Request $request) {
+						$field = $request->validat(...
+
+						if (auth()->attempt([
+							'name' => $fields['uname'],
+							'password' => $fields['pwd'],
+						])) {
+							$request->session()->regenarate();
+						}
+
+						return rediect('/')
+					}
+
