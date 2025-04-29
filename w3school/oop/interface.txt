@@ -1,0 +1,36 @@
+
+INTERFACE
+    Same as the abstract, is a class that you cant instantiate
+
+        $obj = new Obj(); // Will not work
+
+    and only extend from it from a child class
+
+        // REMEMBER: no `class` keyword, just `interface` then the name
+        interface IntefaceClass { ... }
+
+        class ClassicClasss implements IntefaceClass {...}
+
+
+    It is also used to lay out all methods and function that the
+    child class HAVE to implement if methods are laid out like this
+
+        interface IntefaceClass {
+            // It can also have attributes but only limited to constants
+            // That also means that interfaces cant have `__construct()`
+            const CONST_NAME = 'Value';
+
+            // Interface class can only have public methods
+            public function funcName(); // Must create in child class
+        }
+
+        class Child implements IntefaceClass {
+            // attrs 
+            // construct()
+
+            public function funcName() {
+                // code 
+            }
+
+            // other methods()
+        }

@@ -1,0 +1,54 @@
+
+TRAIT
+    It can be used to group methods and atrs that can be 
+    reused accross different classes
+    
+    Much like class but instead of instantiating a class
+    inside the class, you just call the trait by 
+
+        use TraitNameOne, TraitNameTwo, ...;
+
+    and the class will inherit all methods and attrs
+    as its own.
+
+
+        trait TraitName {
+            public $traitAttr = value;
+            protected $traitAttr = value;
+            private $traitAttr = value;
+            
+            public function traitFunc() { ... }
+            protected function traitFunc() { ... }
+            private function traitFunc() { ... }
+        }
+
+        class ClassName {
+            use TraitName, ...;
+
+            // methods and attrs
+        }
+
+        $obj = new ClassName();
+        $obj->funcName();
+        $obj->attrName();
+        $obj->traitFunc(); // func from trait
+        $obj->traitAttr; // attr from trait
+
+
+    Traits can also use trait
+        trait TraitOne {
+            public function funcName(){...}
+        }
+
+        trait TraitTwo {
+            use TraitOne;
+        }
+
+
+    You can also change their alias or the preferred one
+        class MyClass {
+            use TraitOne, TraitTwo {
+                TraitOne::funcName insteadof TraitTwo;  // Use Trait1's version
+                TraitTwo::funcName as doSomethingElse; // Alias Trait2's version
+            }
+        }

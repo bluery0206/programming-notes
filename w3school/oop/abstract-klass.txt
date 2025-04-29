@@ -1,0 +1,49 @@
+
+ABSTRACT CLASS
+    A class that you can't instantiate
+    
+        $obj = new Obj(); // Will not work
+
+    but only extend from it from a child class
+
+        abstract class AbsClass { ... }
+
+        class ClassicClasss extends AbsClass {...}
+
+
+    It is also used to lay out all methods and function that the
+    child class HAVE to implement if methods are laid out like this
+
+        abstract class AbsClass {
+            abstract function funcName(); // Must create in child class
+        }
+
+        class Child extends AbsClass {
+            public function funcName() {
+                // code 
+            }
+        }
+
+
+    It can also have attributes (public, protected, and private)
+    and the child class will automatically inherit it
+
+        abstract class AbsName {
+            private string $varName;
+            protected string $varName;
+            public string $varName;
+
+            function __construct($args) {
+                // code
+            }
+
+            // Abstract class cannot have private methods,
+            // only protected and public
+            abstract function funcName(); // Must create in child class
+
+            // Is okay not to implement/overwrite because 
+            // it is an already a functioning method
+            protected function methName() {
+                // code
+            }
+        }

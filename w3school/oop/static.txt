@@ -1,0 +1,40 @@
+
+STATIC
+    METHOD
+        Static methods can be called directly
+        without creating an instance of the class first.
+
+            class ClassName {
+                public static function funcOneName() { .. }
+                public function funaTwoName() {
+                    self::funcOneName();
+                }
+            }
+
+            ClassName::funcName();
+    
+        WHEN TO USE
+            When no class-related data are needed and
+            the method is widely important enough to be 
+            used by multiple classes or methods
+
+                class Calculator {
+                    public static function add(a, b) {
+                        return a + b;
+                    }
+                }
+
+                $sum = Calculator::add(1, 2);
+
+            because static doesnt creates an instance, therfore
+            dont have attributes initialized
+    
+
+    PROPERTY
+        its essentially a global variable placed in a class 
+        
+            class ClassName {
+                public static attrName = value;
+            }
+
+        Authors Note: I dont understand this enough to explain
