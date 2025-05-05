@@ -7,8 +7,8 @@ CONSTANTS
         define("TYPES", ["Vanguard", "Sniper", "..."]);
 
     CONST
-        const = MAX_HEALTH = 100;
-        const = TYPES = ["Vanguard", "Sniper", "..."];
+        const MAX_HEALTH = 100;
+        const TYPES = ["Vanguard", "Sniper", "..."];
 
     MAGIC CONSTANTS
         namespace namespaceName;
