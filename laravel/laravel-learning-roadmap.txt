@@ -1,0 +1,165 @@
+# Laravel Learning Roadmap
+
+This roadmap will guide you from beginner to advanced Laravel concepts in a structured way.
+
+## Phase 1: Foundations
+
+### Prerequisites
+- PHP basics (variables, loops, functions, OOP)
+- Basic HTML/CSS
+- JavaScript fundamentals
+- Composer (PHP dependency manager)
+- MVC architecture concepts
+
+### Core Concepts
+1. **Installation & Setup**
+   - Composer installation
+   - Laravel installer
+   - Project creation (`laravel new`)
+
+2. **Directory Structure**
+   - Understanding app/, routes/, resources/, etc.
+   - Environment configuration (.env)
+
+3. **Routing**
+   - Basic routes
+   - Route parameters
+   - Named routes
+   - Route groups
+
+4. **Controllers**
+   - Creating controllers
+   - Resource controllers
+   - Dependency injection
+
+5. **Views & Blade Templating**
+   - Blade syntax
+   - Layouts and inheritance
+   - Components and slots
+   - Directives
+
+## Phase 2: Database & Eloquent ORM
+
+1. **Database Setup**
+   - Migrations
+   - Seeders
+   - Factories
+
+2. **Eloquent ORM**
+   - Models
+   - CRUD operations
+   - Relationships (hasOne, hasMany, belongsTo, manyToMany)
+   - Query Scopes
+   - Accessors & Mutators
+
+3. **Forms & Validation**
+   - Form requests
+   - Validation rules
+   - Custom validation
+   - Error handling
+
+## Phase 3: Intermediate Concepts
+
+1. **Authentication**
+   - Laravel Breeze/Jetstream
+   - Manual auth setup
+   - API tokens (Sanctum)
+
+2. **Middleware**
+   - Creating middleware
+   - Route middleware
+   - Global middleware
+
+3. **API Development**
+   - RESTful principles
+   - API resources
+   - API authentication
+
+4. **File Storage**
+   - File uploads
+   - Public vs private disks
+   - Cloud storage (S3)
+
+5. **Mail & Notifications**
+   - Sending emails
+   - Markdown mailables
+   - Database notifications
+
+## Phase 4: Advanced Topics
+
+1. **Testing**
+   - PHPUnit basics
+   - Feature tests
+   - HTTP tests
+   - Database testing
+
+2. **Performance Optimization**
+   - Caching
+   - Query optimization
+   - Eager loading
+   - Deployment optimizations
+
+3. **Package Development**
+   - Creating packages
+   - Service providers
+   - Facades
+
+4. **Queues & Jobs**
+   - Queue setup
+   - Creating jobs
+   - Failed jobs
+   - Horizon (for Redis queues)
+
+5. **Events & Broadcasting**
+   - Event system
+   - Listeners
+   - Real-time with Laravel Echo
+
+## Phase 5: Ecosystem & Deployment
+
+1. **Laravel Ecosystem**
+   - Nova (admin panel)
+   - Forge (server management)
+   - Envoyer (zero-downtime deployment)
+   - Vapor (serverless)
+
+2. **Deployment**
+   - Shared hosting
+   - VPS setup
+   - Docker
+   - CI/CD pipelines
+
+3. **Security Best Practices**
+   - CSRF protection
+   - XSS prevention
+   - SQL injection
+   - Rate limiting
+
+## Learning Resources
+
+### Official Documentation
+- [Laravel Docs](https://laravel.com/docs) - Always start here
+
+### Recommended Books
+- "Laravel: Up & Running" by Matt Stauffer
+- "Eloquent JavaScript" (for frontend integration)
+
+### Online Courses
+- Laracasts (highly recommended)
+- Udemy: "Laravel from Scratch" by Jeffrey Way
+
+### Practice Projects
+1. Blog with comments
+2. E-commerce site (products, cart, checkout)
+3. Task management app
+4. Social media clone
+5. API for a mobile app
+
+## Tips for Success
+1. Build projects as you learn
+2. Read other people's Laravel code (GitHub)
+3. Follow the Laravel community (Twitter, forums)
+4. Attend Laravel meetups/conferences
+5. Contribute to open source Laravel projects
+
+Would you like me to elaborate on any specific part of this roadmap?

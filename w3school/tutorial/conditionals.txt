@@ -11,3 +11,12 @@ CONDITIONAL STATEMENTS
         IF ELSE
             if ($a < 10) {$b="Hello";} else {$b="Good bye";}
             $b = $a < 10 ? "Hello" : "Good bye";
+
+    switch ($var) {
+        case "":
+            ...
+            break;
+        default:
+            ...
+            break
+    }
