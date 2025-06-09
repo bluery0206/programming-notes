@@ -1,0 +1,10 @@
+
+// controller
+  return redirect()->route('tasks.index')->with('success', 'Task created!');
+
+// template
+  @if (session('success'))
+    <div class="alert alert-success">
+      {{ session('success') }}
+    </div>
+  @endif

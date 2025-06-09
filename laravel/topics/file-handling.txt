@@ -1,0 +1,83 @@
+
+FILE HANDLING
+	ENABLE
+		>>> php artisan storage:link
+
+
+// template
+	<form action="{{ route('tasks.store') }}" 
+		method="POST" enctype="multipart/form-data">
+	  @csrf
+	  <input type="text" name="title">
+	  <input type="file" name="document">
+	  <button type="submit">Upload</button>
+	</form>
+
+// controller
+	public function store(Request $request) {
+	    $validated = $request->validate([
+	        'title' => 'required',
+	        'document' => 'required|file|mimes:pdf,docx|max:2048',
+	    ]);
+
+	    // Save file and get path
+	    $path = $request->file('document')->store('documents');
+		// $path = $request->file('document')->store('documents', 'public');
+
+	    // Optionally save in DB
+	    Task::create([
+	        'title' => $validated['title'],
+	        'document_path' => $path,
+	    ]);
+
+	    return redirect()->route('tasks.index')->with('success', 'File uploaded!');
+	}
+
+	<a href="{{ asset('storage/' . $task->document_path) }}">Download</a>
+
+
+CHANGE FILE NMAE
+$filename = 'custom_name_' . time() . '.' . $request->file('document')->getClientOriginalExtension();
+
+$path = $request->file('document')->storeAs('documents', $filename, 'public');
+
+
+MULTIPLE FILES
+	on templates
+		<form action="{{ route('tasks.store') }}" method="POST"
+			enctype="multipart/form-data">
+		    @csrf
+		    <input type="file" name="images[]" multiple>
+		    <button type="submit">Upload</button>
+		</form>
+
+	on controller
+		public function store(Request $request) {
+		    $request->validate([
+		        'images.*' => 'image|mimes:jpg,jpeg,png|max:2048'
+		    ]);
+
+		    foreach ($request->file('images') as $image) {
+		        $path = $image->store('images', 'public');
+		        // Save $path to DB if needed
+		    }
+
+		    return redirect()->back()->with('success', 'Files uploaded!');
+		}
+
+
+
+
+model
+	use Illuminate\Support\Facades\Storage;
+
+	class User extends Model {
+	    protected static function booted() {
+	        static::deleting(function ($user) {
+	            // Delete the user's avatar file
+	            if ($user->avatar_path) {
+	                Storage::delete($user->avatar_path);
+	            }
+	        });
+	    }
+	}

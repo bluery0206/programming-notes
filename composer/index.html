@@ -1,0 +1,59 @@
+Basic Usage
+	composer.json
+		{
+		    "require": {
+		        "monolog/monolog": "2.0.*"
+		    }
+		}
+
+		// "require" tells composer which packages your proeject depends on
+
+		// The naming of packages follows this rule:
+			"vendorName/packageName"
+
+	Version Contraints
+		2.0.* => all versions within 2.0
+		>=2.0 => more latest or 2.0
+		<2.1 => older versions
+
+
+	Installing dependencies
+		from composer.json
+			>>> composer update
+
+			// This will create the vendor/ dir with files including 
+			// the autoloader and a composer.lock just beside the json.
+
+		from composer.lock
+			>>> install
+
+	Update
+		>>> update
+		or
+		>>> update vendorName/pkgName [...]
+
+	Packagist.org
+		// Like the pypi.org of pip
+
+	Every a project is a package
+		composer.json
+			{
+				...
+				"name": "vendorName/pkgName",
+				...
+			}
+
+
+	🛠️ Composer Command Cheat Sheet for PHP Devs
+		Command					When to Use	What It Does
+		composer init			When starting a new project	Creates a composer.json file interactively
+		composer require 		vendor/package	To add a dependency	Installs the package and updates composer.json
+		composer install		After cloning/downloading a project	Installs all dependencies from composer.lock
+		composer update			To update all dependencies	Updates versions in composer.lock (⚠️ use with caution)
+		composer remove 		vendor/package	To uninstall a package	Removes the package and updates composer.json
+		composer dump-autoload	When you add classes manually	Regenerates vendor/autoload.php (autoload map)
+		composer show			To see installed packages	Lists all installed packages and versions
+		composer outdated		To check for newer versions	Shows packages that have updates available
+		composer validate		To check composer.json	Validates your config file for errors
+		composer about			For basic info about Composer	Shows version and environment info
+		composer diagnose		When Composer is acting weird	Helps identify environment or setup problems

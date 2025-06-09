@@ -1,0 +1,77 @@
+
+ROUTES
+	ADDING
+		METHOD 1
+			on routes/web.ph
+				Route::get('/', function () {
+				    return view('profile_index'); // Points to resources/views/profile_index.blade.php
+				});
+
+		METHOD 2 (Standard)
+			on app/Http/Controllers/ProfileController.php
+				class ProfileController extends Controller {
+				    public function index() {
+				    	// refers to the resources/views/profile_index.blade.php
+				        return view("profile_index");
+
+				        // If the template is within a subdirectory, then
+				        // return view("profile.index");
+				        // this refers to resources/views/profile/index.php
+				    }
+				}
+
+			on routes/web.ph
+				Route::get('profile', [ProfileController::class, 'index']);
+
+		METHOD 3 (Resource Controller (CRUD))
+			// This is using the controller class as a resource which 
+			// automatically sets up controller methods
+
+			on routes/web.ph
+				Route::resource('profiles', ProfileController::class);
+
+			// automatically set up controller methods:
+				HTTP Verb	URL						Controller Method	Purpose
+				GET			/profiles				index()				Show all profiles
+				GET			/profiles/create		create()			Show form
+				POST		/profiles				store()				Save new profile
+				GET			/profiles/{id}			show()				Show 1 profile
+				GET			/profiles/{id}/edit		edit()				Edit form
+				PUT/PATCH	/profiles/{id}			update()			Save edit
+				DELETE		/profiles/{id}			destroy()			Delete profile
+
+	PASSING ARGUMENTS
+		on routes/web.php
+			Route::get('/user/{id}', [ProfileController::class, 'show'])->name('profiles.show');
+
+		on resources/views/TEMPLATE_NAME.blade.php
+			<a href="{{ route('profiles.show', ['id' => $user->id]) }}">{{ $user->name }}</a>
+
+		// {id} in URL becomes $id in the controller method.
+		// route() helper generates URLs using route names.
+
+	GROUPING
+		// URLs: /profile, /profile/edit, /profile/update
+		// Will be accessible in route, view, etc through
+		// "profile.index", "profile.edit", "profile.update"
+
+		METHOD 1
+			on app/Http/Controllers/ProfileController.php
+				Route::prefix('profiles')->group(function () {
+					// name() is what you use to call the group in this case
+
+				    Route::get('/', [ProfileController::class, 'index'])->name('profiles.index');
+				    Route::get('/edit', [ProfileController::class, 'edit'])->name('profiles.edit');
+				    Route::post('/update', [ProfileController::class, 'update'])->name('profiles.update');
+				});
+
+		METHOD 2 (Better Approach) 
+			on app/Http/Controllers/ProfileController.php
+				Route::controller(ProfileController::class)
+					->prefix('profile') // prefix() is what you see in the url Example: thisdomain.com/profile/
+					->name('profiles') // name() is what you use to call the group in this case
+					->group(function () {
+					    Route::get('/', 'index')->name('index');
+					    Route::get('/edit', 'edit')->name('edit');
+					    Route::post('/update', 'update')->name('update');
+					});
