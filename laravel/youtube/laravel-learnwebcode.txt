@@ -17,12 +17,12 @@ if php on cmd doesnt work
 
 edit something in php.ini or php.ini-development renam to php.ini
 	uncommet
-	extensoin=fileinfo
-	extensoin=gd
-	extensoin=curl
-	extensoin=mbstring
-	extensoin=opnssl
-	extensoin=pdo_mysql
+	extension=fileinfo
+	extension=gd
+	extension=curl
+	extension=mbstring
+	extension=opnssl
+	extension=pdo_mysql
 
 
 	extension_dir = "ext" to absolute path to php/ext
@@ -236,14 +236,16 @@ Creating New Project
 				class user extends Cnotroler{
 				public function logout() {
 						auth()->logout()
+					    $request->session()->invalidate();
+					    $request->session()->regenerateToken();
 
-						return rediect('/')
+					    return redirect('/')->with('success', 'Signed out successfully.');
 					}
 
 		> Login
 			on resources/views/fileName.blade.php
-				form action:/logout method:POST
-					@login
+				form action:/login method:POST
+					@csrf
 			
 					button:login
 
@@ -261,8 +263,16 @@ Creating New Project
 							'password' => $fields['pwd'],
 						])) {
 							$request->session()->regenarate();
+							
+							return rediect('/')
 						}
 
-						return rediect('/')
+
+
+					        // If login fails:
+					        return back()->withErrors([
+					            'username' => 'Invalid username or password.',
+					        ])->onlyInput('username');
+					    }
 					}
 

@@ -1,0 +1,11 @@
+
+    @forelse ($notes as $note)
+        <a href="" class="note" title="Note: {{ $note->title }}">
+            <div class="select">
+                <input type="checkbox" name="choices[]" value="{{ $note->id }}" id="{{ $note->id }}">
+            </div>
+            <span>{{ $note->title }}</span>
+        </a>
+    @empty
+        <p>No notes</p>
+    @endforelse

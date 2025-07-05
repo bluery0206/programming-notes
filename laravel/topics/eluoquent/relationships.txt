@@ -1,0 +1,14 @@
+
+Relationship	Migration								Model A			Model B
+One-to-Many		foreignId()->constrained()				hasMany()		belongsTo()
+Many-to-Many	Pivot table + 2x foreignId				belongsToMany()	belongsToMany()
+One-to-One		foreignId()->constrained()->unique()	hasOne()		belongsTo()
+
+
+Laravel				Django Equivalent			Usage Example
+hasMany()			ForeignKey (on child model)	User has many Posts
+belongsTo()			ForeignKey (on child model)	Post belongs to User
+belongsToMany()		ManyToManyField				Post has many Tags (and vice versa)
+hasOne()			OneToOneField				User has one Profile
+hasManyThrough()	(Custom query or through=)	Country → Users → Posts
+morphMany()			GenericForeignKey			Comment can belong to Post or Video

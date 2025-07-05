@@ -1,0 +1,44 @@
+
+FIELDS
+	$table->id() // Auto-incrementing primary key.
+
+	TEXT
+		$table->string('name') // Short text (VARCHAR).
+		$table->text('content') // Long text (TEXT).
+
+	NUMBERS
+		$table->integer('age') // Whole numbers.
+		$table->boolean('is_active') // True/False (TINYINT in DB).
+		$table->timestamps() // Adds created_at and updated_at columns.
+		$table->float('price') // Decimal numbers (floating-point).
+		$table->decimal('amount', 8, 2) // Precise decimals (e.g., currency).
+
+	DATETIME
+		$table->date('birthday') // Date (YYYY-MM-DD).
+		$table->dateTime('published_at') // Date + time (YYYY-MM-DD HH:MM:SS).
+
+	RELATIONSHIP
+		$table->foreignId('user_id') // Creates a foreign key column.
+
+	$table->json('meta_data') // Stores JSON data.
+	$table->enum('status', ['draft', 'published']) // Dropdown-like field.
+
+	Chain these the above methods
+		Modifier			Example										What It Does
+		->nullable()		$table->string('bio')->nullable()			Allows NULL values.
+		->default('value')	$table->boolean('active')->default(true)	Sets default value.
+		->unique()			$table->string('email')->unique()			Ensures no duplicates.
+		->unsigned()		$table->integer('views')->unsigned()		No negative numbers.
+		->cascadeOnDelete()	$table->foreignId('user_id')->constrained()->cascadeOnDelete();
+		
+	EXAMPLE:
+		public function up() {
+		    Schema::create('posts', function (Blueprint $table) {
+		        $table->id();  // Auto-incrementing ID
+		        $table->string('title');  // VARCHAR
+		        $table->text('content');  // TEXT
+		        $table->foreignId('user_id')->constrained();  // Foreign key
+		        $table->boolean('is_published')->default(false);
+		        $table->timestamps();  // created_at + updated_at
+		    });
+		}

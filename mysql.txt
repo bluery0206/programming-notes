@@ -17,16 +17,27 @@ DROP INDEX - deletes an index
 
 ===========================
 
-The SELECT DISTINCT statement is used to return only distinct (different) values.
-Inside a table, a column often contains many duplicate values; and sometimes you only want to list the different (distinct) values.
-SELECT DISTINCT Syntax 
+SELECT DISTINCT
+	> Returns only unique values.
+	> Use Case
+		You want to retreive all data from the DB and 
+		not include duplicates
 
-SELECT DISTINCT Country FROM Customers; 
+	``` mysql
 
-===========================
-The following SQL statement lists the number of different (distinct) customer countries:
+		SELECT DISTINCT Country FROM Customers; 
 
-SELECT COUNT(DISTINCT Country) FROM Customers;
+	```
+
+	> Another Use Case
+		The following SQL statement lists the number of different (distinct) customer countries:
+
+		``` mysql
+
+			SELECT COUNT(DISTINCT Country) FROM Customers;
+
+		```
+
 
 ===========================
 The WHERE clause is used to filter records.

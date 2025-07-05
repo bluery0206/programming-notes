@@ -1,0 +1,20 @@
+
+DATA TYPE CASTING
+    (string)
+    (int)
+    (float)
+    (bool)
+    (array)
+    (object)
+    (unset)
+
+    (int)4.1 // 4
+    (int)"4.1" // 4
+    (float)4 // 4.0
+
+    STRICT TYPE
+        # So that when we hint that the parameters data type 
+        # has to be something, the accepted arguments are
+        # in the same type as hinted
+
+        <?php declare(strict_types=1); ... ?>

@@ -1,0 +1,9 @@
+
+FILE STRUCTURE
+	app/ ==>> core app logic (models, controllers, etc)	
+	app/Http/Controllers/ ==>> Where the route logic goes (Like Django views)
+	app/Models/ ==>> models (like django models)
+	database/migrations/ ==>> Where the migration files are. This is also where you create the columns of the model(table)
+	public/ ==>> Where your assets should be like css (if doing it vanilla), images, etc
+	resources/views/ ==>> Where the templates are
+	routes/web.php ==>> The urls.py equivalent in Django

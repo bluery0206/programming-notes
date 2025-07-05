@@ -9,20 +9,15 @@ APP/PROJECT CREATION
 	// in django, its like a component
 	// in laravel, its the whole project
 
-	>>> laravel new example-app
+	>>> laravel new APP_NAME
 
 RUN SERVER
 	// This is for using plain laravel with html or
 	// some CSS libraries like Halfmoon CSS
 
-	>>> cd example-app
-	>>> php artisan serve
+	>>> cd APP_NAME
+	>>> php 67artisan serve
 
-FILE STRUCTURE
-	app/ ==>> core app logic (models, controllers, etc)	
-	app/Http/Controllers/ ==>> Where the route logic goes (Like Django views)
-	app/Models/ ==>> models (like django models)
-	
 FORMS
 	POST
 		@csrf
@@ -31,7 +26,7 @@ CONTROLLER
 	// Controller is like the views.py in Django
 
 	CREATION
-		>>> php artisan make:controller ContollerName
+		>>> php artisan make:controller <ControllerName>
 
 DATABASE
 	FOR MYSQL
@@ -39,9 +34,9 @@ DATABASE
 			DB_CONNECTION=mysql
 			DB_HOST=127.0.0.1
 			DB_PORT=3306
-			DB_DATABASE=your_db_name_here
-			DB_USERNAME=root
-			DB_PASSWORD=
+			DB_DATABASE=<database_name>
+			DB_USERNAME=<username>
+			DB_PASSWORD=<password>
 
 	FOR SQLITE
 		// Create database file
@@ -52,27 +47,33 @@ DATABASE
 				DB_CONNECTION=sqlite
 				DB_DATABASE=${DB_DATABASE_PATH}/database.sqlite
 
-
 	>>> php artisan migrate
+	// `migrate` only runs migration files that have not been ran even once
+	// unless you specifically put the migration name of the file after the
+	// `migrate` keyword e.i.: `migration_add_....php`
 
 	CREATING A TABLE
 		Step 1: Create a Model, Migration, and Controller
-			// Generates
+			// Generates:
 			// 		app/models/ModelName.php
 			//		app/Http/Controllers/ModelNameController.php
 			//		database/migrations/xxxx_xx_xx_create_table_name_table.php
-			// -m | --migration ==>> Creates migration file
-			// -c | -controller ==>> Creates controller file
-			>>> php artisan make:model ModelName -mc
+			//
+			// -m | --migration // Creates migration file
+			// -c | --controller // Creates controller file
+
+			>>> php artisan make:model <ModelName> -mc
 
 		Step 2: Define Your Database Table
 			on database/migrations/...create_table_name_table.php
 				public function up(): void {
 				    Schema::create('tasks', function (Blueprint $table) {
 				        $table->id();
+				        $table->timestamps();
+
+				        <!-- New Fields -->
 				        $table->string('title');
 				        $table->text('description')->nullable();
-				        $table->timestamps();
 				    });
 				}
 
@@ -148,207 +149,7 @@ DATABASE
 
 
 
-FIELDS
-	$table->id() // Auto-incrementing primary key.
 
-	TEXT
-	$table->string('name') // Short text (VARCHAR).
-	$table->text('content') // Long text (TEXT).
-
-	NUMBERS
-	$table->integer('age') // Whole numbers.
-	$table->boolean('is_active') // True/False (TINYINT in DB).
-	$table->timestamps() // Adds created_at and updated_at columns.
-	$table->float('price') // Decimal numbers (floating-point).
-	$table->decimal('amount', 8, 2) // Precise decimals (e.g., currency).
-
-	DATETIME
-	$table->date('birthday') // Date (YYYY-MM-DD).
-	$table->dateTime('published_at') // Date + time (YYYY-MM-DD HH:MM:SS).
-
-	RELATIONSHIP
-	$table->foreignId('user_id') // Creates a foreign key column.
-
-	$table->json('meta_data') // Stores JSON data.
-	$table->enum('status', ['draft', 'published']) // Dropdown-like field.
-
-	Chain these the above methods
-		Modifier			Example										What It Does
-		->nullable()		$table->string('bio')->nullable()			Allows NULL values.
-		->default('value')	$table->boolean('active')->default(true)	Sets default value.
-		->unique()			$table->string('email')->unique()			Ensures no duplicates.
-		->unsigned()		$table->integer('views')->unsigned()		No negative numbers.
-		->cascadeOnDelete()	$table->foreignId('user_id')->constrained()->cascadeOnDelete();
-	EXAMPLE:
-		public function up() {
-		    Schema::create('posts', function (Blueprint $table) {
-		        $table->id();  // Auto-incrementing ID
-		        $table->string('title');  // VARCHAR
-		        $table->text('content');  // TEXT
-		        $table->foreignId('user_id')->constrained();  // Foreign key
-		        $table->boolean('is_published')->default(false);
-		        $table->timestamps();  // created_at + updated_at
-		    });
-		}
-
-
-THE IDEA IN LARAVEL ELOQUENT
-	connect the models
-		i.e.,
-			Schema::create('posts', function (Blueprint $table) {
-			    ...
-			    $table->foreignId('user_id')->constrained(); // Standard foreign key
-			    ...
-			});
-
-			// or 
-
-			// Ensures theres only one user_id linked
-			Schema::create('profile', function (Blueprint $table) {
-			    ...
-			    $table->foreignId('user_id')->constrained()->unique();
-			    ...
-			});
-
-	then declare their relationship in the model.php
-		i.e.,
-		class Profile extends Model {
-				public function user () {
-				    return $this->belongsTo(User::class); 
-				}
-			}
-
-
-
-Relationship	Migration	Model A	Model B
-One-to-Many	foreignId()->constrained()	hasMany()	belongsTo()
-Many-to-Many	Pivot table + 2x foreignId	belongsToMany()	belongsToMany()
-One-to-One	foreignId()->constrained()->unique()	hasOne()	belongsTo()
-
-Laravel	Django Equivalent	Usage Example
-hasMany()	ForeignKey (on child model)	User has many Posts
-belongsTo()	ForeignKey (on child model)	Post belongs to User
-belongsToMany()	ManyToManyField	Post has many Tags (and vice versa)
-hasOne()	OneToOneField	User has one Profile
-hasManyThrough()	(Custom query or through=)	Country → Users → Posts
-morphMany()	GenericForeignKey	Comment can belong to Post or Video
-
-
-
-
-
-
-Eloquent Cheatsheet (Compare to Django ORM)
-	Task::all()	== Task.objects.all() ==>> Collection of all tasks
-	Task::find($id)	== Task.objects.get(pk=id) ==>> Single task (or null)
-	Task::findOrFail($id) == get_object_or_404(Task, pk=id) ==>> Task or 404
-	Task::where('title', 'Buy')->get() == Task.objects.filter(title="Buy") ==>> Collection (even if 1 match)
-	Task::where('done', true)->first() == Task.objects.filter(...).first()  ==>>  First match or null
-	Task::orderBy('created_at', 'desc')->get() == Task.objects.order_by('-created_at') ==>> Collection
-	Task::paginate(10) == Paginator(Task.objects.all(), 10) ==>> Paged result with metadata
-	Task::create([...]) == Task.objects.create(...) ==>> New saved instance
-	Task::update([...]) == (on query)	Task.objects.filter(...).update() ==>> Rows affected
-	Task::destroy($id) == Task.objects.get(id).delete() ==>> True/False
-	Task::where(...)->delete() == Task.objects.filter(...).delete() ==>> Rows deleted
-
-Blade Template Syntax Cheatsheet (@if, @foreach, etc.)
-	Blade Syntax		Django Equivalent	
-	@if (condition)		{% if condition %}	
-	@elseif, @else		{% elif %}, {% else %}	
-	@endif				{% endif %}
-	@foreach ($x as $y)	{% for x in y %}	
-	@endforeach			{% endfor %}	
-	@for, @while		{% for i in range %}, {% while %}	
-	@csrf				{% csrf_token %}	Adds CSRF token
-	
-	@include('file')	{% include "file.html" %}	Partial include
-	@extends('layout')	{% extends "base.html" %}	Inherit base layout
-	@section('name')	{% block name %}	Define block content
-	@endsection			{% endblock %}	Close the block
-	@yield('name')		{% block name %} (in layout)	Placeholder for child content
-
-
-	Example
-	<!-- layouts/empty.blade.php -->
-	<!DOCTYPE html>
-	<html>
-	  <head><title>@yield('title')</title></head>
-	  <body>
-	    @yield('content')
-	  </body>
-	</html>
-
-	<!-- partials/nav.blade.php -->
-	<nav>
-	  <a href="/">Home</a>
-	  <a href="/tasks">Tasks</a>
-	</nav>
-
-	<!-- layouts/headered.blade.php -->
-	@extends('layouts.empty')
-	@section('content')
-	  @include('partials.nav') {{-- now nav is only in headered --}}
-	  <div class="main">
-	    @yield('main') {{-- yield here to insert page-specific content --}}
-	  </div>
-	@endsection
-
-	<!-- pages/home.blade.php -->
-	@extends('layouts.headered')
-	@section('title', 'Home')
-	@section('main')
-	  <h1>Home Page</h1>
-	  <p>Welcome to Laravel Blade!</p>
-	@endsection
-
-
-
-
-<!-- resources/views/tasks/create.blade.php -->
-<form method="POST" action="{{ route('tasks.store') }}">
-	@csrf
-	<div>
-		@foreach ($errors->all() as $error)
-		<li>{{ $error }}</li>
-		@endforeach
-	</div>
-	<div>
-		<label for="title">Task Title</label>
-		<input type="text" name="title" id="title" value="{{ old('title', 'default') }}">
-		<!-- Only returns the first error -->
-		@error('title')
-			<div class="error">{{ $message }}</div>
-		@enderror
-
-		<!-- Shows all errors -->
-		@if ($errors->has('title'))
-		  @foreach ($errors->get('title') as $error)
-		    <div class="error">{{ $error }}</div>
-		  @endforeach
-		@endif
-	</div>
-	<div>
-		<label for="description">Description</label>
-		<textarea name="description" id="description">
-			{{ old('description') }}
-		</textarea>
-		@error('description')
-		<div class="error">{{ $message }}</div>
-		@enderror
-	</div>
-	<button type="submit">Save Task</button>
-</form>
-
-// app/Http/Controllers/TaskController.php
-public function store(Request $request) {
-	$validated = $request->validate([
-		'title' => 'required|max:255',
-		'description' => 'required|min:10',
-	]);
-	Task::create($validated);
-	// return redirect()->route('tasks.index');
-	return redirect()->back()->with('error', 'Something went wrong');
-}
 
 
 
@@ -372,124 +173,77 @@ migrate:refresh
 You can declare fields and run migrate:refresh, but it will delete all existing data in those tables. Here’s how to do it safely for structured, required fields:
 
 Step 1: Add Required Fields to Migration
-bash
-php artisan make:migration add_required_fields_to_users_table
-Strict Example (Non-nullable + Validation)
-php
-// In the migration file
-public function up()
-{
-    Schema::table('users', function (Blueprint $table) {
-        // Required fields (non-nullable)
-        $table->string('phone')->unique();  // Must be unique
-        $table->date('birth_date');         // No NULL allowed
-        $table->enum('gender', ['male', 'female', 'other']); // Restricted options
-    });
-}
-Key Choices:
-Use ->nullable() if the field is optional.
+	>>> php artisan make:migration add_required_fields_to_users_table
 
-Use ->unique() for fields like email/phone.
+	// In the migration file
+	public function up()
+	{
+	    Schema::table('users', function (Blueprint $table) {
+	        // Required fields (non-nullable)
+	        $table->string('phone')->unique();  // Must be unique
+	        $table->date('birth_date');         // No NULL allowed
+	        $table->enum('gender', ['male', 'female', 'other']); // Restricted options
+	    });
+	}
 
-Use ->after('column') to organize columns.
+	Key Choices:
+	Use ->nullable() if the field is optional.
+	Use ->unique() for fields like email/phone.
+	Use ->after('column') to organize columns.
+
 
 Step 2: Update the User Model
-php
-// app/Models/User.php
-protected $fillable = [
-    'name', 'email', 'password', 
-    'phone', 'birth_date', 'gender'  // Add new fields
-];
+	// app/Models/User.php
+	protected $fillable = [
+	    'name', 'email', 'password', 
+	    'phone', 'birth_date', 'gender'  // Add new fields
+	];
 
-// Add validation rules (for forms/API)
-public static function rules()
-{
-    return [
-        'phone'      => 'required|string|unique:users',
-        'birth_date' => 'required|date',
-        'gender'     => 'required|in:male,female,other',
-    ];
-}
+	// Add validation rules (for forms/API)
+	public static function rules()
+	{
+	    return [
+	        'phone'      => 'required|string|unique:users',
+	        'birth_date' => 'required|date',
+	        'gender'     => 'required|in:male,female,other',
+	    ];
+	}
+
 Step 3: Run Migrations
-Option A: Fresh Install (No Data Loss Risk)
-bash
-php artisan migrate
-Option B: Update Existing Table (Data-Safe)
-If the table already exists, Laravel will only add new columns. Existing data stays intact.
+	Option A: Fresh Install (No Data Loss Risk)
+		>>> php artisan migrate
 
-⚠️ Nuclear Option (Deletes Data!)
-Only use this during development (never in production):
+	Option B: Update Existing Table (Data-Safe)
+		If the table already exists, Laravel will only add new columns. Existing data stays intact.
 
-bash
-php artisan migrate:fresh  # Drops all tables and re-runs migrations
+		⚠️ Nuclear Option (Deletes Data!)
+		Only use this during development (never in production):
+
+		# Drops all tables and re-runs migrations
+		>>> php artisan migrate:fresh  
+
 Step 4: Update Registration/Forms
-Registration Form (Example)
-html
-<form method="POST" action="/register">
-    @csrf
-    <input type="text" name="phone" required>
-    <input type="date" name="birth_date" required>
-    <select name="gender" required>
-        <option value="male">Male</option>
-        <option value="female">Female</option>
-        <option value="other">Other</option>
-    </select>
-</form>
-Controller Validation
-php
-public function register(Request $request)
-{
-    $request->validate(User::rules());  // Uses the rules() method we defined
-    User::create($request->all());
-}
-Key Notes
-Never use migrate:fresh or migrate:refresh in production.
-
-For existing databases, create a new migration instead of refreshing.
-
-Use ->nullable() if the field isn’t required (avoid NULL issues).
-
-
-
-
-
-
-
-
-
-
-
-QUERIES
-Model::all()	Collection	User::all() → All users
-Model::find($id)	Model or null	User::find(1) → User with ID 1
-Model::findOrFail($id)	Model or 404	User::findOrFail(999) → 404 if not found
-Model::where()->get()	Collection	User::where('active', true)->get()
-Model::first()	Model or null	User::where('age', '>', 25)->first()
-Model::firstOrFail()	Model or 404	User::where('email', $email)->firstOrFail()
-Model::count()	int	User::where('active', true)->count()
-Model::pluck('column')	Collection	User::pluck('name') → All names as a list
-
-
-
- Conditional Queries
-Method	Returns	Example
-where('col', 'val')	Query Builder	User::where('role', 'admin')
-orWhere('col', 'val')	Query Builder	User::where('a', 1)->orWhere('b', 2)
-whereIn('col', [val1, val2])	Query Builder	User::whereIn('id', [1, 2, 3])
-whereNull('col')	Query Builder	User::whereNull('deleted_at')
-whereBetween('col', [min, max])	Query Builder	User::whereBetween('age', [18, 30])
-
-
-
-Advanced Queries
-Method	Returns	Example
-with('relation')	Collection	User::with('posts')->get() → Eager load
-has('relation')	Query Builder	User::has('posts')->get() → Users with posts
-doesntHave('relation')	Query Builder	User::doesntHave('posts')->get() → No posts
-orderBy('col', 'asc/desc')	Query Builder	User::orderBy('name', 'desc')->get()
-groupBy('col')	Query Builder	Post::groupBy('user_id')->get()
-limit(10)	Query Builder	User::limit(10)->get() → First 10 users
-
+	Registration Form (Example)
+		<form method="POST" action="/register">
+		    @csrf
+		    <input type="text" name="phone" required>
+		    <input type="date" name="birth_date" required>
+		    <select name="gender" required>
+		        <option value="male">Male</option>
+		        <option value="female">Female</option>
+		        <option value="other">Other</option>
+		    </select>
+		</form>
+	Controller Validation
+		public function register(Request $request)
+		{
+		    $request->validate(User::rules());  // Uses the rules() method we defined
+		    User::create($request->all());
+		}
+	Key Notes
+		Never use migrate:fresh or migrate:refresh in production.
+		For existing databases, create a new migration instead of refreshing.
+		Use ->nullable() if the field isn’t required (avoid NULL issues).
 
 
 CRUD Operations
@@ -497,3 +251,46 @@ Method	Returns	Example
 Model::create([...])	Model	User::create(['name' => 'John'])
 $model->update([...])	bool	$user->update(['name' => 'Jane'])
 $model->delete()	bool	`$user->
+
+
+
+place your assets in 
+public/
+	dirName/
+	... files ...
+
+
+
+
+INSTANCE DELETION
+	$objName->delete();
+
+	ModelName::destroy(id: 5); 
+	ModelName::destroy(arrayId: [1, 2, 3]);
+
+
+
+
+
+
+
+
+
+GETTING GET ARGUMENTS
+	public function index(Request $request) {
+	    $keyword = $request->query('search'); // ?search=term
+	    // or
+	    $page = $request->input('page');      // ?page=2
+
+	    return view('notes.index', compact('keyword', 'page'));
+	}
+
+	or 
+
+	{{ request()->query('search') }}
+	{{ request()->get('page') }}
+
+	<form method="GET" action="{{ route('notes.index') }}">
+	    <input type="text" name="search" value="{{ request()->get('search') }}">
+	    <button type="submit">Search</button>
+	</form>

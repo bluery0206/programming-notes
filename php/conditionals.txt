@@ -1,0 +1,26 @@
+
+CONDITIONAL STATEMENTS
+    if (condition) {...}
+    elseif (condition) {...}
+    else {...}
+
+    SHORTHAND ASSIGNMENTS
+        IF
+            if ($a < 10) $b = "hello";
+        
+        IF ELSE
+            if ($a < 10) {$b="Hello";} else {$b="Good bye";}
+
+            OR
+            
+            $b = $a < 10 ? "Hello" : "Good bye";
+
+    SWITCH
+        switch ($var) {
+            case "":
+                ...
+                break;
+            default:
+                ...
+                break
+        }

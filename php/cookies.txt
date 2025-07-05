@@ -1,0 +1,21 @@
+
+COOKIES
+    # Cookies are stored in $_COOKIE global variable
+
+    CREATING
+        $cookieVarName = setcookie(
+            cookie_name : "username",
+            value       : "aori.kasumi",
+            expire      : time() + (86400 * 30, "/"), // 86400 is one day
+        );
+
+    ACCESSING
+        $_COOKIE[cookie_name] // returns the value
+
+    DELETING
+        set the cookie expire negative value
+
+    CHECKING IF COOKIES ARE ENABLED
+        set a cookie
+
+        if (count($_COOKIE) > 0 ) { ...code... }

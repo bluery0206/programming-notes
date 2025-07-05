@@ -1,0 +1,19 @@
+
+on resources/views/fileName.blade.php
+	// Through logged-in
+		@auth
+			// for logged-in users
+			...
+		@else
+			// for anon guests
+			...
+		@endauth
+
+	// Through guests
+		@guest
+			// for anon
+			...
+		@empty
+			// for logged in (I assume)
+			...
+		@endguest

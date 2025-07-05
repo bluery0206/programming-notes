@@ -1,6 +1,11 @@
 
+Anything passed with with() only exists once and is gone after refreshing the page
+kinda like messages in Django
+
 // controller
-  return redirect()->route('tasks.index')->with('success', 'Task created!');
+  return redirect()
+    ->route('tasks.index')
+    ->with('success', 'Task created!');
 
 // template
   @if (session('success'))

@@ -1,0 +1,45 @@
+
+EXAMPLE
+	EMPTY BASE TEMPLATE
+		<!-- layouts/empty.blade.php -->
+		<head>
+			<title>
+				AppName
+
+				@hasSection("title")
+					| @yield('title')
+				@endif
+			</title>
+		</head>
+		<body>
+			@yield('content')
+		</body>
+
+		<!-- partials/nav.blade.php -->
+		<nav>
+		  <a href="/">Home</a>
+		  <a href="/tasks">Tasks</a>
+		</nav>
+
+
+	DEFAULT TEMPLATE
+		<!-- layouts/headered.blade.php -->
+		@extends('layouts.empty')
+
+		@section('content')
+			@include('partials.nav')
+
+			@yield('main')	
+		@endsection
+
+
+	INHERITING TEMPLATE
+		<!-- pages/home.blade.php -->
+
+		@extends('layouts.headered')
+		@section('title', 'Home')
+
+		@section('main')
+			<h1>Home Page</h1>
+			<p>Welcome to Laravel Blade!</p>
+		@endsection

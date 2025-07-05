@@ -1,0 +1,46 @@
+
+ARRAYS
+    CREATION
+        $klass = array("Vanguard", "Medic");
+        $operators = ["Bagpipe", "Kalt'sit"];
+
+    CHANGING THE VALUE VIA INDEX
+        $operators[0] = "Fiona Young" // Changes the first array value from "Bagpipe" to "Fiona Young"
+
+    ASSOCIATIVE
+        $operator = array(
+            "codename" => "Bagpipe",
+            "name" => "Fiona Young",
+            ...
+        );
+        $operator["codename"] = "New code name";
+
+    ADDING ITEMS
+        $operators[] = VALUE;
+        $operators["unexistingKey"] = VALUE;
+        array_push($operator, VALUE_1, ..., VALUE_N);
+
+    REMOVING ITEMS
+        $newArr = array_diff($arrayName, [$key, $value]);
+        $newArr = array_splice($arrayName, idx_start, idx_end);
+        array_pop($arrayName); // Removes the last item
+        unset($arrayName[idx]);
+        unset($arrayName[key]);
+
+    SORTING
+        sort()
+        rsort()
+
+        asort() // ascending through value
+        arsort() // descending through value 
+
+        ksort() // ascending through key
+        krsort() // desscending through key
+
+    MULTIDIMENSIONAL ARRAYS
+        $arrName = [
+            [],
+            [],
+            [],
+        ];
+        $arrName[][];

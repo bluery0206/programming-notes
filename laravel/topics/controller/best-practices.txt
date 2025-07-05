@@ -1,0 +1,8 @@
+
+Separate Controllers Per Major Responsibility
+
+Controller				Responsibility
+LoginController			Handles sign in (login form + processing)
+RegisterController		Handles sign up (register form + processing)
+LogoutController		Handles sign out
+PasswordController		Handles password reset/change

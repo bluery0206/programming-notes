@@ -1,0 +1,11 @@
+<?php
+
+/**
+ * Redirects to the specified location or other parameters
+ */
+
+// Redirects to example.com
+header('Location: http://www.example.com/'); 
+
+// Refreshes the page
+header('refresh: 0');

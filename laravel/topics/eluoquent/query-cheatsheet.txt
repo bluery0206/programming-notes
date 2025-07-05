@@ -1,0 +1,40 @@
+
+Eloquent Cheatsheet (Compare to Django ORM)
+	Method											Django Equivalent								Returns
+	Task::all() ----------------------------------- Task.objects.all() ---------------------------- Collection of all tasks
+	Task::find($id)	------------------------------- Task.objects.get(pk=id) ----------------------- Single task (or null)
+	Task::findOrFail($id) ------------------------- get_object_or_404(Task, pk=id) ---------------- Task or 404
+	Task::where('title', 'Buy')->get() ------------ Task.objects.filter(title="Buy") -------------- Collection (even if 1 match)
+	Task::where('done', true)->first() ------------ Task.objects.filter(...).first() -------------- First match or null
+	Task::orderBy('created_at', 'desc')->get() ---- Task.objects.order_by('-created_at') ---------- Collection
+	Task::paginate(10) ---------------------------- Paginator(Task.objects.all(), 10) ------------- Paged result with metadata
+	Task::create([...]) --------------------------- Task.objects.create(...) ---------------------- New saved instance
+	Task::update([...]) --------------------------- (on query)	Task.objects.filter(...).update()-- Rows affected
+	Task::destroy($id) ---------------------------- Task.objects.get(id).delete() ----------------- True/False
+	Task::where(...)->delete() -------------------- Task.objects.filter(...).delete() ------------- Rows deleted
+	User::first() --------------------------------------------------------------------------------- Model or null
+		User::where('age', '>', 25)->first()
+	User::firstOrFail()	--------------------------------------------------------------------------- Model or 404
+		User::where('email', $email)->firstOrFail()
+	Task::count()
+		User::where('active', true)->count()
+	Task::pluck('column')	Collection	User::pluck('name') → All names as a list
+
+
+Conditional Queries
+	Method								Returns			Example
+	where('col', 'val') --------------- Query Builder - User::where('role', 'admin')
+	orWhere('col', 'val') ------------- Query Builder - User::where('a', 1)->orWhere('b', 2)
+	whereIn('col', [val1, val2]) ------ Query Builder - User::whereIn('id', [1, 2, 3])
+	whereNull('col') ------------------ Query Builder - User::whereNull('deleted_at')
+	whereBetween('col', [min, max]) ---	Query Builder - User::whereBetween('age', [18, 30])
+
+
+Advanced Queries
+	Method							Returns				Example
+	with('relation') -------------- Collection -------- User::with('posts')->get() → Eager load
+	has('relation') --------------- Query Builder ----- User::has('posts')->get() → Users with posts
+	doesntHave('relation') -------- Query Builder ----- User::doesntHave('posts')->get() → No posts
+	orderBy('col', 'asc/desc') ---- Query Builder ----- User::orderBy('name', 'desc')->get()
+	groupBy('col') ---------------- Query Builder ----- Post::groupBy('user_id')->get()
+	limit(10) --------------------- Query Builder ----- User::limit(10)->get() → First 10 users

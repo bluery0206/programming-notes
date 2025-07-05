@@ -1,8 +1,0 @@
-
-// 'final' keyword before 'class' prevents 
-// class inheritance or overwriting
-final class User {..}
-
-// 'final' keyword before 'function' prevents
-// overwriting the method.
-final public function funcName() {...}

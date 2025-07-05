@@ -1,0 +1,10 @@
+
+FUNCTIONS
+    function funcName(
+        dataType paramOne, 
+        dataType paramTwo=defaultValue, 
+        ..
+    ): outputDataTypeOne | outputDataTypeTwo 
+    {
+        ...code...
+    }

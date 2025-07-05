@@ -1,0 +1,46 @@
+
+CONSTANTS
+    // Constants are global
+
+    DEFINE
+        define("MAX_HEALTH", 100);
+        define("TYPES", ["Vanguard", "Sniper", "..."]);
+
+    CONST
+        const MAX_HEALTH = 100;
+        const TYPES = ["Vanguard", "Sniper", "..."];
+
+    MAGIC CONSTANTS
+        function functionName() {
+            return __FUNCTION__;
+        }
+
+        namespace namespaceName;
+
+        class Operator {
+            public function className(){
+                return __CLASS__;
+
+                // or 
+
+                return Operator::class;
+            }
+
+            public function methodName() {
+                return __METHOD__;
+            }
+
+            public function namespaceName() {
+                return __NAMESPACE__;
+            }
+        }
+
+        operator = new Operator();
+
+        echo operator->className();     // Operator
+        echo __DIR__;                   // THIS file's parent folder path
+        echo __FILE__;                  // THIS file's path
+        echo __LINE__;                  // The code's line in THIS file
+        echo operator->methodName;      // methodName 
+        echo functionName;              // functionName 
+        echo operator->namespaceName;   // namespaceName

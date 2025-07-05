@@ -1,0 +1,13 @@
+
+...
+
+class ModelController extends Controller 
+{
+	public function methodName() {
+		// ... code ...
+
+		return redirect()
+			->route('folder.templateName', $argument)
+			->with('success', 'Post created successfully!');
+	}
+}

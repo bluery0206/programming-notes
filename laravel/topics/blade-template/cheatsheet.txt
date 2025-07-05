@@ -1,0 +1,16 @@
+
+Blade Template Syntax Cheatsheet (@if, @foreach, etc.)
+	Blade Syntax			Django Equivalent	
+	@if (condition) ------- {% if condition %}	
+	@elseif, @else -------- {% elif %}, {% else %}	
+	@endif ---------------- {% endif %}
+	@foreach ($x as $y) --- {% for x in y %}	
+	@endforeach ----------- {% endfor %}	
+	@for, @while ---------- {% for i in range %}, {% while %}	
+	@csrf ----------------- {% csrf_token %}
+	
+	@include('file') ------ {% include "file.html" %} ------------ Partial include
+	@extends('layout') ---- {% extends "base.html" %} ------------ Inherit base layout
+	@section('name') ------ {% block name %} --------------------- Define block content
+	@endsection ----------- {% endblock %} ----------------------- Close the block
+	@yield('name') -------- {% block name %} (in layout) --------- Placeholder for child content

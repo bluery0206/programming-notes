@@ -5,50 +5,50 @@ This roadmap will guide you from beginner to advanced Laravel concepts in a stru
 ## Phase 1: Foundations
 
 ### Prerequisites
-- PHP basics (variables, loops, functions, OOP)
-- Basic HTML/CSS
-- JavaScript fundamentals
-- Composer (PHP dependency manager)
-- MVC architecture concepts
+% - PHP basics (variables, loops, functions, OOP)
+% - Basic HTML/CSS
+% - JavaScript fundamentals
+% - Composer (PHP dependency manager)
+% - MVC architecture concepts
 
 ### Core Concepts
 1. **Installation & Setup**
-   - Composer installation
-   - Laravel installer
-   - Project creation (`laravel new`)
+   % - Composer installation
+   % - Laravel installer
+   % - Project creation (`laravel new`)
 
 2. **Directory Structure**
-   - Understanding app/, routes/, resources/, etc.
-   - Environment configuration (.env)
+   % - Understanding app/, routes/, resources/, etc.
+   % - Environment configuration (.env)
 
 3. **Routing**
-   - Basic routes
-   - Route parameters
-   - Named routes
-   - Route groups
+   % - Basic routes
+   % - Route parameters
+   % - Named routes
+   % - Route groups
 
 4. **Controllers**
-   - Creating controllers
-   - Resource controllers
+   % - Creating controllers
+   % - Resource controllers
    - Dependency injection
 
 5. **Views & Blade Templating**
-   - Blade syntax
-   - Layouts and inheritance
+   % - Blade syntax
+   % - Layouts and inheritance
    - Components and slots
    - Directives
 
 ## Phase 2: Database & Eloquent ORM
 
 1. **Database Setup**
-   - Migrations
+   % - Migrations
    - Seeders
    - Factories
 
 2. **Eloquent ORM**
-   - Models
-   - CRUD operations
-   - Relationships (hasOne, hasMany, belongsTo, manyToMany)
+   % - Models
+   % - CRUD operations
+   % - Relationships (hasOne, hasMany, belongsTo, manyToMany)
    - Query Scopes
    - Accessors & Mutators
 
