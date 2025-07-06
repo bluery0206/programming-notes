@@ -1,0 +1,9 @@
+
+CREATING NEW PROJECT
+	OPTION 1: No folder created
+		>>> cd PATH_TO_SOMEWHERE_NICE
+		>>> django-admin startproject PROJECT_NAME
+
+	OPTION 2: Project folder already created
+		>>> cd PATH_TO_PROJECT_FOLDER
+		>>> django-admin startproject PROJECT_NAME .

@@ -1,0 +1,6 @@
+
+Input
+	# A built-in method that runs everytime checking for inputs
+	func _input(event):
+		if even.is_action_pressed("action_name"):
+			# Do something

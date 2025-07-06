@@ -1,0 +1,4 @@
+	
+randf() # Between 0 and 1
+randi_range(min, max) # Integer
+randf_range(min, max) # Float

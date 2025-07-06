@@ -1,0 +1,108 @@
+Tutorial from:
+	- NeuralNine
+	- https://www.youtube.com/watch?v=3qjEPRmge8I
+
+from docx import Document
+
+doc = Document()
+doc.save("name.docx")
+
+doc.add_heading(text, type)
+
+# p is now the reference to the paragraph.
+# If you keep adding, I guess, anything, it will be on that paragraph
+p = doc.add_paragraph(text)
+
+p.add_run(text).bold = True
+p.add_run(text).italic = True
+
+doc.add_paragarph(text, style="List Bullet")
+
+# add table
+	table_header = ['Name', 'age', 'job']
+	table_content = [
+		["ryhan", 23, "oda"],
+	]
+
+	table = doc.add_table(rows=1,cols=3)
+	for i in range(3):
+		table.rows[0].cells[i].text = table_header[i]
+
+	for name, age, job in table_content:
+		cells = table.add_row().cells
+		cells[0].text = name
+		cells[1].text = str(age)
+		cells[2].text = job
+
+# new page
+	doc.add_page_break()
+
+# add_image
+	doc.add_picture(path.ex)
+
+doc.add_para.....
+
+
+
+# reading word file
+	from docx.api import Document
+
+	doc = document(filename)
+
+	# getting headings
+	for p in doc.paragrapths:
+		if p.style.name.startswith("Heading") or p.style.name == "Title":
+			print(p.text)
+
+
+	# getting tables
+	for table in doc.table:
+		for row in table.rows:
+			print(cell.text for cell in row.cell)
+
+	# Gettinhg all text
+	all_text = ""
+
+	for p in doc.paragraphs:
+		all_text =+ p.text
+		all_text =+\n
+
+	# getting certrain styled (problematic)
+	all_style =""
+
+	for p in doc.parahraphs:
+		for run in p.runs:
+			if run.font.size == Pt(16):
+				alldasd += text
+				alldasd += "\n"
+
+	print(dsadaks)
+
+
+
+
+
+
+
+Automatically fill word files with python
+
+
+	from docx import Document
+
+	doc = Document(template_path)
+
+	# one paragraph is one run in the normal text i guess
+
+	for parahgraph in doc.pararafs:
+		for ket, value in data.items():
+			if key in paragra.text:
+				for un in paragraph.runs:
+					run.text = run.text.replae(key, value)
+
+
+	for parahgraph in doc.pararafs:
+		for ket, value in data.items():
+			if key in paragra.text:
+				paragraph.text = paragraph.text.replace(key, value)
+
+

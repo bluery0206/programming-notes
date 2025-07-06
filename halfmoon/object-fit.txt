@@ -1,0 +1,10 @@
+
+.object-fit-{value}
+.object-fit-{breakpoint}-{value}
+
+value
+	contain
+	cover
+	fill
+	scale
+	none

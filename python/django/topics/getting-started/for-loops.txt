@@ -1,0 +1,21 @@
+
+FOR-LOOPS IN DJANGO TEMPLATE
+	on PROJECT_FOLDER/APP_NAME/views.py
+		context = {
+			'names': ['John', 'Mary', 'Gaia'],
+		}
+		return render(request, 'templateName.html', context)	
+
+	on PROJECT_FOLDER/APP_NAME/templates/TEMPLATE_NAME.html
+		<html>
+		<head>TITLE</head>
+		<body>
+			<ul>
+				{% for name in names %}
+					<li>{{ name }}</li>
+				{% empty %}
+					<li>Sorry, tempty</li>
+				{% endfor %}
+			</ul>
+		</body>
+		</html>

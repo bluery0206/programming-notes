@@ -1,0 +1,13 @@
+
+help_text: str
+	- Add descriptive text for isntructions or tooltips
+	- Usage:
+		name = models.CharField(
+	        max_length=50,
+	        help_text="Enter the operator's codename (e.g., 'Amiya').",  # Plain text
+	    )
+
+	    RENDERED AS
+	    	<label></label>
+			<input>
+			<span class="helptext">Enter the operator's codename (e.g., 'Amiya').</span>

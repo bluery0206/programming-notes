@@ -1,0 +1,42 @@
+
+Setters
+	# Basically a do-something before setting a new value
+
+	signal health_changed
+
+	# Sets-up do something when assigning a new value to it
+	var health := 100:
+		set(value):
+			# dont go beyond 0 and 100
+			health = clamp(value, 0, 100)
+			health_changed.emit()
+
+	func _ready():
+		health = 100
+		
+	func _on_health_changed(new_health):
+		print(new_health)
+
+	# In the example above, if we assign a new health value,
+	# it first go into the set(): function and do something first.
+
+Getters
+	# Basically a do-something before returning
+
+	var chance:= 0.2
+	var chance_pct:int:
+		get:
+			return
+			chance * 100
+
+		set(value):
+			chance = float(value) / 100.0
+
+	func _ready():
+		prit(cance_pct)
+
+		change_pct = 30
+		pirnt(chance_pvt)
+
+	# In the example above, if we access the change_pot,
+	# it first go into the get() function and do something first.

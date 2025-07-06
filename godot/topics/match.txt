@@ -1,0 +1,13 @@
+
+Match
+	# match == switch
+
+	match varName:
+		value_1:
+			# code
+		value_2:
+			# code
+
+		# default 	
+		_: 
+			# code

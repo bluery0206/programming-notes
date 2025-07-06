@@ -1,0 +1,30 @@
+
+GUTTERS
+    Gutters are the padding between your columns, used to responsively space 
+        and align content in the grid system.
+    Gutters are the gaps between column content, created by horizontal 
+        padding. We set padding-right and padding-left on each column, and 
+        use negative margin to offset that at the start and end of each row 
+        to align content. The class names for setting gutters come in the f
+        ollowing formats:
+    .g-{size} / .g-{breakpoint}-{size} — sets gutters on all four sides
+    .gx-{size} / .gx-{breakpoint}-{size} — sets gutters horizontally
+    .gy-{size} / .gy-{breakpoint}-{size} — sets gutters vertically
+
+    
+    <div class="container p-4">
+        <div class="row gx-3">
+            <div class="col"><div class="border">Column</div></div>
+            <div class="col"><div class="border">Column</div></div>
+        </div>
+    </div>
+
+    or
+
+    <div class="row g-N">
+       div.col
+            div.idk
+    </div>
+     This ones really complicated though. but I guess with the right structure,
+            this will work just like above. It kinda does a css:gap kinda thing
+            although it both affects all sides (expt speciffied (gx or gy)).

@@ -1,0 +1,44 @@
+CARD
+    - No margin in default
+    - No fixed width
+    - If .card-title and  .card-subtitle are in .card-body, aligned automatically.
+
+    <div class="card">
+        <div class="card-header"> HEADER </div>
+        <img src="..." class="card-img-top" alt="...">
+
+        <!-- for overlay or image in bg -->
+        <img src="..." class="card-img" alt="...">
+        <div class="card-img-overlay">
+            sdasd
+        </div>
+
+        <div class="card-body">
+            <h5 class="card-title"> TITLE </h5>
+            <h6 class="subtitle"> SUBTITLE </h6>
+            <p class="card-text"> TEXT </p>
+            <a href="#" class="btn btn-primary"> BUTTON </a>
+            <a href="#" class="card-link"> LINK </a>
+
+            <!-- Making the card function as a link -->
+            <a href="#" class="stretched-link">
+                IDK
+            </a>
+        </div>
+        <div class="card-footer"> FOOTER</div>
+        <img src="..." class="card-img-bottom" alt="...">
+    </div>
+
+    BODY
+        - Have padding
+
+    LIST-GROUPS
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">List group item 1</li>
+        <li class="list-group-item">List group item 2</li>
+        <li class="list-group-item">List group item 3</li>
+      </ul>
+
+    CARD-GROUPS
+        - Footers are automatically aligned
+        - Default: d-flex

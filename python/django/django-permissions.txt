@@ -1,0 +1,87 @@
+Django Roles & Permissions Cheat Sheet
+
+
+1. Role Management (Who Are You?)
+    Option A: Custom Role Field (Simple)
+        class User(AbstractUser):
+            class Role(models.TextChoices):  # or IntegerChoices
+                ADMIN = "ADMIN", "Admin"
+                RECEPTIONIST = "REC", "Receptionist"
+                GUEST = "GUEST", "Guest"
+
+        role = models.CharField(max_length=5, choices=Role.choices)
+
+        # Check role
+        if user.role == User.Role.RECEPTIONIST: ...
+
+        - Use when: Few fixed roles, no complex permissions.     
+        - Pros: Simple, fast, enum-friendly.  
+
+    Option B: Groups (Scalable)
+    
+        from django.contrib.auth.models import Group
+        receptionists = Group.objects.create(name="Receptionist")
+
+        # Add user to group
+        user.groups.add(receptionists)
+
+        # Check group
+        if user.groups.filter(name="Receptionist").exists(): ...
+        
+        - Use when: Dynamic roles, granular permissions.  
+        - Pros: Built-in, works with Django admin.  
+
+
+2. Permissions (What Can You Do?)
+    Default Permissions (Auto-created per model)  
+        - `add_model` (e.g., `add_room`)  
+        - `change_model`  
+        - `delete_model`  
+        - `view_model`  
+
+    Custom Permissions
+        class Reservation(models.Model):
+            class Meta:
+                permissions = [("can_cancel", "Can cancel reservations")]
+
+        # Assign to user/group
+        user.user_permissions.add(Permission.objects.get(codename="can_cancel"))
+
+    Checking Permissions
+        # In python
+        if user.has_perm("app.can_cancel"): ...
+
+        # In Templates
+        {% if perms.app.can_cancel %} ... {% endif %}
+
+
+3. Staff vs. Superuser
+    | Field             | Access to `/admin/` | Bypasses Permissions? | Use Case                |
+    |-------------------|---------------------|-----------------------|-------------------------|
+    | `user.is_staff`   | ✅ Yes              | ❌ No                 | Staff users (e.g., receptionists) |
+    | `user.is_superuser` | ✅ Yes           | ✅ Yes                | Full admin (you!)       |
+
+
+4. Key Decisions for Your Hotel Project
+    1. Roles:  
+       - Few fixed roles? → Use `Role` field (enums).  
+       - Many/scalable roles? → Use Groups.  
+
+    2. Permissions:  
+       - Start with default permissions (`add/change/delete`).  
+       - Add custom permissions for special actions (e.g., `can_overbook`).  
+
+    3. Admin Access:  
+       - Grant `is_staff=True` to group members who need `/admin/`.  
+
+
+One-Liner Philosophy
+"Roles define who you are, permissions define what you can do."
+
+
+Pro Tip
+Combine both for maximum power:  
+
+# Example: Only receptionists with 'can_cancel' permission can cancel bookings
+if user.role == User.Role.RECEPTIONIST and user.has_perm("app.can_cancel"):
+    reservation.delete()

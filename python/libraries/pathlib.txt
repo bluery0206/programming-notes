@@ -1,0 +1,27 @@
+Creating Path Objects:
+	Path(path_string)	: Create a path object from a string.
+	Path(existing_path)	: Create a path object from an existing path object or file handle.
+
+Path Attributes:
+	name 				: The final component of the path (e.g., "my_file.txt").
+	stem				: The name without the extension (e.g., "my_file").
+	suffix				: The extension (e.g., ".txt").
+	parent				: The parent directory.
+	is_file()			: Checks if the path is a file.
+	is_dir()			: Checks if the path is a directory.
+	exists()			: Checks if the path exists.
+
+Path Operations:
+	join(path)			: Joins the path with another path.
+	with_name(name)		: Creates a new path with a different name.
+	with_suffix(suffix)	: Creates a new path with a different suffix.
+	resolve()			: Resolves the path to an absolute path.
+	glob(pattern)		: Finds files or directories matching a pattern.
+	iterdir()			: Iterates over the contents of a directory.
+	mkdir(exist_ok=False)	: Creates a directory.
+	rmdir()				: Removes an empty directory.
+	unlink()			: Removes a file.
+
+# uploaded_image.name: Name of the file.
+# uploaded_image.size: File size.
+# uploaded_image.content_type

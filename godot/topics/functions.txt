@@ -1,0 +1,10 @@
+
+Basic Structure
+	func functionName(parameterNames):
+
+	# parameters are the names of values a function may require to execute
+
+Calling a Function
+	functionName(arguments)
+
+	# arguments are the values sent to the function

@@ -1,0 +1,44 @@
+<!-- Modal toggles -->
+<button type="button" data-bs-toggle="modal" data-bs-target="#example-modal-1">
+    Launch modal
+</button>
+ 
+<div class="modal fade" id="example-modal-1" tabindex="-1" aria-labelledby="modal-title-1" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="modal-title-1">Modal title</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                This is the modal body which can contain all types of custom content, such as forms, tooltips, popovers, grids, etc.
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- data-bs-backdrop="static" prevents closing when clicking outside the modal -->
+<div class="modal" data-bs-backdrop="static">...</div>
+
+<!-- data-bs-keyboard="false" prevents "esc" key from closing the modal -->
+<div class="modal" data-bs-backdrop="static" data-bs-keyboard="false">...</div>
+
+<!-- .modal-dialog-scrollable makes the modal scrollable-->
+<div class="modal-dialog modal-dialog-scrollable">...</div>
+
+<!-- modal-dialog-centered makes the modal in the middle -->
+<div class="modal-dialog modal-dialog-centered">...</div>
+
+<!-- modal-{sm|lg|xl} makes the width varies -->
+<div class="modal-dialog modal-{size}">...</div>
+
+<!-- modal-fullscreen makes the modal fullscreen -->
+<div class="modal-dialog modal-fullscreen">...</div>
+
+<!-- modal-fullscreen-{breakpoint}-down makes the modal fullscreen in the specified breakpoint-->
+<div class="modal-dialog modal-fullscreen-{breakpoint}-down">...</div>

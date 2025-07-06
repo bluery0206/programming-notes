@@ -1,0 +1,141 @@
+Halfmoon | CSS Framework
+
+
+
+FIGURE
+    figure.figure
+    img.figure-img
+    figcaption.figure-caption
+
+    <figure class="figure mb-0">
+      <img src="..." class="figure-img img-fluid rounded" alt="...">
+      <figcaption class="figure-caption">
+        A caption for the above image.
+      </figcaption>
+    </figure>
+
+
+FORM
+    .form-control <!-- input and textarea -->
+    .form-control-{size} <!-- size: sm, lg -->
+    .form-control-plaintext <!-- removes style of the field -->
+    .form-label <!-- label -->
+
+    FORM TEXT: That small reminder kinda thingy
+        BLOCK
+            <label for="uname-block" class="col-form-label">Username</label>
+            <input type="text" id="uname-block" class="form-control" placeholder="Username" aria-labelledby="uname-block">
+            <span id="uname-block" class="form-text">The username must be at least 8 characters long.</span>
+        
+        INLINE
+            <div class="row p-2 align-items-center">
+                <div class="col-auto">
+                    <label for="uname-inline" class="col-form-label">Username</label>
+                </div>
+                <div class="col-auto">
+                    <input type="text" id="uname-inline" class="form-control" placeholder="Username" aria-labelledby="uname-inline">
+                </div>
+                <div class="col-auto">
+                    <span id="uname-inline" class="form-text">The username must be at least 8 characters long.</span>
+                </div>
+            </div>
+    
+    .form-control-color <!-- input:color -->
+
+    DATALIST
+        <!-- Datalist -->
+        <label for="example-input-7" class="form-label">Select state</label>
+        <input class="form-control" list="datalist-options" id="example-input-7" placeholder="Type to search...">
+        <datalist id="datalist-options">
+          <option value="San Francisco">
+          <option value="New York">
+        </datalist>
+    
+    SELECT
+        .form-select
+        .form-select-{size} <!-- size: sm, lg -->
+
+
+    CHECKBOX AND RADIO
+        .form-check <!-- for the div -->
+        .form-check-inline <!-- makes the check list inline -->
+        .form-check-reverse <!-- moves the checkboxes into the right -->
+        .form-check-input <!-- for the input itself-->
+        .form-check-label
+        .form-switch <!-- for the fiv. makes the checkbox a switch -->
+        
+        BUTTON 
+            <input type="checkbox" class="btn-check" id="example-checkbox-9" autocomplete="off">
+            <label class="btn btn-outline-primary" for="example-checkbox-9">Python</label>
+
+    RANGE
+        .form-range
+       
+    INPUT-GROUP    
+        .input-group <!-- on the fiv containing the label, input, etc -->
+        .input-group-{size} <!-- size: sm, lg -->
+        .input-group-text <!-- a span/div containing a text to be put within the field -->
+
+        CUSTOM FORMS
+            <!-- Custom select box -->
+            <div class="mb-3">
+              <label class="form-label" for="example-select-1">Profession</label>
+              <div class="input-group">
+                <label class="input-group-text" for="example-select-1">I'm a</label>
+                <select class="form-select" id="example-select-1" aria-label="Profession">
+                  <option selected>Choose option</option>
+                  <option value="backend">Back-end engineer</option>
+                  <option value="frontend">Front-end engineer</option>
+                  <option value="fullstack">Full-stack engineer</option>
+                </select>
+              </div>
+            </div>
+             
+            <!-- Custom file input -->
+            <div>
+              <label class="form-label" for="example-file-input-1">Resume</label>
+              <div class="input-group">
+                <input type="file" class="form-control" id="example-file-input-1" aria-label="Attach resume">
+                <label class="input-group-text" for="example-file-input-1">Upload</label>
+              </div>
+              <div class="form-text">Please attach your latest resume.</div>
+            </div>
+
+FLOATING LABELS
+    .form-floating <!-- the div -->
+
+FORM VALIDATION
+    Custom validation rquires `novalidation` in the form
+
+    .is-valid
+    .is-invalid
+    .invalid-feedback <!-- the message of the error -->
+    .was-validated <!-- makes every field red if .is-invalid -->
+    
+
+SIDE TOPICS
+    TEXT TRUNCATE
+        Makes long text "..." when exceeding width
+
+        .text-truncate
+
+    ROW-COLUMNS
+        This ones cool. Kinda like css:grid
+
+        row-cols-{number of columns}
+
+        <!-- Row columns gutters -->
+        <div class="container">
+          <div class="row row-cols-2 row-cols-lg-4 g-3 g-lg-4">
+            <div class="col"><div class="...">Column</div></div>
+            <div class="col"><div class="...">Column</div></div>
+            <div class="col"><div class="...">Column</div></div>
+            <div class="col"><div class="...">Column</div></div>
+            <div class="col"><div class="...">Column</div></div>
+            <div class="col"><div class="...">Column</div></div>
+            <div class="col"><div class="...">Column</div></div>
+            <div class="col"><div class="...">Column</div></div>
+          </div>
+        </div>
+
+

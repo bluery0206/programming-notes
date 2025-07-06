@@ -1,0 +1,33 @@
+
+TABLES
+    <table class="table">
+        <thead></thead>
+        <tbody></tbody>
+    </table>
+
+    .table-striped 
+    .table-striped-columns <!-- zebra patterned table in columns -->
+    .table-hover
+    .table-active
+
+    <!--variants: primary, secondary, success, danger, warning, info, light, or dark -->
+    .table-{variant}
+
+    .table-bordered
+    .table-borderless
+    .table-sm
+    .table-group-divider <!-- a thick line -->
+    .caption-top <!-- moves caption at the top -->
+
+    CAPTION
+        <table class="table">
+            <caption>List of employees</caption>
+            <thead>...</thead>
+            <tbody>...</tbody>
+        </table>
+
+    
+    .table-responsive <!-- across all viewports -->
+    .table-responsive-{sm|md|lg|xl|xxl}
+
+    div.table-responsive>table.table

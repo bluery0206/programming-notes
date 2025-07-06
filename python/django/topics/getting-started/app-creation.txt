@@ -1,0 +1,58 @@
+
+CREATING AN APP
+	OPTION 1
+		>>> py manage.py startapp APP_NAME
+	
+	OPTION 2
+		>>> django-admin startapp APP_NAME
+
+
+	> Register the created app. So django knows where to look for templates and more
+		on PROJECT_FOLDER/PROJECT_NAME/settings.py
+			INSTALLED_APPS = [
+				...
+				'APP_NAME',
+			]
+
+	> Create route for the registered app
+		on PROJECT_FOLDER/PROJECT_NAME/urls.py
+			from django.urls import include
+
+			urlpatterns = [
+				...
+				path("", include("APP_NAME.urls")),
+				...
+			]
+
+	> Create template
+		on PROJECT_FOLDER/APP_NAME/templates/APP_NAME/TEMPLATE_NAME.html
+			<html>
+			<head>
+				<title>TITLE</title>
+			</head>
+			<body>
+				<h1>Hello World!</h1>
+			</body>
+			</html>
+
+	> Create view. 
+		# This handles some of the back-end logic like validation. 
+		# This is also where you connect the template file so that when a view is called, 
+		# 	it will show the template you created.
+		on PROJECT_FOLDER/APP_NAME/views.py
+			from django.shortcuts import render
+
+			def VIEW_NAME(request):
+				return render(request, "APP_NAME/TEMPLATE_NAME.html")
+
+	> Create route for the view. This handles what pages to show
+		on PROJECT_FOLDER/APP_NAME/urls.py
+			import django.urls import path
+			from . import views
+
+			urlpatterns = [
+				# The first parameter of path() below can be anything, just end it with a backslash (/). 
+				# E.g., "home/", "login/", or "profile/username/". 
+				# An empty string ("") usually is the page that will load first when you go to 127.0.0.1:8000 in your browser
+				path('URL/', views.VIEW_NAME, name="NAME"),
+			]

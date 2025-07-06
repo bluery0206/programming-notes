@@ -1,0 +1,38 @@
+
+.btn
+.btn-{variant}
+.btn-outline-{variant}
+.btn-{size}
+
+variant: 
+	- success
+	- danger
+	- warning
+	- info
+	- light
+	- dark
+	- line
+
+size:
+	sm
+	lg
+
+disabled
+	.disable + aria-disabled="true"
+
+BUTTON PLUGIN
+	- On/Off toggle button
+	- Usage:
+		button:button.btn data-bs-toggle="button"
+
+		ON
+			aria-pressed="true"
+			.active
+
+<!-- Button Split -->
+<div class="btn-group">
+	<button type="button" class="btn btn-primary">Button</button>
+	<button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+		<span class="visually-hidden">Toggle Dropdown</span>
+	</button>
+</div>

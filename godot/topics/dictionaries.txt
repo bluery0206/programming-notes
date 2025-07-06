@@ -1,0 +1,23 @@
+
+var dictName = {
+	key1: value1,
+	key2: value2,
+}
+
+Accessing value
+	dictName[key] # Returns value
+
+Changing a value from a specific index
+	dictName[key] = new_value
+
+for dictKey in dictName:
+	var dictVal = dictName[dictKey]
+
+Methods
+	.erase(key)			# Removes specified key in dict
+	.clear()			# Empties/Resets the dict
+	.has(key)			# Checks if dict has specified key		
+	.has_value(value)	# Checks if dict has specified key		
+	.keys()				# Returns an array of keys
+	.values()			# Returns an array of values
+	.merge(dictName)	# Merges into the specified dictName

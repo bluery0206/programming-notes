@@ -1,0 +1,6 @@
+
+# Creating a Enumeration
+	enum enumerationName {VALUE-1, VALUE-2, ..., VALUE-N}
+
+# Accessing Enumeration
+	var varName =  enumerationName.VALUE 

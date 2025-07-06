@@ -1,0 +1,31 @@
+### **Django Form Widget Attributes by Type**
+
+| **Field Type**          | **Widget Class**       | **Common `attrs`**                                                                 | **Rendered HTML Example**                                      |
+|-------------------------|------------------------|-----------------------------------------------------------------------------------|---------------------------------------------------------------|
+| **CharField**           | `TextInput`            | `{'class': 'text-input', 'placeholder': 'Type here', 'maxlength': '100'}`         | `<input type="text" class="text-input" placeholder="Type here" maxlength="100">` |
+| **EmailField**          | `EmailInput`           | `{'class': 'email-input', 'autocomplete': 'email'}`                               | `<input type="email" class="email-input" autocomplete="email">` |
+| **PasswordField**       | `PasswordInput`        | `{'class': 'pwd-input', 'data-toggle': 'password'}`                               | `<input type="password" class="pwd-input" data-toggle="password">` |
+| **BooleanField**        | `CheckboxInput`        | `{'class': 'checkbox', 'id': 'agree_terms'}`                                      | `<input type="checkbox" class="checkbox" id="agree_terms">`    |
+| **ChoiceField**         | `Select`               | `{'class': 'select-dropdown', 'style': 'width:100%'}`                             | `<select class="select-dropdown" style="width:100%">`          |
+| **Textarea**            | `Textarea`             | `{'class': 'textarea', 'rows': '4', 'cols': '50'}`                                | `<textarea class="textarea" rows="4" cols="50"></textarea>`    |
+| **DateField**           | `DateInput`            | `{'class': 'datepicker', 'type': 'date'}`                                         | `<input type="date" class="datepicker">`                       |
+| **DateTimeField**       | `DateTimeInput`        | `{'class': 'datetime-picker', 'readonly': True}`                                  | `<input type="text" class="datetime-picker" readonly="readonly">` |
+| **FileField**           | `FileInput`            | `{'class': 'file-upload', 'accept': 'image/*'}`                                   | `<input type="file" class="file-upload" accept="image/*">`     |
+| **NumberInput**         | `NumberInput`          | `{'class': 'number-input', 'min': '0', 'step': '0.5'}`                           | `<input type="number" class="number-input" min="0" step="0.5">` |
+| **RadioSelect**         | `RadioSelect`          | `{'class': 'radio-group'}` (Applied to each radio button)                         | `<input type="radio" class="radio-group">` (repeated)          |
+| **CheckboxSelectMultiple** | `CheckboxSelectMultiple` | `{'class': 'checkbox-group'}` (Applied to each checkbox)                       | `<input type="checkbox" class="checkbox-group">` (repeated)    |
+
+---
+
+### **Universal Attributes (Work with Any Widget)**
+| **Attribute**       | **Example**                          | **Purpose**                              |
+|----------------------|--------------------------------------|------------------------------------------|
+| `class`             | `'form-control primary'`             | Space-separated CSS classes              |
+| `id`                | `'username_field'`                   | Unique DOM ID                            |
+| `style`             | `'width:100%; color:red;'`           | Inline CSS                               |
+| `data-*`            | `'data-toggle': 'modal'`             | Custom data attributes                   |
+| `aria-*`            | `'aria-label': 'Username'`           | Accessibility attributes                 |
+| `readonly`          | `'readonly': True`                   | Disables input editing                   |
+| `disabled`          | `'disabled': True`                   | Grays out and disables field             |
+| `placeholder`       | `'placeholder': 'e.g., user123'`     | Hint text inside empty fields            |
+

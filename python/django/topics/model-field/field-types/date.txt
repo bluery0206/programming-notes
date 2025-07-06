@@ -1,0 +1,40 @@
+
+DATE
+	DateField
+		- Stores date (no time) in datetime.time format (YYYY-MM-DD)
+		- Usage:
+			# Stores date like `2023-10-15`
+			join_date = models.DateField() 
+
+	DateTimeField
+		- Stores date + time (datetime.datetime)
+		- Usage:
+			# Stores datetime like `2023-10-15 14:30:00
+			join_time = models.DateTimeField()  
+
+	CUSTOM
+		date
+			from datetime import date
+
+			# Default: today, but editable
+			start_date = models.DateField(default=date.today) 
+
+		timezone
+			from django.utils import timezone
+
+			# Timezone-aware default
+			start_time = models.DateTimeField(default=timezone.now)
+
+	TIMESTAMPS
+		auto_now = True -> Last updated
+		auto_now_add = True -> Creation date (Immutable)
+			
+    DurationField
+    	- Stores time durations as Python `timedelta`
+    	- Usage:
+			from datetime import timedelta
+
+		    cooldown = models.DurationField(
+		    	# Default: 30 seconds
+		        default=timedelta(seconds=30)
+		    )

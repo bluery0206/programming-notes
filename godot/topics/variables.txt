@@ -1,0 +1,9 @@
+
+var varName = value
+
+Type hinting
+	var varName: type = value
+	var varName: Vector2 = Vector2(n, n)
+
+	Letting the computer figure t out
+		var varName := Vector2(n, n)

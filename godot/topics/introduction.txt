@@ -1,0 +1,26 @@
+
+Works like Python
+
+The Game Loop
+	_process() is like the loop() function in arduino that loops to process events
+
+Time Delta
+	Delta
+		Time took Godot to complete the previous frame
+
+		Useful for different computers with different specs
+
+2D Vectors
+	Vector2(x, y)
+	position= Vector2(x, y)
+
+
+Extras
+	When trying to display any other data type, you have to convert them into strings through str(variable)
+	When dividing, make sure you're using decimals and not int as dividing int numbers will return int and not float
+
+
+	
+Creating Variables from Imported Nodes
+	> Drag $Node into the script editor
+	> Hold Ctrl then release to make variables

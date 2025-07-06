@@ -1,0 +1,29 @@
+
+TYPOGRAPHY
+    HEADINGS
+        .h1 to .h5
+    
+    CUSTOMIZED HEADINGS
+        <h5>
+            Some example title <br />
+            <small class="text-body-secondary">Small subtitle</small>
+        </h5>
+
+    DISPLAY
+        Giant headers
+        
+        display-1 to display-6 where 6 is the smallest
+    
+    LEAD
+        gives a paragraph margin to emphasize it, hence, lead
+        
+        <p class="lead">
+          This is a lead paragraph. It stands out from regular paragraphs.
+        </p>
+        
+        also blockquote (not the html tag but with it) kinda gives the same effect
+
+    LIST
+        .list-unstyled
+        .list-inline <!-- for parent list -->
+        .list-inline-item <!-- for list item -->

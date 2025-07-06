@@ -1,0 +1,75 @@
+
+GRID SYSTEM
+    The grid system is a flexbox based, 12-column system, which 
+        can be used to quickly and easily build websites and pages 
+        that look good on all screen sizes.
+
+    COLUMNS 
+        <div class="container">
+          <div class="row">
+            <div class="col">Column</div>
+            <div class="col">Column</div>
+            <div class="col">Column</div>
+          </div>
+        </div>
+
+
+        Also supports breakpoints
+            .col-{size}	
+            .col-sm-{size}
+            .col-md-{size}
+            .col-lg-{size}
+            .col-xl-{size}
+            .col-xxl-{size}
+        
+        Where:
+            total col size should be 12
+
+        Sizes
+            col-{1 to 12}
+            col-auto <!-- Takes up all available space; even when more cols -->
+    
+
+    ALIGNMENT
+        VERTICALLY
+            CHILDREN
+                align-items-start
+                align-items-center
+                align-items-end
+
+            SELF
+                align-self-start
+                align-self-center
+                align-self-end
+            
+            <!-- value: baseline, top, middle, bottom, text-top, or text-bottom -->
+            .align-{value}
+
+        HORIZONTALLY
+            justify-content-start 
+            justify-content-center
+            justify-content-end
+            justify-content-around 
+            justify-content-between
+            justify-content-evenly
+
+
+    COLUMN BREAKS
+        <!-- The default size w/o breakpoints (BP) limitations -->
+        col-{SIZE_A} 
+
+        <!-- col's size is SIZE_B if screen is bigger than BP -->
+        col-{BP}-{SIZE_B} 
+
+    
+    REORDERING
+        .order-{value}
+        .order-{breakpoint}-{value} <!-- value: 1 - 5-->
+        .order-first <!-- moves the component first in the list-->
+        .order-{breakpoint}-first
+        .order-last <!-- moves the component last in the list-->
+        .order-{breakpoint}-last
+
+    OFFSETTING COLUMNS
+        .offset-{value} <!--  value: 1 - 11-->
+        .offset-{breakpoint}-{value}

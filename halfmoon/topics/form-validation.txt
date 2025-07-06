@@ -1,0 +1,7 @@
+FORM VALIDATION
+    Custom validation rquires `novalidation` in the form
+
+    .is-valid
+    .is-invalid
+    .invalid-feedback <!-- the message of the error -->
+    .was-validated <!-- makes every field red if .is-invalid -->

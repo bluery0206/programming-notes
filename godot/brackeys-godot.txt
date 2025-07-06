@@ -1,0 +1,246 @@
+
+
+# Player
+	# Scene Tree 
+		CharacterBody2d -> rename: Player
+			AnimatedSprite2D	# Animated Sprite
+			CollisionShape2D	# Hitbox
+
+	# Script
+		@onready var animated_sprite = $AnimatedSprite2D
+
+		func _process(delta):
+			...		
+
+			# Change player sprite to look at direction
+			# where the player is going
+			if direction > 0:
+				animated_sprite.flip_h = false
+			elif < 0:
+				animated_sprite.flip_h = true
+
+			# Play Animation
+			if is_on_floor():
+				if direction == 0:
+					animated_sprite.play("idle")
+				else:
+					animated_sprite.play("run")
+			else:
+				animasrpite.play("jump")
+
+	#Inspector
+		Collision
+			Layer - Visibility Layer I guess
+			Mask - Defines what a node collides with
+
+
+# Platform
+	AnimatableBody2D -> rename: Platform
+		Sprite2D
+		# Inspector
+			Region: Off -> On
+				Edit Region
+
+		CollisionShape2D
+		# Inspector
+			One Way Collision: Off -> On
+
+
+# Coins
+	# Scene Tree 
+		Area2D		- dont want to collide define an area to detect collisions
+			AnimateSrpite2D
+			CollisionShape2D 
+			AudioStreamPlayer2d -> rename: PickUpSound
+			AnimationPlayer
+
+	# Script
+		@onready var game_manager = %GameManager
+		@onready var animation_player = %AnimationPlayer
+
+		func _on_body_entered():
+			game_manager.add_point()
+			animation_player.play("pickup")
+
+
+
+# Killzone
+	# Scene Tree
+		Area2D -> rename: Killzone
+			Timer
+
+	# Insperctor
+		Collision
+			Mask: Layer where the player is
+
+	# Script
+		@onready var timer = $Timer 
+
+		func _on_body_entered(body):
+			print()
+
+			# Slows gametime/Slow-mo
+			Engine.timescale = 0.5
+
+			# Removing players CollisionShape so
+			# That when the player dies, he falls off
+			body.get_node("CollisionShape2D").queue_free()
+
+			timer.start()
+
+		func on_timer_timeout():
+
+			# Remove Slo-mo
+			Engine.timescale = 1.0
+
+			get_tree().reload_current_scene()
+
+
+
+# Enemy
+	# Scene Tree
+		Node2D -> rename: Enemy
+			AnimatedSprite2D
+			Killzone
+				CollisionShape
+			RayCast2D
+				rename	: ReyCastRight
+				face	: Right
+			RayCast2D
+				rename	: ReyCastLeft
+				face	: Left
+
+	# Script
+		var SPEED 		= n
+		var DIRECTION 	= 1		# 1=right, -1=left
+
+		@onready var ray_cast_right = $ReyCastRight
+		@onready var ray_cast_left	= $ReyCastLeft
+		@onready var animated_spr	= $AnimatedSprite2D
+
+
+		func _process(delta):
+
+			# Changing Move Direction
+			if ray_cast_right.is_colliding():
+				DIRECTION		= -1
+				animated_spr	= true
+			if ray_cast_left.is_colliding():
+				DIRECTION		= 1
+				animated_spr	= false
+
+			# Move
+			position.x += DIRECTION * SPEED * delta
+
+
+
+# Game
+Node2d -> rename: Game
+	Player
+		Camera2D
+			# Limiting Camera
+			# Inspector
+				Limit
+					Left: n
+					...: n
+
+	# Temporary Floor
+	StaticBody2d 	
+		CollisionShape2D
+			Shape: World Boundary
+
+
+	# WorldMap
+	TileMap
+		TileSet: TileSet
+
+
+		# Shift + Drag	- to make one big tile
+		# Right + Click	- to remove
+
+		# Adding Physics Layer
+		# Inspector
+			Physics Layers
+				+ Add new layer
+
+			Layers
+				# Add Layer
+				Layer-1
+					Name: Background
+
+				Layer-2
+					Name: Midground
+
+		TileSet
+			Paint
+
+			# C - unselect
+			# F - paint
+
+		
+	# Animating Platform
+	Platform-n
+		AnimationPlayer
+		# Inspector 
+			Transform
+				Position
+					Add Keyframe
+
+	Killzone
+		CollisionShape2D
+
+	Node2D -> rename: Labels
+		# Scene Tree
+			Label-n
+			...
+
+		# Inspector
+			Theme Overrides
+				Fonts
+				...
+
+	Control -> rename: GameManager
+		# Scene Tree
+			Label -> rename: ScoreLabel
+
+		# Making it unique
+			Right-click
+				Access as unique name
+
+		# Script
+			var score = 0
+
+			@onready var score_label = $ScoreLabel
+
+			func add_point():
+				score += 1
+				score_label.text ="You collected " + str(score) + " coins."
+
+	# This restarts when player dies
+	AudioStreamPlayer2d -> rename: Music
+		# Inspector
+			Sream -> Add music
+			Autoplay -> Off -> On
+			Volume dB -> 
+			Bus
+
+	# To do that
+	> Drag Music Node to scene
+	> Remove Music Node from Game Scene Tree
+
+	# Project Settings
+		Autoload
+			Select Scene
+
+
+
+
+
+
+
+
+
+
+
+
+

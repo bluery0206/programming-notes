@@ -1,0 +1,2 @@
+
+	cell * cell_size + cell_size / 2

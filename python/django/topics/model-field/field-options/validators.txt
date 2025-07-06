@@ -1,0 +1,24 @@
+
+validators
+	- Defines a custom validation rules for a field
+	- Usage:
+		DJANGO VALIDATIONS
+			from django.core.validators import (
+				MinValueValidator, 
+				MaxValueValidator
+			)
+
+			class Operator(models.Model):
+			    rarity = models.IntegerField(
+			        validators=[
+			            MinValueValidator(1),  # Must be ≥1
+			            MaxValueValidator(6),  # Must be ≤6 (e.g., 6★)
+			        ]
+			    )
+
+	    CUSTOM VALIDATIONS
+	    	def validationName(args): ...
+	    	FIELD_NAME = models.FIELD_TYPE(
+	    		...,
+		        validators=[validationName],
+		    )

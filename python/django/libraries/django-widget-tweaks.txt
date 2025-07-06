@@ -1,0 +1,21 @@
+
+NOT ALL IS IN HERE
+
+INSTALLING
+    pip install django-widget-tweaks
+    
+    settings.py
+        INSTALLED_APPS += [
+            ...
+            'widget_tweaks',
+        ]
+    
+    template.html
+        {% load widget_tweaks %}
+
+            
+ADDING CLASS
+    {{ form.field|add_class:"KLASS_NAME" }}
+
+ADDING ATTRIBUTES
+    {{ form.field||attr:"ATTR_NAME:VALUE" }}

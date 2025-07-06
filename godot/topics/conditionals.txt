@@ -1,0 +1,6 @@
+
+# Comparison Operators
+	==, !=, >, >=, <, <=
+
+# Logical Operators
+	and, or, not

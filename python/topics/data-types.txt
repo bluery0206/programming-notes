@@ -1,0 +1,27 @@
+
+Data types
+	str
+	int
+	float
+	complex	
+	list	
+	tuple	
+	range	
+	dict	
+	set	
+	frozenset	
+	bool	
+	bytes	
+	bytearray	
+	memoryview	
+	NoneType
+
+	Type Casting
+		// Changing a variable/value's data type
+		// Only if possible like stringed number to int ot float
+
+		number_as_string = "1"
+		number_as_int = int(number_as_string)
+
+	Methods
+		type(variable/value) // The data type of variable/value

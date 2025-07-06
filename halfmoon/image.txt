@@ -1,0 +1,3 @@
+
+.img-fluid
+.img-thumbnail -> rounded 1px border

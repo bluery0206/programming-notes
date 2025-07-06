@@ -1,0 +1,28 @@
+
+INSTALLATION
+    pip install python-dotenv
+
+IMPORTING
+    from dotenv import load_dotenv
+
+CREATING ENVIRONMENT VARIABLES (MANUAL)
+    on .env
+        VARIABLE_NAME=VALUE
+
+LOADING ENVIRONMENT VARIABLES
+    load_dotenv() 
+
+GETTING ENVIRONMENT VARIABLES
+    os.getenv("<VAR_NAME>")
+    os.environ("<VAR_NAME>")
+
+    EXAMPLE USE:
+        THIS_VAR = os.getenv("<VAR_NAME>")
+
+VARIABLES
+    ${<VAR_NAME>}
+
+    EXAMPLE USE:
+        THIS_VAR = THIS_VALUE
+        NEW_VAR = ${THIS_VAR} / ANOTHER VALUE
+

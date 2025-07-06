@@ -1,0 +1,8 @@
+
+verbose: str = FIELD NAME # e.g., the field is first_name -> first name
+		- Sets a human-readable label for the field
+		- Usage:
+			codename = models.CharField(
+		        max_length=50,
+		        verbose_name="Operator Codename",  # Shows instead of "codename"
+		    )

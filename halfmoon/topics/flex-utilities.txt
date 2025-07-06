@@ -1,0 +1,73 @@
+
+.d-flex
+.d-{breakpoint}-flex
+
+.d-inline-flex
+.d-{breakpoint}-inline-flex
+
+.flex-row
+.flex-{breakpoint}-row
+
+.flex-row-reverse
+.flex-{breakpoint}-row-reverse
+
+.flex-column
+.flex-{breakpoint}-column
+
+.flex-column-reverse
+.flex-{breakpoint}-column-reverse
+
+.justify-content-{alignment}
+.justify-content-{breakpoint}-{alignment}
+
+alignment:
+	start
+	end
+	center
+	between
+	around
+	evenly
+
+align-self-{alignment}
+align-self-{breakpoint}-{alignment}
+
+align-items-{alignment}
+align-items-{breakpoint}-{alignment}
+
+align-content-{alignment}
+align-content-{breakpoint}-{alignment}
+
+alignment:
+	start
+	end
+	center
+	baseline
+	stretch
+
+.flex-fill
+.flex-{breakpoint}-fill
+
+.flex-shrink
+.flex-{breakpoint}-shrink
+
+WRAP
+	.flex-nowrap
+	.flex-{breakpoint}-nowrap
+
+	.flex-wrap
+	.flex-{breakpoint}-wrap
+
+	.flex-wrap-reverse
+	.flex-{breakpoint}-wrap-reverse
+	
+
+ORDER
+	placed in the items
+
+	.order-{value}
+	.order-{breakpoint}-{value}
+
+	value:
+		0, 1, 2, 3, 4, 5
+		start
+		last

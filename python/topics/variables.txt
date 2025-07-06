@@ -1,0 +1,19 @@
+
+# Variables
+
+# The value can be an integer, string, etc.
+	name = "bagpipe"
+	damage = 500
+	crit_rate = 0.25
+	# ...etc...
+
+# It's also case-sensitive
+	name = "bagpipe"
+	Name = kaltsit
+# Variable "name" will not be overwritten and
+# just creates another variable called "Name"
+
+# You can also assign multiple variables in one line
+	operator_1, operator_2 = "Bagpipe", "Kaltsit"
+# or assign one value in multiple variables in one line
+	operator_1_rarity = operator_2_rarity = 6

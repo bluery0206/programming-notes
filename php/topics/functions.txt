@@ -8,3 +8,14 @@ FUNCTIONS
     {
         ...code...
     }
+
+    Return DataTypes
+        bool
+        int
+        string
+        mixed
+        object
+        array
+        null
+
+        ClassNames

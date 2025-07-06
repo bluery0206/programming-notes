@@ -1,0 +1,45 @@
+
+FileField
+	- Handles file uploads and stores references in DB.
+	- Usage:
+		SETUP
+			in PROJECT_DIR/PROJECT_NAME/settings.py
+				# Where files are saved  
+				MEDIA_ROOT = os.path.join(BASE_DIR, 'media')  
+
+				# URL prefix for files
+				MEDIA_URL = '/media/'    
+
+		BASIC
+			in PROJECT_DIR/APP_NAME/models.py
+				skin_file = models.FileField(
+					# Files go to `MEDIA_ROOT/skins/`
+					upload_to='skins/',
+
+					# Max filename length
+					max_length = 100, 
+				) 
+
+		DYNAMIC DIR (e.g., folder per user )
+			def operator_avatar_path(instance, filename):
+			    return f'operators/{instance.codename}/{filename}'
+
+			class Operator(models.Model):
+			    codename = models.CharField(max_length=50)
+			    avatar = models.FileField(upload_to=operator_avatar_path)
+
+ImageField
+	- A FileField that validates files as images
+	- Requires Pillow library
+	- Usage:
+		class Operator(models.Model):
+		    codename = models.CharField(max_length=50)
+		    art = models.ImageField(
+		        upload_to='operator_art/',
+
+		        # sets up using uploaded files dimension
+		        height_field='art_height',
+		        width_field='art_width',
+		    )
+		    art_height = models.IntegerField(blank=True, null=True)
+		    art_width = models.IntegerField(blank=True, null=True)

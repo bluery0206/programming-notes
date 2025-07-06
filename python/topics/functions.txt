@@ -1,0 +1,31 @@
+
+
+Basic Structure:
+	def functionName():
+		... code 
+		return
+
+	Example:
+		def welcome():
+			return "Hello World"
+
+		def greet(name):
+			return f"Hello {name}"
+
+Type Hinting
+	def add(a: int, b:int) -> int:
+		return a + b
+
+// If you don't know how many arguments will be passed, 
+// just use * before the parameter name
+	def myFunc(*arg):
+
+Double ** for dictionary type of arguments
+
+,/ disables the keyword argument
+*, only allows keyword arguments
+
+keyword arguments
+	myFunc(varName = value)
+
+Any argument before the / , are positional-only, and any argument after the *, are keyword-only.

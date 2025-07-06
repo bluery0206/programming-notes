@@ -1,0 +1,12 @@
+
+Iterators
+	# While
+		while condition:
+			# ... Code
+
+	# For
+		for i in range(n): 		
+			# ... Code
+
+		for i in varName: 		
+			# ... Code

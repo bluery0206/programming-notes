@@ -1,0 +1,17 @@
+
+ACCESSIBILITY
+    These classes below are for accessibility.
+    The `visually-hidden` is for listeners, they will be not 
+        be visible to people who can read but they read by 
+        the reader if people chose to "read-out-loud" the page.
+
+    <!-- for listeners only -->
+    <p class="text-danger">
+        <span class="visually-hidden">Danger: </span>
+        This action is not reversible
+    </p>
+
+    <!-- for focusable components like buttons -->
+    <a class="visually-hidden-focusable" href="#content">
+        Skip to main content
+    </a>

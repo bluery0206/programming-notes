@@ -1,0 +1,28 @@
+
+Auto reloads browser during development and if DEBUG = True 
+
+INSTALLATION
+	>>> python -m pip install django-browser-reload
+
+REGISTRATION
+	on PROJECT_DIR/PROJECT_NAME/settings.py
+		INSTALLED_APPS = [
+		    ...,
+		    "django.contrib.staticfiles",
+		    "django_browser_reload",
+		    ...,
+		]
+
+		MIDDLEWARE = [
+		    # ...
+		    "django_browser_reload.middleware.BrowserReloadMiddleware",
+		    # ...
+		]
+
+	on PROJECT_DIR/PROJECT_NAME/urls.py
+		from django.urls import include, path
+
+		urlpatterns = [
+		    ...,
+		    path("__reload__/", include("django_browser_reload.urls")),
+		]

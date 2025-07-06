@@ -1,0 +1,7 @@
+
+null: bool = False
+		- Allows empty form field
+		- Use for Non-string fields (e.g., IntegerField)
+		- Usage:
+			# health = NULL if form field is empty
+			health = models.IntegerField(null=True)

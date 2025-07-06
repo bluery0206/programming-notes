@@ -1,0 +1,43 @@
+
+USAGE
+	on templates/home.html
+		post.date_posted|date:"F d, Y"
+
+FORMAT
+	Seconds s - '00' to '59'
+
+	Minute 	i- '00' to '59'
+
+	Hour	g - '1' to '12'
+			G - '0' to '23'
+			h - '01' to '12'
+			H - '00' to '23'
+
+	Time	a - 'a.m.'
+			A - 'A.M.'
+
+	Hour and mins f - '1', '1:30'
+
+	leap year L - 'True'
+
+	Time zone T - 'EST' or 'MDT'
+
+	Day a week	l - 'Friday'
+				w - '0' to '6'
+				D - 'Fri'
+
+	Day a month d - '01' to '31'
+				j - '1' to '31'
+
+	Day year z - '0' to '365'
+
+	Month	b - 'jan'
+			F - 'January'
+			m - '01' to '12'
+			n - '1' to '12'
+			N - 'Jan.'
+
+	Total Month days t - '28' to '31'
+
+	Year	y - '99'
+			Y - '1999'

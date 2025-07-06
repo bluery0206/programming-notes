@@ -1,0 +1,85 @@
+
+choices
+		types:
+			dict = {"KEY": "HUMAN_READABLE_NAME", ...}
+			list[tuple] = [("KEY", "HUMAN_READABLE_NAME"), ...] 
+		- Allows choicess like a dropdown
+
+		USAGE
+			DEFAULT
+				civil_status = models.CharField(
+					max_length = 1,
+					choices = [
+						("s", "Single"),
+						("m", "Married"),
+						("w", "Widowed"),
+					]
+				)
+
+			NESTED
+				- No worries on rendering (like html structure and stuff), 
+					Django does it automatically
+
+				on APP_NAME/forms.py
+					operator_type = models.CharField(
+						max_length = 10,
+						choices = [
+						    (
+						        "Combat",  # Group label/name
+						        (
+						            ("guard", "Guard"),  # (value, label)
+						            ("sniper", "Sniper"),
+						        ),
+						    ),
+						    (
+						        "Support",
+						        (
+						            ("medic", "Medic"),
+						            ("caster", "Caster"),
+						        ),
+						    ),
+						]
+					)
+
+				CUSTOM RENDERING
+					on APP_NAME/templates/APP_NAME/TEMPLATE_NAME.html
+						{% for group_name, choices in form.operator_class.field.choices %}
+							<h3>{{ group_name }}</h3>  <!-- e.g., "Combat" -->
+							{% for value, label in choices %}
+								<div>
+									<input type="radio" name="operator_class" value="{{ value }}"> {{ label }}
+								</div>
+							{% endfor %}
+						{% endfor %}
+
+			ENUMERATION
+				STRING FIELDS
+					class Student(models.Model):
+					    class YearInSchool(models.TextChoices):
+					        FRESHMAN = "FR", "Freshman"
+					        SOPHOMORE = "SO", "Sophomore"
+					        JUNIOR = "JR", "Junior"
+					        SENIOR = "SR", "Senior"
+					        GRADUATE = "GR", "Graduate"
+					        
+					    year_in_school = models.CharField(
+					        max_length=2,
+					        choices=YearInSchool.choices,
+					        default=YearInSchool.FRESHMAN
+					    )
+
+			    INTEGER FIELDS
+			    	class Card(models.Model):
+					    class Suit(models.IntegerChoices):
+					        DIAMOND = 1
+					        SPADE = 2
+					        HEART = 3
+					        CLUB = 4
+					        
+					    suit = models.IntegerField(choices=Suit.choices)
+
+			BONUS
+				GETTING HUMAN READABLE OF AN INSTANCE
+					VAR_NAME = OBJ_INSTANCE.get_FIELD_NAME_display()
+
+					category = item_instance.get_category_display() -> "Consumable"

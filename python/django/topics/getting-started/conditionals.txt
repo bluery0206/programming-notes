@@ -1,0 +1,17 @@
+
+CONDITIONALS IN DJANGO TEMPLATE
+	on PROJECT_FOLDER/APP_NAME/templates/TEMPLATE_NAME.html
+		<html>
+		<head>TITLE</head>
+		<body>
+			<h1>
+				{% if my_name %}
+					Hi! I'm {{ my_name }}
+				{% elif my_name and my_my_age %}
+					Hi! I'm {{ my_age }}
+				{% else %}
+					Hi!
+				{% endif %}
+			</h1>
+		</body>
+		</html>

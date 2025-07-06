@@ -1,0 +1,12 @@
+
+INSTALLATION
+	>>> pip install django-cleanup
+
+REGISTRATION
+	on PROJECT_FOLDER/PROJECT_NAME/settings.py
+		INSTALLED_APPS = (
+		    ...
+
+		    # Should be placed last
+		    'django_cleanup.apps.CleanupConfig',
+		) 

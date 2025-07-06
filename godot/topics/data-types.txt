@@ -1,0 +1,9 @@
+
+Data Types
+	int 		: Integer type.
+	float 		: Float type.
+	String 		: String type.
+	bool 		: Boolean type.
+	Array 		: Array type.
+	Dictionary 	: Dictionary type.
+	null		: Null type.

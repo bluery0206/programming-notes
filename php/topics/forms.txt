@@ -1,0 +1,23 @@
+
+FORMS 
+    <form method="POST" action="<?= htmlspecialchars($_SERVER['PHP_SELF']); ?>">
+        <div>
+            <label>Username</label>
+            <input type="text" name="username">
+        </div>
+        <div>
+            <label>Password</label>
+            <input type="password" name="password">
+        </div>
+        <button type="submit">Login</button>
+    </form>
+
+    <form method="GET" action="search.php">
+        <input type="search" name="query" placeholder="Search">
+        <button type="submit">Search</button>
+    </form>
+
+    <?php
+        $username   = $_POST['username'];
+        $query      = $_GET['query'];
+    ?>

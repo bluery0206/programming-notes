@@ -1,0 +1,5 @@
+
+editable: bool = True
+	- Identifies if a field is or not
+	- Usage:
+		FIELD = models.FIELD_TYPE(editable=False)

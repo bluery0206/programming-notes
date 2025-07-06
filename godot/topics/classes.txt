@@ -1,0 +1,56 @@
+
+Inheritance
+	class_name Class
+	extends ClassParent
+
+
+
+Classes
+	# Nodes are in essence are classes
+
+	Main
+		# Scene Tree
+			Node2D -> rename: Character
+
+		# Script
+			@export var character_to_kill: Character
+
+	Character
+		# Script
+			class_name RealClassName
+
+			@export var name 	: String
+			@export var health 	: int
+
+			func die():
+				health = 0
+				print(name + " died.")
+
+	main
+		@export var character_to_kill: Character
+
+
+Inner class
+	# Essentially creating a class within a node
+
+	class Equipment:
+		var armor 	:= 10
+		var weight 	:= 3
+
+
+	# creates a new instance of the inner class
+	var chest		= Equipment.new()
+	var leggings	= Equipment.new()
+
+
+	func _on_ready():
+		chest.armor = 30
+		print(chest.armor)
+
+Call down signal up / Writing better code
+	Using the family abstract:
+		A parent can tell his/her children to to things but not vice versa. 
+		They can only ask for the parents to act accordingly
+
+	In Godot, A child class should use signals for when something has happened 
+	to update neccessary things without making things too complicated.

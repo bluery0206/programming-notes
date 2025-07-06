@@ -1,0 +1,35 @@
+
+Signals
+	signal leveled_up
+	
+	# Look at the Inspector/Node, there should be a signal
+	# called leveled_up in there now.
+
+	# emit emits much like calling a function
+	leveled_up.emit()
+
+	func _ready():
+		leveled_up.connect(_on_leveled_up)
+		leveled_up.disconnect(_on_leveled_up)
+
+	example
+		extends Node
+		
+		signal leveled_up(msg)
+		
+		car xp := 0
+		
+		func _ready():
+			leveled_up.connect(_on_leveled_up)
+		
+		func _on_timer_timeout():
+			xp += 5
+			
+			print(xp)
+			
+			if xp >= 20:
+				xp = 0
+				leveled_up.emit("MESSAGE")
+		
+		func _on_leveled_up(msg):
+			print(msg)

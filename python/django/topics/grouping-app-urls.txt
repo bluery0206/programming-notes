@@ -1,0 +1,20 @@
+
+GROUPING URL WITH SAME PATTERN
+	from django.urls import include, path
+
+	from . import views
+
+	polls_patterns = (
+	    [
+	        path("", views.IndexView.as_view(), name="index"),
+	        path("<int:pk>/", views.DetailView.as_view(), name="detail"),
+	    ],
+	    namespace = "polls",
+	)
+
+	urlpatterns = [
+	    path("polls/", include(polls_patterns)),
+	]
+
+	{% url 'namespace:name' %}
+	{% url 'polls:index' %}

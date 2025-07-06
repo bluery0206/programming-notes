@@ -1,0 +1,37 @@
+
+Variables
+	var
+		// Support old browsers
+		// Have a global scope
+		var errorMsg; 
+		errorMsg = "Username not found";
+
+	let
+		// If can't use `const`, use `let`
+		// Have blocked scope
+		// cannot be redeclared	
+
+		let name;
+		name = "Fiona;
+
+	const
+		// Has to be assigned in decleration
+		// Have a blocked scope
+		// Can't
+			Reassign a constant value
+			Reassign a constant array
+			Reassign a constant object
+		// Can
+			Change the elements of constant array
+			Change the properties of constant object
+
+		const pi = 3.14; 
+
+		// Constant as an object
+			const person = {
+				'firstName' : 'iona',
+				'lastName' : 'Young',
+			};
+
+			person.firstName = "Fiona"; // Change property
+			person.codename = "Bagpipe"; // Add new property

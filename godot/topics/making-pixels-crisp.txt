@@ -1,0 +1,4 @@
+
+Project Settings
+	Rendering/Textures
+		Default Texture Filter: "Linear" -> change: "Nearest"

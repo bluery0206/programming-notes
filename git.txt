@@ -1,0 +1,126 @@
+
+git --version
+
+GETTING HELP
+    git help COMMAND
+    git COMMAND --help
+
+BASIC GITHUB FLOW
+    OPTION 1 NEW REPO
+        > Initialize repository
+
+    OPTION 2 FROM GITHUB
+        > Clone repository
+
+    > Code
+    > Add changes
+    > Commit changes
+    > Pull to check if there are changes from other devs
+    > Push if okay
+
+SETTING UP GITIGNORE FILE
+    on /PATH/.gitignore
+        # "*" means all
+        # Ignores all files with .jpg
+        *.jpg 
+
+        # Ignores all file with "-system.jpg" in their name
+        *-system.jpg 
+
+        # Ignores anything inside the folder
+        FOLDER_NAME/
+
+        # Adds/Removes file even if its mentioned above
+        git add -f FILE_OR_DIR_NAME 
+        git rm --cached FILE_OR_DIR_NAME
+
+SETTING UP USER CREDENTIALS
+	>>> git config --global user.name "example"
+	>>> git config --global user.email "example@mail.com"
+
+INITIALIZING REPOSITORY
+    # Terminal Option
+        >>> cd <folder_location> # Change directory to <folder_location>
+        >>> git init
+
+CLONING REPOSITORY
+    # Go to a GitHub repository and copy its link and add ".git" at the end, no spaces
+        e.g.: https://github.com/username/repository_name.git
+
+    # Terminal Option
+        >>> git clone <link.git>
+
+STAGING CHANGES (Adding to "To be saved" list)
+    >>> git add -A # Adds all file
+    
+    or 
+
+    >>> git add <file_name or folder_name>
+
+COMITTING TO THE CHANGES MADE (Saving changes)
+    >>> git commit -m "MESSAGE"
+
+    CHUNKING
+        >>> git commit -p <filename> | <none> for all
+
+CHANGING BRANCH
+    # Existing branch
+        >>> git swtich <branch_name>
+
+    # Non-existing branch
+        >>> git switch <branch_name>
+        >>> git branch publish
+
+SWITCHING BRANCH
+    >>> git checkout BRANCH_NAME
+
+DELETING A BRANCH
+    >>> git branch -d BRANCH_NAME
+
+    DELETE BRANCH IN ONLINE REPO
+        >>> git push origin --delete BRANCH_NAME
+
+UNDOING OLDER COMMITS
+    OPTION 1
+        git reset --soft HEAD~1
+
+        # Make any additional changes
+        git add .
+        git commit -m "new improved commit"
+
+        # Push the corrected history
+        git push origin main --force
+
+    OPTION 2
+        >>> git rebase -i HEAD~n
+            
+            Where:
+                N - is the total number of commits to show
+            
+        Rebase Editor should appear after executing this listing N numbers of commits back.
+        
+        """
+            pick COMMIT_ID COMMIT_MESSAGE
+        """
+
+        Change `pick` to `edit` of the commit you want to retreive.
+        Save (`CTRL+S`) and exit (`CTRL+X`)
+        
+        >>> git add <file>
+        >>> git commit --amend
+        >>> git rebase --continue
+        >>> git push --force-with-lease # Fails if someone else pushed to the branch while you were working.
+
+    git rebase --abort
+
+    
+
+Prevents accidental overwrite
+
+git stash list -> lists
+git stash show -> inspect
+git stash apply -> restore
+git stash clear -> clears stash
+
+git stash | git stash push -> ???
+

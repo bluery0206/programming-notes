@@ -1,0 +1,11 @@
+
+CUSTOMIZE AND THEME
+    data-bs-core sets the halfmoon theme: 
+        default
+        modern
+        elegant
+
+    <html lang="en" data-bs-core="modern"> 
+        <head></head>
+        <body></body>    
+    </html>

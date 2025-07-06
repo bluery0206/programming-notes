@@ -1,0 +1,22 @@
+
+CharField
+	- Stores text strings
+	- Usage:
+		username = models.CharField(max_length=16)
+
+TextField
+	- Stores large text (unli length)
+	- Usage:
+		bio = models.TextField()
+
+EmailField
+	- Stores a CharField but validates email formats automatically
+	- Usage:
+		email = models.EmailField(unique=True)
+
+URLField
+	- Stores url but validated by URLValidator
+	- Usage:
+		website = models.URLField()
+	- Features:
+		- Ensures URLs starts with http://, https://, or ftp://

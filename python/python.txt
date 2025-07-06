@@ -1,0 +1,12 @@
+
+To enter python in CMD, type
+	py or python
+
+then you can code in python inside the command line like
+	for(i in range(10)): print(i)
+
+to exit
+	exit() or ctrl+z
+
+
+Remember that Python is an indent-based language so indentation matters

@@ -1,0 +1,48 @@
+
+<nav
+    class="
+        navbar 
+        navbar-expand-{sm|md|lg|xl|xxl}
+    "
+
+    role="navigation"
+>
+
+    <!-- Not sure but I guess just extra text -->
+    <div class="navbar-text">TExt</div>
+
+    <!-- The section with brand name or image -->
+    <a class="navbar-brand" href="#">
+        <img src="...">
+        Builder
+    </a>
+
+    <!-- Donut button when the screen size is small or toggleable -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-collapse-1" aria-controls="navbar-collapse-1" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- 
+        Makes the nav hiddent toggleable by the button above
+        When screen size is small
+     -->
+    <div class="collapse navbar-collapse" id="navbar-collapse-1">
+        <ul class="navbar-nav ">
+
+            <!-- Normal nav button -->
+            <li class="nav-item">
+                <a class="nav-link" href="#">Home</a>
+            </li>
+
+            <!-- Active nav button -->
+            <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Docs</a>
+            </li>
+
+            <!-- Disabled button -->
+            <li class="nav-item">
+                <a class="nav-link disabled">Blog</a>
+            </li>
+        </ul>
+    </div>
+</nav>

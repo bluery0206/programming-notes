@@ -1,0 +1,59 @@
+
+JSON Values
+
+	In JSON, values must be one of the following data types:
+		a string
+		a number
+		an object (JSON object)
+		an array
+		a boolean
+		null
+
+	In JSON, string values must be written with double quotes:
+		{"name":"John"}
+
+SAMPLE
+	[
+	    {
+	        "name": "Sporefall",
+	        "stack": {
+	            "frontend": "React",
+	            "backend": "Node.js",
+	            "database": "MongoDB"
+	        },
+	        "images": [
+	            "https://example.com/sporefall1.jpg",
+	            "https://example.com/sporefall2.jpg"
+	        ],
+	        "description": "A fantasy RPG game where players explore a magical world filled with mythical creatures and quests.",
+	        "links": {
+	            "github": "https://github.com/bluery0206/sporefall"
+	        }
+	    },
+
+	    ...
+	]
+
+OBJECTS
+	person = {name:"John", age:31, city:"New York"};
+
+	Accessing 
+		person.name; // John
+		person["name"]; // John
+
+	Modifying
+		person.name = "NewName";
+		person["name"] = "NewName";
+
+PARSE 
+	// Converts a stringed JSON content into an object
+
+	const obj = JSON.parse('{"name":"John", "age":30, "city":"New York"}');
+	const obj = JSON.parse('{"name":"John", "age":30, "city":"New York"}');
+
+
+STRINGIFY
+	// Converts an array, JSON object, etc into a string
+
+	const obj = {name: "John", age: 30, city: "New York"};
+	const myJSON = JSON.stringify(obj);

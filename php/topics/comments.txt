@@ -1,0 +1,14 @@
+
+// Single line comments
+
+# Single line comments
+
+/*
+	Multiline 
+	comment
+*/
+
+/*
+* Multiline
+* comment
+*/

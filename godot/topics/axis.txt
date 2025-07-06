@@ -1,0 +1,39 @@
+
+examples:
+	show()
+	hide()
+	rotate(radians) # radiant: double value probably ranging from 0 to 1
+	move_local_x() # moves in x axis relative to the postition and angle of the object
+	move_local_y()
+
+
+	# From the tutorial, the object moves after one function called
+		example:
+			move_forward(80)
+			turn_right(80)
+			turn_left(80)
+	# The object moves forward by the given value then turns degree right then left
+
+	move_forward(pixels) # pixels: int
+	turn_right(degrees) # degrees: int, rotates the character by degrees
+	turn_left(degrees)
+
+	jump(y, x) # y, x: int 
+
+Naming conventions
+	- No spaces 
+	- No numbers at the start of the name
+	- Start with a letter or underscore
+
+
+	
+Accessing sub-variables with dot
+	func run():
+		position.x = n
+		position.y = n
+
+		scale.x = n
+		scale.y = n
+
+down equals postive_y
+right equals positive_x

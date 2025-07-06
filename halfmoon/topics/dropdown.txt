@@ -1,0 +1,49 @@
+
+<div class="dropdown">
+    <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        Button
+    </button>
+    <ul class="dropdown-menu">
+        <li>
+            <h6 class="dropdown-header">Header</h6>
+        </li>
+        <li>
+            <a href="#" class="dropdown-item active" aria-current="true">Dropdown link 1</a></li>
+        <li>
+            <a href="#" class="dropdown-item">Dropdown link 2</a>
+        </li>
+        <li>
+            <hr class="dropdown-divider">
+        </li>
+        <li>
+            <a class="dropdown-item disabled">Dropdown link 4</a>
+        </li>
+    </ul>
+</div>
+
+
+<div class="dropdown">
+    <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        Button
+    </button>
+    <div class="dropdown-menu specific-w-300">
+        <!-- Entirely something in here, could be a form -->
+    </div>
+</div>
+
+.dropdown
+.dropdown-center -> will be centered below the button
+
+.dropup -> above the button
+.dropup-center -> will be centered above the button
+
+.dropstart -> will appear on the left side
+.dropend -> will appear on the right side
+
+ALIGNMENT
+    .dropdown-menu-start / .dropdown-menu-{breakpoint}-start — aligns menu to the left
+    .dropdown-menu-end / .dropdown-menu-{breakpoint}-end — aligns menu to the right
+
+<button class="... dropdown-toggle" ... data-bs-auto-close="inside">
+<button class="... dropdown-toggle" ... data-bs-auto-close="outside">
+<button class="... dropdown-toggle" ... data-bs-auto-close="false">

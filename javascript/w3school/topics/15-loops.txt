@@ -1,0 +1,64 @@
+Loops
+	for (expression 1; expression 2; expression 3) {
+	  // code block to be executed
+	}
+
+	expression 1 is used to initialize variables and actually
+	allows you to initialize multiple variables just by separating
+	it with commas.
+	example:
+		for (let i = 0, b = 2, ..., n = n; i < 5; i++) {
+
+	Kinds
+		for
+			loops through a block of code a number of times
+			
+			for (let i = 0; i < 5; i++) {
+				text += "The number is " + i + "<br>";
+			}
+
+
+		for/in
+			loops through the properties of an object
+
+			for (variable in array) {
+				// code
+			}
+
+			Example:
+				const person = {fname:"John", lname:"Doe", age:25};
+				let text = "";
+				for (let x in person) {
+				  text += person[x];
+				}
+
+		for/of
+			loops through the values of an iterable object
+			i.e., Arrays, Strings, Maps, NodeLists, and more...
+
+			for (variable of iterable) {
+				// code block to be executed
+			}
+
+			Example:
+				const cars = ["BMW", "Volvo", "Mini"];
+				let text = "";
+				for (let x of cars) {
+				  text += x;
+				}
+
+		while
+			loops through a block of code while a specified condition is true
+
+			while (condition) {
+				// code block to be executed
+			}
+
+
+		do/while
+			also loops through a block of code while a specified condition is true
+
+			do {
+			  // code block to be executed
+			}
+			while (condition);

@@ -1,0 +1,19 @@
+
+db_column: str = None
+	- Allows custom database column name
+	- Usage:
+		FIELD = models.CharField(... db_column="FIELD SOMETHING")
+
+
+db_comment: str = None
+	- Adds a comment to the db column
+	- Usage:
+		pub_date = models.DateTimeField(
+		    db_comment="Date and time when the article was published",
+		)
+
+db_default: any
+	- Adds a default value in database level
+	- Usage:
+		durability = models.IntegerField(db_default=100)
+

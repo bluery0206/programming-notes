@@ -1,0 +1,4 @@
+
+import random // To use it
+
+random.randrange(1, 10) // random number between 1-10

@@ -1,0 +1,15 @@
+
+Functions
+	Creation
+		Method 1
+			function multiplyThis(a, b) {
+				let result = a * b;
+				return result;
+			}
+
+		Method 2
+			multiplyThis = function (a, b) {
+				return a * b;
+			};
+
+	let result = multiplyThis(1, 2);

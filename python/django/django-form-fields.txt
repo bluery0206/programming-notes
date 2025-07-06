@@ -1,0 +1,59 @@
+# Django Form Fields Cheat Sheet
+
+Here's a comprehensive table of common Django form fields with their parameters and descriptions:
+
+| Field Class         | Widget          | Description           | Common Parameters |
+|---------------------|-----------------|-------------          |-------------------|
+| `CharField`         | TextInput       | Basic text input      | `max_length`, `min_length`, `strip`, `empty_value` |
+| `IntegerField`     | NumberInput     | Integer input          | `min_value`, `max_value` |
+| `DecimalField`     | NumberInput     | Decimal number input   | `max_digits`, `decimal_places`, `min_value`, `max_value` |
+| `FloatField`       | NumberInput     | Floating-point input   | `min_value`, `max_value` |
+| `BooleanField`     | CheckboxInput   | True/False checkbox    | `required` |
+| `ChoiceField`      | Select          | Dropdown select        | `choices`, `widget` (can be Select, RadioSelect) |
+| `MultipleChoiceField` | SelectMultiple | Multi-select         | `choices`, `widget` (SelectMultiple, CheckboxSelectMultiple) |
+| `DateField`        | DateInput       | Date input             | `input_formats`, `widget` (can be SelectDateWidget) |
+| `TimeField`        | TimeInput       | Time input             | `input_formats` |
+| `DateTimeField`    | DateTimeInput   | Date and time input    | `input_formats` |
+| `EmailField`       | EmailInput      | Email input            | `max_length`, `min_length` |
+| `URLField`         | URLInput        | URL input              | `max_length`, `min_length` |
+| `SlugField`        | TextInput       | URL slug input         | `allow_unicode` |
+| `RegexField`       | TextInput       | Text matching regex    | `regex`, `max_length`, `min_length` |
+| `FileField`        | ClearableFileInput | File upload         | `allow_empty_file`, `max_upload_size` |
+| `ImageField`       | ClearableFileInput | Image upload        | Same as FileField plus image validation |
+| `FilePathField`    | Select          | Select from files in path | `path`, `match`, `recursive`, `allow_files`, `allow_folders` |
+| `PasswordField`    | PasswordInput   | Password input         | Same as CharField but obscured |
+| `UUIDField`        | TextInput       | UUID input             | - |
+
+## Common Field Parameters
+
+| Parameter     | Description | Example |
+|-----------    |-------------|---------|
+| `required`    | Whether field is required | `required=False` |
+| `label`       | Human-readable label | `label="Your name"` |
+| `initial`     | Initial value | `initial="John"` |
+| `help_text`   | Help text | `help_text="Enter your full name"` |
+| `error_messages` | Custom error messages | `error_messages={'required': 'This field is mandatory'}` |
+| `validators`  | Custom validators | `validators=[validate_even]` |
+| `widget`      | Custom widget | `widget=forms.Textarea` |
+| `disabled`    | Disable field | `disabled=True` |
+
+## Common Widgets
+
+| Widget        | Description | Attributes |
+|--------       |-------------|------------|
+| `TextInput`   | Standard text input | `attrs={'class': 'my-class'}` |
+| `Textarea`    | Multi-line text input | `attrs={'rows': 4}` |
+| `PasswordInput` | Password input | `render_value=True` |
+| `NumberInput` | Number input | - |
+| `EmailInput` | Email input | - |
+| `URLInput`    | URL input | - |
+| `HiddenInput` | Hidden input | - |
+| `DateInput`   | Date input | - |
+| `DateTimeInput` | DateTime input | - |
+| `TimeInput`   | Time input | - |
+| `Select`      | Dropdown select | - |
+| `SelectMultiple` | Multiple select | - |
+| `RadioSelect` | Radio buttons | - |
+| `CheckboxSelectMultiple` | Checkbox list | - |
+| `FileInput` | File upload | - |
+| `ClearableFileInput` | File upload with clear option | - |

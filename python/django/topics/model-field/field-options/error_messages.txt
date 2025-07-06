@@ -1,0 +1,11 @@
+
+error_messages: str
+		- Overrides default error messages using a dict
+		- Usage:
+			name = models.CharField(
+		        max_length=50,
+		        error_messages={
+		            "blank": "Operator name cannot be empty!",  # Override "blank" error
+		            "max_length": "Name too long (max 50 chars).",  # Override length error
+		        }
+		    )

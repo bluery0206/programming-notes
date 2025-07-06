@@ -1,0 +1,4 @@
+
+DOWNLOADING
+	PIP
+		>>> pip install django

@@ -1,0 +1,7 @@
+
+blank : bool = False
+	- Allows empty form field
+	- Use for string fields (e.g., CharField)
+	- Usage:
+		# description = "" if form field is empty
+		description = models.TextField(blank=True)

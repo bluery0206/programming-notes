@@ -1,0 +1,31 @@
+
+DecimalField
+	- Stores fixed-precision decimal numbers
+	- For currencies where accuracy is needed
+	- Usage:
+		price = models.DecimalField(
+			# Total digits (e.g., "1234567.89" = 9 digits)
+	        max_digits=10,
+
+	        # Decimals (e.g., 2 for currency)
+	        decimal_places=2,  
+	    )
+
+FloatField
+	- Stores floating numbers (appoximate)
+	- For calculations
+	- Usage:
+		x = models.FloatField()
+
+
+INTEGER
+	- Stores whole number
+	- Usage:
+		level = models.IntegerField()
+
+	IntegerField (-2B to 2B)
+	SmallIntegerField (-32K to 32K)
+	PositiveSmallIntegerField (0 to 32K)
+	PositiveIntegerField (0 to 2B)
+	PositiveBigIntegerField (0 to 9Q)
+	

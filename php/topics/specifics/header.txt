@@ -1,4 +1,3 @@
-<?php
 
 /**
  * Redirects to the specified location or other parameters

@@ -1,0 +1,4 @@
+
+Value types
+	When trying to display any other data type, you have to convert them into strings through str(variable)
+	When dividing, make sure you're using decimals and not int as dividing int numbers will return int and not float

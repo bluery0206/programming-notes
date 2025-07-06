@@ -1,0 +1,60 @@
+
+BASIC DJANGO MODEL
+	class ClassName(models.Model):
+		FIELD_NAME = models.FIELD_TYPE(FIELD_OPTIONS)
+
+RELATIONSHIP FIELDS
+	ForeignKey
+		- Creates Many-to-one relationship between models
+			e.g., Operator belongs to Faction
+		- Usage:
+			class Faction(models.Model):
+			    name = models.CharField(max_length=50)
+
+			class Operator(models.Model):
+			    name = models.CharField(max_length=50)
+			    faction = models.ForeignKey(
+			        Faction,
+
+			        # Delete operator if faction is deleted
+			        on_delete=models.CASCADE,
+
+			        # Name for reverse relation 
+			        # (e.g., faction.operators.all()).
+			        related_name = "operator"
+			    )
+
+    ManyToManyField
+    	- Creates many-to-many relationship between models
+    		e.g., Operators can belong to multiple Squad and vice versa
+		- Usage:
+			class Operator(models.Model):
+			    name = models.CharField(max_length=50)
+
+			class Squad(models.Model):
+			    name = models.CharField(max_length=50)
+
+			    # No `on_delete` needed!
+			    members = models.ManyToManyField(
+			    	Operator,
+			    	related_name = "squad"
+		    	)
+
+	OneToOneField
+		- Creates one-to-one relationship between models
+		- Usage:
+			class Operator(models.Model):
+				name = models.CharField(max_length=50)
+
+			class OperatorProfile(models.Model):
+				operator = models.OneToOneField(
+				    Operator,
+
+				    # Delete profile if operator is deleted
+				    on_delete=models.CASCADE,
+
+				    # Optional: Use operator_id as PK
+				    primary_key=True,
+
+				    related_name = "operatorprofile" 
+				)

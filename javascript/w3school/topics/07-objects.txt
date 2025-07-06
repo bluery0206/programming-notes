@@ -1,0 +1,67 @@
+
+Objects
+	Creation and Adding Properties
+		Method 1
+			const operator = {
+				codename: "Bagpipe",
+				klass: "Vanguard",
+				rarity: 6,
+				fullName : function() {
+					return this.firstName + " " + this.lastName;
+				}
+			};
+
+		Method 2
+			const person = new Object();
+			person.firstName = "John";
+			person.lastName = "Doe";
+			person.age = 50;
+			person.eyeColor = "blue";
+
+	Accessing 
+		Method 1
+			objectName.propertyName
+
+		Method 2
+			objectName["propertyName"]
+
+	Deleting Property
+		delete person.age;
+
+	Constructors
+		function Person(first, last, age, eye) {
+		  this.firstName = first;
+		  this.lastName = last;
+		  this.age = age;
+		  this.eyeColor = eye;
+		}
+
+		const myObject = new Person(
+			"Fiona",
+			"Young",
+			"23",
+			"Blue",
+		)
+
+	Adding a Property to a Constructor
+		// CLASSNAME.prototype.PROERTY = VALUE;
+		Person.prototype.nationality = "English";
+
+	Adding a Method to an Object
+		// New methods will not affect other INSTANCE OBJECT
+		INSTANCE.METHODNAME = function (PARAM) {
+			// ... code ...
+		}
+
+	Adding a Method to a Constructor
+		CLASS.prototype.METHODNAME = function (PARAM) {
+			/// ... code ...
+		}
+
+		INSTANCE.METHODNAME("ARGUMENT");
+
+	Alternatives
+		Use object literals {} instead of new Object().
+		Use array literals [] instead of new Array().
+		Use pattern literals /()/ instead of new RegExp().
+		Use function expressions () {} instead of new Function().

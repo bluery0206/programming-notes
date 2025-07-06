@@ -1,0 +1,11 @@
+Display Possibilities
+	JavaScript can "display" data in different ways:
+
+	innerHTML or innerText
+	document.write() // replaces existing HTML
+	window.alert() // shows a pop up
+	console.log() // output in terminal
+
+	Note
+		Use innerHTML when you want to change an HTML element.
+		Use innerText when you only want to change the plain text.

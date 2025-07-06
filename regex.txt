@@ -1,0 +1,63 @@
+### **Basic Regex Symbols**
+| Symbol | Meaning                          | Example          | Matches       | Doesn’t Match |
+|--------|----------------------------------|------------------|---------------|---------------|
+| `.`    | **Any single character**         | `a.c`            | "abc", "a c"  | "ac", "abbc"  |
+| `^`    | **Start of string**              | `^abc`           | "abc123"      | "123abc"      |
+| `$`    | **End of string**                | `abc$`           | "123abc"      | "abc123"      |
+| `*`    | **0 or more** of the preceding   | `ab*c`           | "ac", "abbc"  | "a", "b"      |
+| `+`    | **1 or more** of the preceding   | `ab+c`           | "abc", "abbc" | "ac"          |
+| `?`    | **0 or 1** of the preceding      | `ab?c`           | "ac", "abc"   | "abbc"        |
+| `{n}`  | **Exactly n times**              | `a{3}`           | "aaa"         | "aa", "aaaa"  |
+| `{n,}` | **At least n times**             | `a{2,}`          | "aa", "aaa"   | "a"           |
+| `{n,m}`| **Between n and m times**        | `a{2,4}`         | "aa", "aaaa"  | "a", "aaaaa"  |
+ 
+
+### **Character Classes**
+| Symbol | Meaning                          | Example          | Matches       | Doesn’t Match |
+|--------|----------------------------------|------------------|---------------|---------------|
+| `[]`   | **Any one of these chars**       | `[aeiou]`        | "a", "e"      | "b", "zz"     |
+| `[^]`  | **None of these chars**          | `[^0-9]`         | "a", "!"      | "1", "2"      |
+| `\d`   | **Digit** (`[0-9]`)              | `\d{3}`          | "123"         | "abc"         |
+| `\D`   | **Non-digit** (`[^0-9]`)         | `\D+`            | "abc"         | "123"         |
+| `\w`   | **Word char** (`[a-zA-Z0-9_]`)   | `\w+`            | "user_1"      | "@#!"         |
+| `\W`   | **Non-word char** (`[^\w]`)      | `\W`             | "@", " "      | "a", "1"      |
+| `\s`   | **Whitespace** (space, tab, etc.)| `\s`             | " ", "\t"     | "a"           |
+| `\S`   | **Non-whitespace**               | `\S+`            | "abc"         | "  "          |
+
+
+
+### **Advanced Symbols**
+| Symbol | Meaning                          | Example          | Purpose                          |
+|--------|----------------------------------|------------------|----------------------------------|
+| `|`    | **OR** (alternation)            | `cat|dog`        | Matches "cat" or "dog"           |
+| `()`   | **Grouping**                     | `(ab)+`          | Matches "ab", "abab", etc.       |
+| `(?:)` | **Non-capturing group**          | `(?:ab)+`        | Groups without capturing         |
+| `\b`   | **Word boundary**                | `\bword\b`       | Matches "word" but not "keyword" |
+| `(?=)` | **Positive lookahead**           | `a(?=b)`         | "a" only if followed by "b"      |
+| `(?!)` | **Negative lookahead**           | `a(?!b)`         | "a" only if **not** followed by "b" |
+
+
+
+### **Escaping Special Chars**
+| Symbol | Meaning                          | Example          | Matches       |
+|--------|----------------------------------|------------------|---------------|
+| `\`    | **Escape next char**             | `\$\d+`          | "$100"        |
+| `\\`   | **Literal backslash**            | `\\`             | "\"           |
+
+
+### **Regex Characters That Require Escaping**
+| Character | Why Escape?                  | Example (Literal Match) | Matches       |
+|-----------|------------------------------|-------------------------|---------------|
+| `\`       | Escape character itself      | `\\`                    | `\`           |
+| `^`       | Start-of-string anchor       | `\^`                    | `"^"`         |
+| `$`       | End-of-string anchor         | `\$`                    | `"$"`         |
+| `.`       | Wildcard (any char)          | `\.`                    | `"."`         |
+| `*`       | Zero-or-more quantifier      | `\*`                    | `"*"`         |
+| `+`       | One-or-more quantifier       | `\+`                    | `"+"`         |
+| `?`       | Zero-or-one quantifier       | `\?`                    | `"?"`         |
+| `|`       | Alternation (OR)             | `\|`                    | `"|"`         |
+| `(` `)`   | Grouping                     | `\(` `\)`               | `"("`, `")"`  |
+| `[` `]`   | Character class bounds       | `\[` `\]`               | `"["`, `"]"`  |
+| `{` `}`   | Quantifier bounds            | `\{` `\}`               | `"{"`, `"}"`  |
+
+

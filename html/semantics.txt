@@ -1,0 +1,24 @@
+
+<header>Welcome</header>
+<nav>...</nav>
+<main>...</main>
+<footer>...</footer>
+
+
+<header>	Intro / top section of a page or section
+<nav>		Navigation links
+<main>		Main unique content of the page
+<footer>	Footer content, usually contact, copyright, etc
+<section>	A meaningful standalone section
+<article>	Independent content (e.g. blog post, comment)
+<aside>		Content related to main content, like a sidebar
+<mark>		Highlighted text
+<time>		Machine-readable time/date
+<address>	Contact information
+<strong>	Important text (emphasized by meaning)
+<em>		Emphasized text (like italics, but meaningful)
+
+
+<code>, <pre>, <kbd>	Code snippets and keyboard input
+<h1> to <h6>	Headings (with hierarchy)
+<figure> + <figcaption>	Media + caption

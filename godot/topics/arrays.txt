@@ -1,0 +1,29 @@
+
+Creation
+	var arrayName: Array[data_type] = [valueOne, ..., valueNth] 
+	
+	Example:		
+		var operators = [
+			"Kal'tsit",
+			"Bagpipe",
+		]
+
+Accessing
+	operators[indexNumber] // Returns the value
+
+Modifying
+	operators[1] = "Fiona Young" // From "Bagpipe" to "Fiona Young"
+
+Methods
+	operators.append("Ch'en") 		# ["Kal'tsit", "Bagpipe", "Ch'en"]
+	operators.insert(1, "Ch'en")	# ["Kal'tsit", "Ch'en", "Bagpipe"]
+	operators.remove(0)				# ["Bagpipe"]
+	operators.pop()					# ["Kal'tsit"]
+	operators.erase("Kal'tsit")		# ["Bagpipe"]
+	operators.size()				# 2
+	operators.clear()				# []
+	operators.find("Bagpipe")		# 1
+	operators.count("Bagpipe")		# 1
+	operators.sort()				# ["Bagpipe", "Kal'tsit"]
+	operators.reverse()				# ["Kal'tsit", "Bagpipe"]
+	operators.slice(0, 1)			# ["Kal'tsit", "Bagpipe"]

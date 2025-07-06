@@ -1,0 +1,13 @@
+
+default: any
+		- Adds a default value
+		- Usage:
+			hardness = models.FloatField(default=1.0)
+		- Don'ts:
+			- Use mutable defaults like list, dict, and set
+			- Lambdas
+		- Do's:
+			- If a function is needed, use named functions
+				e.g.,
+					def funcName(): ...
+					FIELD = models.FIELD_TYPE(default=funcName)

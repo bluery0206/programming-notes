@@ -1,0 +1,10 @@
+
+CREATION
+	python -m venv VENV_NAME
+
+ACTIVATING
+	LINUX
+		source VENV_NAME/bin/activate
+
+	WINDOWS
+		VENV_NAME/scripts/activate

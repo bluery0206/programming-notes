@@ -1,0 +1,7 @@
+
+primary_key: bool = False
+	- Determines if a field is the primary or not
+	- Uses the FIELD instead of the pk, an auto generated id
+	- Changing the pk creates a new record and not update
+	- Usage:
+		uuid = models.UUIDField(primary_key=True, default=uuid.uuid4)  # UUID as PK

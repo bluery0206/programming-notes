@@ -1,0 +1,5 @@
+
+COLOR MODES
+    supports "light" and "dark"
+
+    <html lang="en" data-bs-theme="dark">

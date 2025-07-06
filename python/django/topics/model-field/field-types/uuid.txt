@@ -1,0 +1,12 @@
+
+UUIDFIeld
+	- Stores UUIDs as primary keys or unique IDs
+	- Usage:
+		PRIMARY KEY (Recommended)
+			id = models.UUIDField(
+		        primary_key=True,
+		        editable=False,
+
+		        # Auto-generates UUIDv4 (random)
+		        default=uuid.uuid4,  
+		    )

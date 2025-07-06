@@ -1,0 +1,23 @@
+
+unique: bool = False
+	- Ensures no duplicate values in the field column
+	- Usage:
+		username = models.CharField(max_length=50, unique=True)
+
+		UNIQUE TOGETHER
+			- Allows multi-field uniqueness
+			- Usage:
+				class Skin(models.Model):
+				    operator = models.ForeignKey(Operator, on_delete=models.CASCADE)
+				    name = models.CharField(max_length=100)
+
+				    class Meta:
+				    	# Same skin name can't repeat per operator
+				        unique_together = [["operator", "name"]]  
+
+unique_for_date, unique_for_month, unique_for_year
+	- Ensures a field is unique per date, month, and year
+	- Usage:
+		class Announcement(models.Model):
+		    title = models.CharField(max_length=100, unique_for_date="pub_date")
+		    pub_date = models.DateField()  # DateField (or DateTimeField)
