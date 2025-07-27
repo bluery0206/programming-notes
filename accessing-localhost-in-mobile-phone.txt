@@ -1,0 +1,10 @@
+ensure 
+	firewall is disabled
+	vpn on MP is disabled
+
+get server ip
+	ip a
+
+get an IP and search in browser 
+	ie
+		192.168.0.123

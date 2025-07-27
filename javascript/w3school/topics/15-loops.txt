@@ -10,6 +10,12 @@ Loops
 		for (let i = 0, b = 2, ..., n = n; i < 5; i++) {
 
 	Kinds
+		for loops through a block of code a number of times
+		for/in loops through the properties of an object
+		for/of loops through the values of an iterable object
+		while loops through a block of code while a specified condition is true
+		do/while also loops through a block of code while a specified condition is true
+
 		for
 			loops through a block of code a number of times
 			

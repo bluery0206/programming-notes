@@ -22,3 +22,23 @@
 <code>, <pre>, <kbd>	Code snippets and keyboard input
 <h1> to <h6>	Headings (with hierarchy)
 <figure> + <figcaption>	Media + caption
+
+
+
+<label for="progress-bar">Uploading Document</label>
+<progress id="progress-bar" value="70" max="100">70 %</progress>
+
+
+grid-tempate-name:
+	"header header header"
+	"nav main aside"
+	"footer footer footer"
+
+footer { grid-name: footer } // sets the name in the grid-temp-area
+<body>
+	<header></header>
+	<nav></nav>
+	<main></main>
+	<aside></aside>
+	<footer></footer>
+</body>

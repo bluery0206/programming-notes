@@ -1,4 +1,27 @@
 
+
+Adding autoload
+	dir
+		php-projects/inbenta/
+		├── composer.json
+		├── src/
+		│   └── InBenta/
+		│       └── App/
+		│           └── Models/
+		│               └── User.php
+
+	on composer.json
+		{
+			"autoload": {
+				"psr-4": {
+					"InBenta\\": "src/InBenta/"
+				}
+			}
+		}
+
+	>>> composer dump-autoload
+
+
 Composer
 	> Dependency management tool in PHP. 
 	> Allows declarion of libraries that projects depends on

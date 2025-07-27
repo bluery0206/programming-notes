@@ -1,0 +1,8 @@
+
+You can create a custom attr with a value by doing
+
+<tagName data-varName="value"></tagName>
+
+and are accessebile via
+
+element.dataset.tab

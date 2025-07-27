@@ -1,0 +1,321 @@
+
+#!/bin/bash
+
+You can use any terminal command in bash script 
+	ls
+	mv
+	cp
+	mkdir
+	zip
+	sudo apt update
+	curl
+	ping
+	grep
+	find
+
+create new file
+	>>> nano hello.sh
+
+making things exec
+	>>> chmod +x fileName.sh
+
+running
+	>>> ./fileName.sh
+
+VARIABLES
+	name=value // no spaces between =
+	echo "Hello, $name" // echo is print
+
+COMMENT
+	# This is a comment
+
+USER INPUT
+	SINGLE VARIABLES
+		an input with only one variable will be read
+		as a single string even with space
+
+		``` bash
+			read -p "Enter you name: " username
+			>>> echo "Hi, $username!"
+		```
+
+		so even if the input will be
+
+		"dsa dsa dsa d sa"
+
+		it will be read as
+
+		username="dsa dsa dsa d sa" 
+
+
+	MULTIPLE VARIABLES
+		read -p "full name: " fname mname lname
+
+CONDITIONAL
+	Quotes in vars are necessary if the values are string
+
+	if [ "$name" = "Eya" ]; then
+	  echo "Welcome back, Eya."
+
+	else
+	  echo "Who are you?"
+	fi
+
+	if [[ condition1 ]]; then
+	    # code if condition1 is true
+	elif [[ condition2 ]]; then
+	    # code if condition2 is true
+	else
+	    # code if none of the above are true
+	fi
+
+
+LOOPS
+	break
+	continue
+
+	FOR
+		for file in *.jpg; do
+		  echo "Found file: $file"
+		done
+
+	WHILE 
+		count=1
+		while [ $count -le 5 ]; do
+		  echo "Count: $count"
+		  count=$((count + 1))
+		done
+
+FUNCTIONS
+	Parameters arent set but rather handled with numbered variables
+	ie
+		$1, $2
+
+		will read the first arg as the first param 
+		and so is the second and so forth
+
+	greet() {
+	  echo "Hello, $1!"
+	}
+
+	greet "Riazul"
+
+	RETURN
+		say_name() {
+		  echo "Eya"
+		}
+
+		name=$(say_name)
+		echo "Name is $name"
+
+EXIT CODES
+	echo "Something failed"
+	exit 1
+	# exit 0 means success, anything else means error.
+
+CASE 
+	#!/bin/bash
+
+	case "$1" in
+		start)
+			echo "Starting the app..."
+			;;
+		stop)
+			echo "Stopping the app..."
+			;;
+		restart)
+			echo "Restarting..."
+			;;
+		*)
+		echo "Unknown command: $1"
+			echo "Usage: $0 {start|stop|restart}"
+			exit 1
+			;;
+	esac
+
+IDK WTH IS THIS BRUH
+	get_date() {
+	  echo "2025-07-10"
+	}
+
+	today=$(get_date)
+
+ARGUMENTS 
+	>>> ./myscript.sh foo bar baz
+
+	Inside the script:
+		$0 → script name (myscript.sh)
+		$1 → "foo"
+		$2 → "bar"
+		$3 → "baz"
+		$@ → all args as separate words
+		$* → all args as one string
+		$# → number of arguments passed
+
+	Example:
+		#!/bin/bash
+
+		echo "Script name: $0"
+		echo "First arg: $1"
+		echo "Total args: $#"
+
+		for arg in "$@"; do
+		  echo "Arg: $arg"
+		done
+
+	the "--" and "-" in the args we see are just conventions
+		"-n" for shorthands
+		"--paramName" for full context
+
+
+FILE CHECKS 
+	if [ -f "file.txt" ]; then...
+	if [ -d "/etc" ]; then...
+	if [ -e "something" ]; then...
+
+	Other flags:
+		-s → exists and not empty
+		-r / -w / -x → readable / writable / executable
+		! -f → not a file
+
+
+
+SAMPLE MULTI PARAMETER
+	#!/bin/bash
+
+	# WHILE there are arguments left
+	while [ $# -gt 0 ]; do
+
+		# LOOK at the current argument
+		case "$1" in
+			# IF it matches "--from":
+			--from)
+				# STORE the next argument as `from_file`
+				from="$2"
+
+				# SKIP the current and next arguments (shift 2)
+				shift 2
+				;;
+			--to)
+				to="$2"
+				shift 2
+				;;
+			--dry-run)
+				dryrun=true
+				shift
+				;;
+			--help|-h)
+				echo "Usage: $0 --from FILE --to FILE [--dry-run]"
+				exit 0
+				;;
+			*)
+				echo "Unknown option: $1"
+        		# EXIT with error
+				exit 1
+				;;
+		esac
+	done
+
+	# Do something with collected values
+	echo "FROM: $from"
+	echo "TO: $to"
+	echo "Dry run: $dryrun"
+
+
+
+
+File & Directory Tests
+	Expression	Meaning
+	-e FILE	File exists
+	-f FILE	File exists and is a regular file
+	-d DIR	Directory exists
+	-s FILE	File exists and is not empty
+	-r FILE	File is readable
+	-w FILE	File is writable
+	-x FILE	File is executable
+	! -e FILE	File does not exist
+
+
+String Tests
+	Expression	Meaning
+	-z "$var"	String is empty (zero length)
+	-n "$var"	String is not empty
+	"$a" = "$b"	Strings are equal
+	"$a" != "$b"	Strings are not equal
+
+
+Number Tests
+	Expression	Meaning
+	-eq	equal to
+	-ne	not equal
+	-lt	less than
+	-le	less than or equal
+	-gt	greater than
+	-ge	greater than or equal
+
+
+Loops
+	# For loop (fixed list)
+	for item in a b c; do
+	  echo "$item"
+	done
+
+	# While loop
+	while [ condition ]; do
+	  ...
+	done
+
+Conditionals
+	if [ "$x" = "yes" ]; then
+	  echo "Yes"
+	elif [ "$x" = "no" ]; then
+	  echo "No"
+	else
+	  echo "Other"
+	fi
+
+Functions
+	greet() {
+	  echo "Hello, $1"
+	}
+
+	greet "Eya"  # → Hello, Eya
+
+
+Arguments & Shifting
+	Symbol	Meaning
+	$0	Script name
+	$1	First argument
+	$2	Second argument
+	$@	All arguments (individually)
+	$*	All arguments (as one string)
+	$#	Number of arguments
+	shift	Discard $1, move next up
+
+ Argument Parsing Pattern
+	while [ "$1" ]; do
+	  case "$1" in
+	    --from)
+	      from="$2"
+	      shift 2
+	      ;;
+	    --dry-run)
+	      dryrun=true
+	      shift
+	      ;;
+	    --help|-h)
+	      echo "Help text"; exit 0
+	      ;;
+	    *)
+	      echo "Unknown option: $1"; exit 1
+	      ;;
+	  esac
+	done
+
+Useful Commands in Scripts
+	Command	Use
+	ls, cp, mv, rm	File operations
+	mkdir -p	Make directory (no error if exists)
+	read	Read user input
+	echo, printf	Output
+	date, cut, grep, sed, awk	Text tools

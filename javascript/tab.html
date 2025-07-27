@@ -1,0 +1,46 @@
+
+<style>
+    .tab {
+    display: none;
+    }
+
+    .tab.active {
+    display: block;
+    }
+</style>
+
+<div class="tab-buttons">
+  <button data-tab="tab1">Tab 1</button>
+  <button data-tab="tab2">Tab 2</button>
+  <button data-tab="tab3">Tab 3</button>
+</div>
+
+<div class="tab-contents">
+  <div class="tab" id="tab1">Content for Tab 1</div>
+  <div class="tab" id="tab2">Content for Tab 2</div>
+  <div class="tab" id="tab3">Content for Tab 3</div>
+</div>
+
+<script>
+    // Finds all buttons with the data-tab attr
+    const buttons = document.querySelectorAll('[data-tab]');
+    // data-tab is like the name attr in a form input
+
+    // Finds all tags with tab in the class
+    const tabs = document.querySelectorAll('.tab');
+
+    // When we press a button the data from the 
+    // data-tab will be set as the target
+    buttons.forEach(button => {
+        button.addEventListener('click', () => {
+            const target = button.dataset.tab;
+
+            // We compare the id attr for every tab and if
+            // the ids are similar, then the active will be put
+            // in its class
+            tabs.forEach(tab => {
+                tab.classList.toggle('active', tab.id === target);
+            });
+        });
+    });
+</script>

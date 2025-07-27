@@ -1,0 +1,12 @@
+
+<button class="scroll-left">◄</button>
+<button class="scroll-right">►</button>
+<script>
+    const images = document.getElementById('images');
+    document.querySelector('.scroll-left').onclick = () => {
+    images.scrollBy({ left: -300, behavior: 'smooth' });
+    };
+    document.querySelector('.scroll-right').onclick = () => {
+    images.scrollBy({ left: 300, behavior: 'smooth' });
+    };
+</script>

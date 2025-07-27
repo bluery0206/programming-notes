@@ -1,0 +1,17 @@
+/**
+ * Short summary (1-liner).
+ *
+ * Long description if needed. Can include extra details.
+ *
+ * @param <type> $<name> Description
+ * @return <type> Description
+ */
+
+Some have @example
+
+@throws → to document exceptions
+@see → link to other methods/classes
+@link → external URLs
+@deprecated → if it's legacy stuff
+@var → for inline variable docs
+@inheritdoc

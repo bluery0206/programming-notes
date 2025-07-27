@@ -1,0 +1,33 @@
+
+CONVERTION
+	convert inputName.ext outputName.ext
+	convert input.png -resize 50% output.webp
+	
+png 
+	- transparent
+	- can be too heavy
+
+jpg
+	- no transparency
+	- light
+
+webp
+	- transparency
+	- very light
+	- high quality
+	- perfect for 
+	- for
+		- detailed images
+		- banners bg images
+		- screenshots, 3d arts
+
+svg
+	- transparency
+	- for
+		- logo
+		- icons
+		- ui elements
+	- crisp at any screen size
+	- can be manipulated with css/js
+	- can be smaller that webp
+		

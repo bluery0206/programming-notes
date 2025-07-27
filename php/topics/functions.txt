@@ -19,3 +19,10 @@ FUNCTIONS
         null
 
         ClassNames
+
+SHORT-HAND ONE-LINER
+    fn($arg) => ;
+
+    ie
+        $names = ["Fiona", "Kal'tsit"];
+        array_map(fn($namee)=>strtolower($name), $names);

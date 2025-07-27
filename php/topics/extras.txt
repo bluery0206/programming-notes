@@ -1,0 +1,32 @@
+
+UNPACKING
+	$arrayName = ["valN"];
+
+	...arrayName
+
+
+ENV VARIABLES
+	>>> composer require vlucas/phpdotenv
+
+	on projectRoot/.env
+		DB_HOST=localhost
+		DB_DATABASE=my_database
+		DB_USERNAME=my_username
+		DB_PASSWORD=my_password
+
+	on file (preferably on index.php or some file that gets loaded first)
+		use Dotenv\Dotenv;
+
+		require_once __DIR__ . '/vendor/autoload.php';
+
+		$dotenv = Dotenv::createImmutable(__DIR__);
+		$dotenv->load();
+
+	on everywhere
+		$db_host = getenv('DB_HOST');
+		// or
+		$db_host = $_SERVER['DB_HOST'];
+
+	EXTRA
+		$dotenv->required(['DB_HOST', 'DB_DATABASE', 'DB_USERNAME', 'DB_PASSWORD']);
+		$debug = filter_var(getenv('DEBUG'), FILTER_VALIDATE_BOOLEAN);
