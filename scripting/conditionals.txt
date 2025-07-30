@@ -1,0 +1,38 @@
+
+IF
+	Quotes in vars are necessary if the values are string
+
+	if [[ condition1 ]]; then
+	    # code if condition1 is true
+	elif [[ condition2 ]]; then
+	    # code if condition2 is true
+	else
+	    # code if none of the above are true
+	fi
+
+	EXAMPLE:
+		if [ "$name" = "Eya" ]; then
+		  echo "Welcome back, Eya."
+		else
+		  echo "Who are you?"
+		fi
+
+CASE 
+	#!/bin/bash
+
+	case "$1" in
+		start)
+			echo "Starting the app..."
+			;;
+		stop)
+			echo "Stopping the app..."
+			;;
+		restart)
+			echo "Restarting..."
+			;;
+		*)
+		echo "Unknown command: $1"
+			echo "Usage: $0 {start|stop|restart}"
+			exit 1
+			;;
+	esac

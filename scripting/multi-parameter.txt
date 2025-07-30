@@ -1,0 +1,36 @@
+
+SAMPLE MULTI PARAMETER
+	#!/bin/bash
+
+	# WHILE there are arguments left
+	while [ $# -gt 0 ]; do
+
+		# LOOK at the current argument
+		case "$1" in
+			# IF it matches "--from":
+			--from)
+				# STORE the next argument as `from_file`
+				from="$2"
+
+				# SKIP the current and next arguments (shift 2)
+				shift 2
+				;;
+			--to)
+				to="$2"
+				shift 2
+				;;
+			--dry-run)
+				dryrun=true
+				shift
+				;;
+			--help|-h)
+				echo "Usage: $0 --from FILE --to FILE [--dry-run]"
+				exit 0
+				;;
+			*)
+				echo "Unknown option: $1"
+        		# EXIT with error
+				exit 1
+				;;
+		esac
+	done

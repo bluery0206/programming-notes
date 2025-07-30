@@ -1,0 +1,21 @@
+
+USER INPUT
+	SINGLE VARIABLES
+		an input with only one variable will be read
+		as a single string even with space
+
+		``` bash
+			read -p "Enter you name: " username
+			>>> echo "Hi, $username!"
+		```
+
+		so even if the input will be
+
+		"dsa dsa dsa d sa"
+
+		it will be read as
+
+		username="dsa dsa dsa d sa" 
+
+	MULTIPLE VARIABLES
+		read -p "full name: " fname mname lname

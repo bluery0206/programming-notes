@@ -1,0 +1,23 @@
+
+FUNCTIONS
+	Parameters arent set but rather handled with numbered variables
+	ie
+		$1, $2
+
+		will read the first arg as the first param 
+		and so is the second and so forth
+
+	greet() {
+	  echo "Hello, $1!"
+	}
+
+	CALL
+		greet "Riazul"
+
+	RETURN
+		say_name() {
+		  echo "Eya"
+		}
+
+		name=$(say_name) # I guess it catches whats been echoed
+		echo "Name is $name"

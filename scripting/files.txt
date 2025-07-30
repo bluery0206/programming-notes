@@ -1,0 +1,32 @@
+
+FILE CHECKS 
+	if [ -f "file.txt" ]; then...
+	if [ -d "/etc" ]; then...
+	if [ -e "something" ]; then...
+
+	Other flags:
+		-s → exists and not empty
+		-r / -w / -x → readable / writable / executable
+		! -f → not a file
+
+
+
+
+	# Do something with collected values
+	echo "FROM: $from"
+	echo "TO: $to"
+	echo "Dry run: $dryrun"
+
+
+
+
+File & Directory Tests
+	Expression	Meaning
+	-e FILE	File exists
+	-f FILE	File exists and is a regular file
+	-d DIR	Directory exists
+	-s FILE	File exists and is not empty
+	-r FILE	File is readable
+	-w FILE	File is writable
+	-x FILE	File is executable
+	! -e FILE	File does not exist
