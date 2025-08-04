@@ -9,7 +9,7 @@ int main() {
 // C++ supports class while C cant
 
 PRINTING
-	cout << "Hello World";
+	cout << "Hello World" << endl;
 
 	ESCAPE
 		"\t" => tab
