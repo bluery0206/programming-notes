@@ -1,0 +1,28 @@
+[
+  {
+	"id": "post001",
+	"author": {
+		"id": "u01",
+		"name": "Jane Smith"
+	},
+	"content": "Working from home tips for staying productive.",
+	"media": [
+		{ 
+			"type": "image", 
+			"url": "https://example.com/setup.jpg"
+		}
+	],
+	"tags": ["productivity", "remote-work"],
+	"likes": 128
+  },
+  {
+    "id": "post002",
+    "author": {
+		"id": "u02",
+		"name": "Mark Taylor"
+    },
+    "content": "Quarterly sales grew by 15%.",
+    "media": [],
+    "tags": ["sales", "report"],
+    "likes": 56
+  },

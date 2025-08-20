@@ -1,0 +1,61 @@
+
+FORMAT
+	KEY=value
+	KEY="Some other value"
+	KEY=value1:value2
+
+TYPES OF VARS
+	ENVIRONMENT
+		Available system-wide
+
+	SHELL 
+		Available only to current session (zsh, bash)
+
+COMMANDS
+	env
+		Allows running another program in a custom environment without modifying the current one. 
+		When used without an argument it will print a list of the current environment variables.
+	printenv [VARNAME]
+		Prints all or the specified environment variables.
+	set
+		Sets or unsets shell variables. 
+		Without an argument it will print a list of all variables including environment and shell variables, and shell functions.
+	unset
+		Deletes shell and environment variables.
+	export
+		Sets environment variables.
+	echo $VARNAME
+
+CREATE NEW VAR
+	SHELL VAR
+		VARNAME=VALUE
+
+	ENV
+		METHOD 1
+			VARNAME=VALUE // Creates shell var
+			export VARNAME // exports it
+
+		METHOD 2
+			export MY_NEW_VAR="My New Var"
+
+	PERSISTENT
+		/etc/environment - System wide
+			FOO=bar
+			VAR_TEST="Test Var"
+
+		/etc/profile - loaded whenever a bash login shell is entered
+			export JAVA_HOME="/path/to/java/home"
+			export PATH=$PATH:$JAVA_HOME/bin
+
+		~/.bashrc | ~/.zshrc - Per user
+			export PATH="$HOME/bin:$PATH"
+
+LOAD NEW ENV VARS TO CURRENT SHELL
+	source ~/.bashrc
+
+
+Notes on Use
+	- Use ~/.bashrc for your own stuff
+	- Use /etc/environment only if you wanna set system-wide vars and are okay with limited syntax
+	- Use /etc/profile or /etc/bash.bashrc if you're doing system scripts or logic
+

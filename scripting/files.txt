@@ -30,3 +30,6 @@ File & Directory Tests
 	-w FILE	File is writable
 	-x FILE	File is executable
 	! -e FILE	File does not exist
+
+
+$PWD -> parent work directory
