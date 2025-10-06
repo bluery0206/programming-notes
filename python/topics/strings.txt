@@ -142,23 +142,25 @@
 				\xhh	Hex value
 
 		* String Methods 
-				capitalize("Bagpipe")	"Bagpipe"
-				casefold("BAGPIPE")		"bagpipe"
-				center()		Returns a centered string
-				count()			Returns the number of times a specified value occurs in a string
-				encode()		Returns an encoded version of the string
-				endswith()		Returns true if the string ends with the specified value
-				expandtabs()	Sets the tab size of the string
-				find()	Searches the string for a specified value and returns the position of where it was found
-				format()	Formats specified values in a string
-				format_map()	Formats specified values in a string
-				index()	Searches the string for a specified value and returns the position of where it was found
-				isalnum()	Returns True if all characters in the string are alphanumeric
-				isalpha()	Returns True if all characters in the string are in the alphabet
-				isascii()	Returns True if all characters in the string are ascii characters
-				isdecimal()	Returns True if all characters in the string are decimals
-				isdigit()	Returns True if all characters in the string are digits
-				isidentifier()	Returns True if the string is an identifier
+				word = "Bagpipe"
+
+				Function/example	Description									Returns
+				word.capitalize() 	Capitalized the first letter of the word	"Bagpipe"
+				word.casefold()													"bagpipe"
+				word.count() 	Returns the number of times a specified value occurs in a string
+				word.encode() Returns an encoded version of the string
+				word.endswith() Returns true if the string ends with the specified value
+				word.expandtabs()			Sets the tab size of the string
+				word.find()	Searches the string for a specified value and returns the position of where it was found
+				word.format()	Formats specified values in a string
+				word.format_map()	Formats specified values in a string
+				word.index()	Searches the string for a specified value and returns the position of where it was found
+				word.isalnum()	Returns True if all characters in the string are alphanumeric
+				word.isalpha()	Returns True if all characters in the string are in the alphabet
+				word.isascii()	Returns True if all characters in the string are ascii characters
+				word.isdecimal()	Returns True if all characters in the string are decimals
+				word.isdigit()	Returns True if all characters in the string are digits
+				word.isidentifier()	Returns True if the string is an identifier
 				islower()	Returns True if all characters in the string are lower case
 				isnumeric()	Returns True if all characters in the string are numeric
 				isprintable()	Returns True if all characters in the string are printable
