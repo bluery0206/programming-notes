@@ -14,8 +14,11 @@ Adding autoload
 		{
 			"autoload": {
 				"psr-4": {
-					"InBenta\\": "src/InBenta/"
-				}
+					"InBenta\\": "src/InBenta/" # "Namespace\\": "file/path/"
+				},
+			    "files": [
+			      "app/helpers.php"   // file
+			    ]
 			}
 		}
 
@@ -88,7 +91,7 @@ Basic Usage
 
 	🛠️ Composer Command Cheat Sheet for PHP Devs
 		Command								When to Use					What It Does
-		composer init						When starting new project	Creates acomposer.json file
+		composer init						When starting new project	Creates a composer.json file
 		composer require vendor/package		Add dependency				Installs the package and updates composer.json
 		composer install					After cloning/downloading a project	Installs all dependencies from composer.lock
 		composer update						To update all dependencies	Updates versions in composer.lock (⚠️ use with caution)
