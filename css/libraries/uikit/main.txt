@@ -54,3 +54,61 @@ Class   Description
 <div class="uk-container uk-container-large"><h1>BRUH</h1></div>
 <div class="uk-container uk-container-xlarge"><h1>BRUH</h1></div>
 <div class="uk-container uk-container-expand"><h1>BRUH</h1></div>
+
+
+
+TABLE
+
+<!-- 
+uk-table-divider => adds a line under each row
+uk-table-striped => makes rows alternate for contrast
+uk-table-hover => makes rows hover for contrast
+uk-table-small => 
+uk-table-justify => 
+uk-overflow-auto => 
+uk-table-responsive => Makes table columns to stack in small screens
+
+uk-table-shrink => makes a column fit-content
+uk-table-expand => makes a column use 100% width available
+uk-table-width => makes a column follow a given size {small, large, }
+
+Table link
+<td class="uk-table-link">
+    <a class="uk-link-reset" href=""></a>
+</td>
+
+Preserve width
+<td>
+    <img class="uk-preserve-width" src="" width="" height="" alt="">
+</td>
+
+Text truncate
+<td class="uk-text-truncate"></td>
+
+Text nowrap
+<td class="uk-text-nowrap"></td>
+-->
+
+<body>
+    <div class="uk-container uk-overflow-auto">
+        <table class="calendar-table">
+            <tr>
+                <th>Sunday</th>
+                <th>Monday</th>
+                <th>Tuesday</th>
+                <th>Wednesday</th>
+                <th>Thursday</th>
+                <th>Friday</th>
+                <th>Saturday</th>
+            </tr>
+
+            <?php
+                $days_in_month = date("t");
+                $year  = date('Y');
+                $month = date('m');
+                $day_count = 1;
+            ?>
+            <?php while ($day_count <= $days_in_month) : ?>
+                <tr>
+                    <?php foreach (range(0, 6) as $week_day) : ?>
+                        <td>

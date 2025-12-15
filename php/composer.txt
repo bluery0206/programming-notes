@@ -74,9 +74,9 @@ Basic Usage
 			>>> composer install
 
 	Update
-		>>> update
+		>>> composer update
 		or
-		>>> update vendorName/pkgName [...]
+		>>> composer update vendorName/pkgName [...]
 
 	Packagist.org
 		// Like the pypi.org of pip
