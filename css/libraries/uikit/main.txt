@@ -112,3 +112,143 @@ Text nowrap
                 <tr>
                     <?php foreach (range(0, 6) as $week_day) : ?>
                         <td>
+
+
+
+    <!-- 
+        nav
+            uk-navbar => 
+            .uk-navbar-container => Adds the navbar background style.
+
+            .uk-navbar-transparent => Transparent BG
+
+            uk-navbar="mode: click" => for dropdowns on click instead of hover
+            uk-navbar="dropbar: true" => Adds a dropbar that appears below the navbar when a dropdown is opened.
+            .uk-navbar-dropdown-width-[2-5] => Sets the width of the dropdown to double the default width.
+        nav > div.uk-container > div
+            uk-navbar="align: [left, right, center]" => for dropdowns on click instead of hover
+        div
+            .uk-navbar-[left, center, right] =>Aligns the navigation.
+            .uk-navbar-item => for non-link items such as text, forms, or buttons.
+        ul
+            .uk-navbar-nav => to create the navigation. Use <a> elements as menu items within the list.
+        li
+            .uk-parent  Add this class to indicate a parent menu item. ie for dropdowns
+            .uk-active  Add this class to indicate an active menu item.
+            .uk-nav-header => for headers inside dropdowns
+            .uk-nav-divider => for dividers inside dropdowns
+    -->
+    <div uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky;">
+        <nav class="uk-navbar-container">
+            <div class="uk-container">
+                <div uk-navbar>
+                    <!-- Left Navigation -->
+                    <div class="uk-navbar-left">
+                        <!-- Logo -->
+                        <a class="uk-navbar-item uk-logo" href="">
+                            JDBarbers
+                        </a>
+
+                        <!-- Navigation -->
+                        <ul class="uk-navbar-nav">
+
+                            <!-- Active Button -->
+                            <li class="uk-active">
+                                <a href="">Home</a>
+                            </li>
+
+                            <!-- Dropdown -->
+                            <li class="uk-parent">
+                                <a href="#">
+                                    <div>
+                                        Parent 
+                                        <div class="uk-navbar-subtitle">1 Column</div>
+                                    </div>
+                                    <span uk-navbar-parent-icon></span>
+                                </a>
+                                <div class="uk-navbar-dropdown">
+                                    <ul class="uk-nav uk-navbar-dropdown-nav">
+
+                                        <!-- Header -->
+                                        <li class="uk-nav-header">Header</li>
+                                        <li><a href="#">Item</a></li>
+                                        <li><a href="#">Item</a></li>
+
+                                        <!-- Divider -->
+                                        <li class="uk-nav-divider"></li>
+                                        <li><a href="#">Item</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+
+                            <!-- Dropdown -->
+                            <!-- Two Column -->
+                            <li>
+                                <a href="#">
+                                    <div>
+                                        Parent
+                                        <div class="uk-navbar-subtitle">2 Columns</div>
+                                    </div>
+                                    <span uk-navbar-parent-icon></span>
+                                </a>
+                                <div class="uk-navbar-dropdown uk-navbar-dropdown-width-2">
+                                    <div class="uk-drop-grid uk-child-width-1-2" uk-grid>
+                                        <div>
+                                            <ul class="uk-nav uk-navbar-dropdown-nav">
+                                                <li class="uk-nav-header">Header</li>
+                                                <li><a href="#">Item</a></li>
+                                                <li class="uk-nav-divider"></li>
+                                                <li><a href="#">Item</a></li>
+                                            </ul>
+                                        </div>
+                                        <div>
+                                            <ul class="uk-nav uk-navbar-dropdown-nav">
+                                                <li class="uk-nav-header">Header</li>
+                                                <li><a href="#">Item</a></li>
+                                                <li class="uk-nav-divider"></li>
+                                                <li><a href="#">Item</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Center Navigation -->
+                    <div class="uk-navbar-center">
+                        <div class="uk-navbar-item">
+                            <form action="javascript:void(0)">
+                                <input class="uk-input uk-form-width-small" type="text" placeholder="Input" aria-label="Input">
+                                <button class="uk-button uk-button-default">Button</button>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- Right Navigation -->
+                    <div class="uk-navbar-right">
+                        <ul class="uk-navbar-nav">
+                            <li>
+                                <a href="">
+                                    Profile
+                                </a>
+                            </li>
+                        </ul>
+                        
+                        <!-- Toggle -->
+                        <a class="uk-navbar-toggle" href="#">
+                            <span uk-navbar-toggle-icon></span> 
+                            <span class="uk-margin-xsmall-left">Menu</span>
+                        </a>
+                        <div class="uk-navbar-dropdown">
+                            <ul class="uk-nav uk-navbar-dropdown-nav">
+                                <li><a href="#">Active</a></li>
+                                <li><a href="#">Item</a></li>
+                                <li><a href="#">Item</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
