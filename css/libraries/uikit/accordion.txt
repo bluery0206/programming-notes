@@ -1,0 +1,34 @@
+ACCORDION
+    <!-- uk-accordion-default => have one max accordion open at the same time -->
+    <ul class="uk-accordion-default" uk-accordion>
+        <!-- uk-open => makes one open already when loaded -->
+        <li class="uk-open">
+            <a class="uk-accordion-title" href>
+                Item 1
+                <span uk-accordion-icon></span>
+            </a>
+            <div class="uk-accordion-content">
+                <p>Lorem ipsum tdolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            </div>
+        </li>
+    </ul>
+
+    <!-- Prevents all items to be closed -->
+    <ul class="uk-accordion-default" uk-accordion="
+        collapsible: false;
+        multiple: true;
+        animation: false
+        ">
+
+    Option      Value   Default                 Description
+    active      Number  false                   Index of the element to open initially.
+    animation   Boolean true                    Reveal item directly or with a transition.
+    collapsible Boolean true                    Allow all items to be closed.
+    content     String  > .uk-accordion-content The content selector, which selects the accordion content elements.
+    duration    Number  200                     Animation duration in milliseconds.
+    multiple    Boolean false                   Allow multiple open items.
+    targets     String  > *                     CSS selector of the element(s) to toggle.
+    toggle      String  > .uk-accordion-title   The toggle selector, which toggles accordion items.
+    transition  String  ease                    The transition to use when revealing items. Use keyword for easing functions.
+    offset      Number  0                       Pixel offset added to scroll top.
+

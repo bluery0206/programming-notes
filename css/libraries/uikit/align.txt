@@ -1,0 +1,15 @@
+
+<!-- ALIGN -->
+<!-- <div class="uk-container"> -->
+    <!-- <img class="uk-animation-kenburns uk-align-left" width="300" src="assets/images/arknights-amiya.jpg" width="" height="" alt=""> -->
+    <!-- Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta, nesciunt velit tempora tempore eaque, magni animi dolorum voluptatum soluta, commodi nam recusandae itaque expedita laborum eos officia optio minima. Quo? -->
+    <!-- <img class="uk-align-right" src="assets/images/arknights-amiya.jpg" width="" height="" alt=""> -->
+    <!-- <img class="uk-align-center" src="assets/images/arknights-amiya.jpg" width="" height="" alt=""> -->
+
+    <!-- 
+        uk-align-center@s => 640px; center when screen is s
+        uk-align-center@m => 960px; center when screen is m
+        uk-align-center@l => 1200px; center when screen is l
+        uk-align-center@xl => 1600px; center when screen is xl
+    -->
+<!-- </div> -->

@@ -1,0 +1,39 @@
+USAGE
+    <div uk-slideshow>
+        <div class="uk-slideshow-items">
+            <div>
+                <img src="" alt="" uk-cover>
+            </div>
+        </div>
+    </div>
+
+    ex
+        <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slideshow>
+
+            <div class="uk-slideshow-items">
+                <div><img src="images/photo.jpg" alt="" uk-cover></div>
+                <div><img src="images/dark.jpg" alt="" uk-cover></div>
+                <div><img src="images/light.jpg" alt="" uk-cover></div>
+            </div>
+
+            <a class="uk-position-center-left uk-position-small uk-hidden-hover" 
+                href uk-slidenav-previous uk-slideshow-item="previous"></a>
+            <a class="uk-position-center-right uk-position-small uk-hidden-hover"
+                href uk-slidenav-next uk-slideshow-item="next"></a>
+
+        </div>
+
+<div uk-slideshow="animation: fade">…</div>
+slide
+fade
+scale
+pull
+push
+
+<div uk-slideshow="autoplay: true">…</div>
+<div uk-slideshow="finite: true">…</div>
+<div uk-slideshow="ratio: 7:3">…</div>
+<div uk-slideshow="min-height: 300; max-height: 600">…</div>
+<div uk-slideshow="ratio: false">
+    <ul class="uk-slideshow-items" uk-height-viewport="min: 300">…</ul>
+</div>

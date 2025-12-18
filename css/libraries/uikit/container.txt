@@ -1,0 +1,24 @@
+
+CONTAINER
+    <div class="uk-container">
+        
+    </div>
+
+Size modifiers
+Add one of the following classes to the container to apply a different max-width.
+
+Class   Description
+.uk-container-xsmall    Add this class for a xsmall container.
+.uk-container-small Add this class for a small container.
+.uk-container-large Add this class for a large container.
+.uk-container-xlarge    Add this class for a xlarge container.
+.uk-container-expand    Add this class, if you do not want to limit the container width but still want the dynamic horizontal padding
+
+
+<div class="uk-container uk-container-xsmall"><h1>BRUH</h1></div>
+<div class="uk-container uk-container-small"><h1>BRUH</h1></div>
+<div class="uk-container uk-container-large"><h1>BRUH</h1></div>
+<div class="uk-container uk-container-xlarge"><h1>BRUH</h1></div>
+<div class="uk-container uk-container-expand"><h1>BRUH</h1></div>
+
+

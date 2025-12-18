@@ -1,0 +1,15 @@
+
+<!-- ALERT -->
+<!-- <div class="uk-container">
+    <div class="uk-alert-primary" uk-alert="
+        animation: false; 
+        duration: 200;
+    ">
+        <a href class="uk-alert-close" uk-close></a>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, porro!
+    </div> -->
+    <!-- <div class="uk-alert-success" uk-alert="animation: false">
+    <div class="uk-alert-warning" uk-alert="animation: false">
+    <div class="uk-alert-danger" uk-alert="animation: false"> -->
+<!-- </div> -->
+
