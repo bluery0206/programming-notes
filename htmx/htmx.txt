@@ -1,0 +1,220 @@
+AJAX
+The core of htmx is a set of attributes that allow you to issue AJAX requests directly from HTML:
+
+Attribute	Description
+hx-get		Issues a GET request to the given URL
+hx-post		Issues a POST request to the given URL
+hx-put		Issues a PUT request to the given URL
+hx-patch	Issues a PATCH request to the given URL
+hx-delete	Issues a DELETE request to the given URL
+
+
+Triggering Requests
+	input, textarea & select are triggered on the change event
+	form is triggered on the submit event
+	everything else is triggered by the click event
+
+	hx-trigger="mouseenter once" // adding "once" makes it trigger duh once
+	changed
+	delay:<Ns or Nms interval>
+	throttle:<Ns interval>
+	load 
+	revealed // when the dude scrolled into the shit
+	every <interval> // fetches shit every Ns
+	Load Polling = "After this element loads, wait X seconds, then reload itself"
+		<div hx-get="/messages"
+		    hx-trigger="load delay:1s"
+		    hx-swap="outerHTML">
+		</div>
+
+		// Stops refresh 
+		<?php
+			$hasNewData = checkForNewData();
+
+			if ($hasNewData) {
+			    // Return element WITH hx-trigger (continue polling)
+			    echo '<div hx-get="/data.php" hx-trigger="load delay:5s">New data here</div>';
+			} else {
+			    // Return element WITHOUT hx-trigger (stop polling)
+			    echo '<div>No new data, polling stopped</div>';
+			}
+		?>
+
+
+INDICATOR
+	makes opacity:0 by default but when something happens, it will show it. It is usually used in spinners
+	    <button hx-get="/click">
+		    Click Me!
+		    <img class="htmx-indicator" src="/spinner.gif" alt="Loading...">
+		</button>
+	While the htmx-indicator class uses opacity to hide and show the progress indicator, if you would prefer another mechanism you can create your own CSS transition like so:
+
+	.htmx-indicator{ display:none; }
+	.htmx-request .htmx-indicator{ display:inline; }
+	.htmx-request.htmx-indicator{ display:inline; }
+
+	If you want the htmx-request class added to a different element, you can use the hx-indicator attribute with a CSS selector to do so:
+
+	<div>
+	    <button hx-get="/click" hx-indicator="#indicator">
+	        Click Me!
+	    </button>
+	    <img id="indicator" class="htmx-indicator" src="/spinner.gif" alt="Loading..."/>
+	</div>
+
+
+Swapping
+	htmx offers a few different ways to swap the HTML returned into the DOM. By default, the content replaces the innerHTML of the target element. You can modify this by using the hx-swap attribute with any of the following values:
+
+	Name	Description
+	innerHTML
+	the default, puts the content inside the target element
+	outerHTML
+	replaces the entire target element with the returned content
+	afterbegin
+	prepends the content before the first child inside the target
+	beforebegin
+	prepends the content before the target in the target’s parent element
+	beforeend
+	appends the content after the last child inside the target
+	afterend
+	appends the content after the target in the target’s parent element
+	delete
+	deletes the target element regardless of the response
+	none
+	does not append content from response (Out of Band Swaps and Response Headers will still be processed)
+
+
+Synchronization
+	Often you want to coordinate the requests between two elements. For example, you may want a request from one element to supersede the request of another element, or to wait until the other element’s request has finished.
+
+	htmx offers a hx-sync attribute to help you accomplish this.
+
+	Consider a race condition between a form submission and an individual input’s validation request in this HTML:
+
+	<form hx-post="/store">
+	    <input id="title" name="title" type="text"
+	        hx-post="/validate"
+	        hx-trigger="change">
+	    <button type="submit">Submit</button>
+	</form>
+	Without using hx-sync, filling out the input and immediately submitting the form triggers two parallel requests to /validate and /store.
+
+	Using hx-sync="closest form:abort" on the input will watch for requests on the form and abort the input’s request if a form request is present or starts while the input request is in flight:
+
+	<form hx-post="/store">
+	    <input id="title" name="title" type="text"
+	        hx-post="/validate"
+	        hx-trigger="change"
+	        hx-sync="closest form:abort">
+	    <button type="submit">Submit</button>
+	</form>
+	This resolves the synchronization between the two elements in a declarative way.
+
+	htmx also supports a programmatic way to cancel requests: you can send the htmx:abort event to an element to cancel any in-flight requests:
+
+	<button id="request-button" hx-post="/example">
+	    Issue Request
+	</button>
+	<button onclick="htmx.trigger('#request-button', 'htmx:abort')">
+	    Cancel Request
+	</button>
+	More examples and details can be found on the hx-sync attribute page.
+
+	CSS Transitions
+
+
+sync
+	hx-sync="this:[abort|closest <element>:abort"
+	hx-sync="element:[]"
+
+	this:abort
+	What it does: Cancels MY OWN previous request if I make a new one
+
+	Example: Search box typing fast → only latest search runs
+
+	Translation: "If I start again, stop my previous"
+
+	#element:abort
+	What it does: Cancels MY request if #element makes a request
+
+	Example: Cancel validation if form submits
+
+	Translation: "If THEY start, stop MINE"
+
+	this:replace
+	What it does: Replaces MY queued request with new one
+
+	Example: Auto-save typing → only latest gets queued
+
+	Translation: "Skip my old queued, use new"
+
+	this:queue
+	What it does: Makes MY requests wait in line
+
+	Example: "Load more" button clicks → loads pages in order
+
+	Translation: "Wait your turn"
+
+	this:drop
+	What it does: Ignores MY new trigger if I'm busy
+
+	Example: Refresh button spam → only one request
+
+	Translation: "Busy, try later"
+
+Practical Examples Where OOB Rocks:
+	1. Shopping Cart (Classic Use Case)
+	html
+	<!-- Add to cart button -->
+	<button hx-post="/add-to-cart.php?id=123" hx-target="#product-info">
+	  Add to Cart
+	</button>
+
+	<div id="product-info">Product details...</div>
+	<div id="cart-count">Cart: 0 items</div>
+	<div id="cart-total">Total: $0.00</div>
+
+	<!-- add-to-cart.php returns: -->
+	<div id="product-info">Added to cart!</div>
+
+	<!-- OOB updates: -->
+	<div id="cart-count" hx-swap-oob="true">Cart: 1 item</div>
+	<div id="cart-total" hx-swap-oob="true">Total: $19.99</div>
+
+
+
+
+hx-include="#store-id" 
+ 	includes the element preferably a form if the thing is outside it
+
+
+hx-params
+	- filter select only a few
+		ie
+			hx-params="item,qty"
+
+		only include names item and qty
+
+	- or exclude some with keyword not
+		ie
+			hx-params="not description"
+
+		excludeds description
+
+FILE UPLOAD
+	<form
+	  hx-post="/upload.php"
+	  hx-encoding="multipart/form-data" // SHOULD BE PUT
+	>
+	  <input type="file" name="file">
+	  <button>Upload</button>
+	</form>
+
+ADDING VALUES WITHOUT A FORM
+	<button
+	  hx-post="/add"
+	  hx-vals='{"store_id": 12, "category": "drinks"}'
+	>
+		Add Item
+	</button>
