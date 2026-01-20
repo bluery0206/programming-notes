@@ -1,0 +1,51 @@
+INSTALLATION
+  python -m pip install django-htmx
+
+  settings
+    INSTALLED_APPS = [
+        ...,
+        "django_htmx",
+        ...,
+    ]
+
+    MIDDLEWARE = [
+        ...,
+        "django_htmx.middleware.HtmxMiddleware",
+        ...,
+    ]
+
+USAGE
+    POST
+        {% load django_htmx %}
+        <!doctype html>
+        <html>
+
+        <head>
+         ...
+         {% htmx_script %}
+        </head>
+
+        <body 
+            hx-headers='{
+                "x-csrftoken": "
+                    {{ csrf_token }}
+                "
+            }'
+        >
+            ...
+        </body>
+        
+        </html>
+
+
+{% load django_htmx %}
+<!doctype html>
+<html>
+<head>
+ ...
+ {% htmx_script %}
+</head>
+<body hx-headers='{"x-csrftoken": "{{ csrf_token }}"}'>
+ ...
+</body>
+</html>

@@ -1,0 +1,64 @@
+.uk-parent	Add this class to indicate a parent menu item.
+.uk-navbar-transparent
+
+<nav class="uk-navbar-container uk-navbar-transparent" uk-navbar>
+	<!-- LEFT -->
+    <div class="uk-navbar-left">
+    	<a 
+    		class="uk-navbar-item uk-logo" 
+    		href="#" 
+    		aria-label="Back to Home"
+		>
+			Logo
+		</a>
+        <div class="uk-navbar-item">
+            Something thats not a nav
+        </div>
+        <ul class="uk-navbar-nav">
+            <li class="uk-active">
+            	<a href="#">
+                    <div>
+                        Active
+                        <div class="uk-navbar-subtitle">
+                        	Subtitle
+                        </div>
+                    </div>
+            	</a>
+            </li>
+            <li>
+                <a href="#">Parent</a>
+                <div class="uk-navbar-dropdown">
+                    <ul class="uk-nav uk-navbar-dropdown-nav">
+                        <li class="uk-active"><a href="#">Active</a></li>
+                        <li><a href="#">Item</a></li>
+                        <li><a href="#">Item</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li><a href="#">Item</a></li>
+        </ul>
+    </div>
+
+    <!-- CENTER -->
+    <div class="uk-navbar-center"></div>
+
+    <!-- RIGHT -->
+    <div class="uk-navbar-right"></div>
+
+
+    <!-- Hamburg -->
+    <div uk-navbar="mode: click">
+
+        <div class="uk-navbar-left">
+            <a class="uk-navbar-toggle" uk-navbar-toggle-icon href="#"></a>
+            <div class="uk-navbar-dropdown">
+                <ul class="uk-nav uk-navbar-dropdown-nav">
+                    <li class="uk-active"><a href="#">Active</a></li>
+                    <li><a href="#">Item</a></li>
+                    <li><a href="#">Item</a></li>
+                </ul>
+            </div>
+        </div>
+    
+    </div>
+</nav>
