@@ -1,0 +1,8 @@
+# Check current policy
+Get-ExecutionPolicy
+
+# Set execution policy for current session
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process
+
+# Or set for current user (permanent)
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
