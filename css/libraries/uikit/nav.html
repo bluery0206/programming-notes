@@ -1,0 +1,80 @@
+<div class="uk-width-1-2@s uk-width-2-5@m">
+    <!--
+        uk-nav - attr makes an accordion on the parent
+
+        The attribute automatically sets the .uk-nav class, so 
+        you can remove the uk-nav in the class
+
+        multiple: true allows multiple subnavs open
+
+        .uk-nav-center - makes the things centered
+
+        .uk-nav-[medium,large,xlarge]
+    -->
+    <ul class="uk-nav uk-nav-default" uk-nav="multiple: true">
+        <!-- Makes the thing all caps indicating a header -->
+        <li class="uk-nav-header">Inventory</li>
+
+        <!-- .uk-active Gives the link more contrast or sumthing -->
+        <li class="uk-active"><a href="#">Active</a></li>
+
+        <!-- A line -->
+        <li class="uk-nav-divider"></li>
+
+        <!-- subtitle -->
+        <li>
+            <a href="#">
+                <div>
+                    Something
+                    <div class="uk-nav-subtitle">
+                        Subtitle lorem ipsum dolor sit
+                    </div>
+                </div>
+            </a>
+        </li>
+
+        <li><a href="#">Item</a></li>
+
+        <!-- Accordion -->
+        <li class="uk-parent">
+            <a href="#">
+                Parent
+                <!--  uk-nav-parent-icon Adds an icon -->
+                <span uk-nav-parent-icon></span>
+            </a>
+            <ul class="uk-nav-sub">
+                <li><a href="#">Sub item</a></li>
+                <li>
+                    <a href="#">Sub item</a>
+                    <ul>
+                        <li><a href="#">Sub item</a></li>
+                        <li><a href="#">Sub item</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+
+        
+    </ul>
+</div>
+
+
+<!-- 
+Offcanvas - appears in the side when a button is clicked
+add `uk-toggle` attr to a button href to the id of the target
+the target hsould have `uk-offcanvas` attr
+wrap the ul inside a div.uk-offcanvas-bar
+-->
+<a href="#something" uk-toggle>idk</a>
+<div id="something" uk-offcanvas class="uk-width-1-2@s uk-width-2-5@m">
+    <div class="uk-offcanvas-bar">
+        <ul class="uk-nav uk-nav-default" uk-nav="multiple: true">
+            <li class="uk-nav-header">Inventory</li>
+            <li class="uk-active"><a href="#">Active</a></li>
+            <li><a href="#">Something</a></li>
+            <li class="uk-nav-divider"></li>
+            <li><a href="#">Something</a></li>
+            <li><a href="#">Something</a></li>
+        </ul>
+    </div>
+</div>
