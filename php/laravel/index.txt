@@ -1,0 +1,250 @@
+Concept
+	- Separates the logic
+
+	blade template
+
+
+Installation
+	>>> composer require livewire/livewire
+
+
+Creating a Component
+	>>> php artisan make:livewire <component-name>
+		// Generates 
+		//	template: resources/views/livewire/<component-name>.blade.php
+		// 		What will be rendered
+		// 	class: app/Livewire/<ComponentName>.php
+		//		Where the logic can be
+
+Rendering the component
+	<livewire:<component-name>>
+
+Creating Renderable Variables
+	app/Livewire/<ComponentName>.php
+
+	...
+
+	class ComponentName {
+		// You can create public attributes
+		// and will be accessible in the template!
+		public $varName = "value;
+
+		public function render() {
+			return view('livewire.component-name', [
+				'varName' => 'something',
+			]);
+		}
+	}
+
+	{{ $varName }}
+
+
+wire:key="{{ $obj->id }}"
+
+
+ACTIONS
+	class ComponentName {
+		public function methodName() {
+			...
+		}
+	}
+
+	<button
+		wire:click="methodName"
+	>+1</button>
+
+	<button
+		wire:click="methodName(*args"
+	>+1</button>
+
+DATA BINDING ANG MODIFIERS
+	class ComponentName {
+		// Binded to the class
+		public $varName = "value; 
+	}
+
+	by default class->attr change will change
+	the rendered but not the other way around
+
+	to bind one,
+		<form>
+			<input type="text"
+				wire:model="<propertyName>"
+			>
+		</form>
+
+	so changes in the class will reflect the input
+	and changes in the input value will also reflect
+	in the class
+
+	1
+		refresh its current property values by
+		<form>
+			<input type="text"
+				wire:model="<propertyName>"
+			>
+			<button
+				// Refreshes the variables' values
+				// .prevents - Prevents refreshing the browser
+				wire:click.prevent="$refresh"
+			>Update
+			</button>
+		</form>
+
+	2
+		no more .prevent. Laravel does it automatically
+
+		<form wire:submit="$refresh">
+			<input type="text"
+				wire:model="<propertyName>"
+			>
+			<button>Update</button>
+		</form>
+
+
+	3 real-time
+		adding .live makes it live
+
+		<form wire:submit="$refresh">
+			<input type="text"
+				wire:model.live="<propertyName>"
+			>
+			<button>Update</button>
+		</form>
+
+		.debounce - checks if you stopped typing then refresh
+		.debounce.000ms
+
+
+Page Components
+	Wanting a component as a whole page
+
+	Route::get('/', ComponentName::class);	
+
+	>>> php artisan livewire:layout
+
+	PHP Attribute
+	#[Title("IMS _ Home")]
+	yea apil ang hastag
+
+
+Adding an Active State in NavBars
+	<a
+		@class(['active' => request()->is('/')])
+
+
+More Pages and Layout
+	different layouy for pages
+
+
+	class ComponentName {
+		filename is filename.blade.php with no .blade.php
+		#[Layout('components.layouts.<fileName>')]
+		...
+	}
+
+Nesting Components
+
+Props & Mount Hook
+	pass property values into another component
+
+	<livewire:component-name subtitle="Something string">
+
+	Passing a non-string value
+		<livewire:component-name :subtitle="Something">
+
+
+	public $subtitlte;
+
+	// mount is when creating
+	public function mount($subtitle) {
+		$this_>subtitle = subttle
+	}
+
+	there is also updating, rendering
+
+
+Making a Web Form
+	<form wire:submit="save">
+		<input type="text" wire:model="title">
+		<input type="text" wire:model="author">
+		<input type="number" wire:model="rating">
+
+		<button></button>
+	</form>
+
+	class {
+		public string $title;
+		public string $author;
+		public int $rating;
+
+		public function save() {
+			Book::create(
+				"title" => $this->title,
+				"author" => $this->author,
+				"rating" => $this->rating,
+			);
+
+			$this->redirect('/')
+		}
+	}
+
+
+Validation Rules
+	1
+		class {
+			...
+
+			public function save() {
+				$this->validate([
+					"title" => "string|requried|min:3|max:50",
+					"author" => "string|requried|min:3|max:50",
+					"rating" => "integer|requried|min:1|max:10",
+				]);
+
+				Book::create(...);
+
+				$this->redirect('/')
+			}
+		}
+
+	2
+		class {
+			#[Rule("string|requried|min:3|max:50")]
+			public string $title;
+
+			#[Rule("string|requried|min:3|max:50")]
+			public string $author;
+
+			#[Rule("integer|requried|min:1|max:10")]
+			public int $rating;
+
+			public function save() {
+				$this->validate();
+
+				Book::create(...);
+
+				$this->redirect('/')
+			}
+		}
+
+
+	// model == name tehcnically
+	
+	@error("field_name")
+		<soethng></something>
+	@enderror
+
+
+
+Faster Navigation
+	<a
+		wire:navigate
+		...
+
+	and/or 
+
+	$this->redirect('/', navigate: true);
+
+Live Search Feature
+	
